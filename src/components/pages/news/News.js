@@ -6,7 +6,7 @@ import { NewsItem } from 'components/lib/NewsItem';
 
 export const NewsContainer = styled.div`
   position: absolute;
-  right: 100px;
+  right: 200px;
   top: 200px;
   width: 40%;
   height: 30%;
@@ -22,7 +22,7 @@ export const FeaturedTextCard = styled.div`
   box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
 
   & :nth-child(odd of .noted) {
-    color: white;
+    background: #000000d6;
   }
 
   & :nth-child(even of .noted) {
@@ -54,7 +54,7 @@ export const AboutH1 = styled.h1`
 
 export const News = ({ newsRef }) => {
   return (
-    <BackgroundGradeContainer ref={newsRef} $grade="#f08225ad, #f08225f0" $img={`${process.env.PUBLIC_URL}/assets/dance-line.png`} id="#sectionFive">
+    <BackgroundGradeContainer ref={newsRef} $grade="#eec342, #eec342" $img={`${process.env.PUBLIC_URL}/assets/dance-line.png`} id="#sectionFive">
       <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line03-01.svg`} />
       <NewsContainer>
         <AboutH1>
@@ -64,6 +64,7 @@ export const News = ({ newsRef }) => {
         </AboutH1>
         <FeaturedTextCard>
           <NewsItem
+            color="white"
             time="fredag 8 september kl 10.21"
             featuredHeader="Inställt besök av Eric Jorissens"
             featuredText="Tyvärr är Eric Jorissens gästlärarbesök i oktober inställt." />

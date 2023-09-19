@@ -22,14 +22,14 @@ export const TimeText = styled.p`
   width:200px;
 `
 
-export const NewsItem = ({ time, featuredHeader, featuredText }) => {
+export const NewsItem = ({ time, featuredHeader, featuredText, color }) => {
   return (
     <FeaturedTextCard className="noted">
       <span>
-        <h5 className="noted-black">{featuredHeader}</h5>
-        <FeaturedText>{featuredText}</FeaturedText>
+        <h5 style={{ color: `${color}` }} className="noted-black">{featuredHeader}</h5>
+        <FeaturedText style={{ color: `${color}` }}>{featuredText}</FeaturedText>
       </span>
-      <TimeText>{time}</TimeText>
+      <TimeText style={{ color: `${color}` }}>{time}</TimeText>
     </FeaturedTextCard>
   )
 }
