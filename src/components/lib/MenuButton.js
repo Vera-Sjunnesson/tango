@@ -18,7 +18,12 @@ export const MenuButton = ({ color, img, buttonText, to }) => {
   const navLinkStyle = {
     fontWeight: '300',
     color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 
   return (

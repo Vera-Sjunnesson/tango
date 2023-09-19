@@ -60,7 +60,7 @@ export const FeaturedCarousel = () => {
       <NewsContainer>
         <h2>På gång</h2>
       </NewsContainer>
-      <swiper-container ref={swiperRef} loop="true" autoplay="true" speed={2500}>
+      <swiper-container ref={swiperRef} loop="true" autoplay="true" speed={4000}>
         <swiper-slide>
           <FeaturedCard
             imgSource={`${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`}
