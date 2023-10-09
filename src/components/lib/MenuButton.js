@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro';
-import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
 
 export const MenuButtonContainer = styled.button`
   background-size: cover;
@@ -13,22 +13,14 @@ export const MenuButtonContainer = styled.button`
   font-weight: 500;
   line-height: 22px; /* 68.75% */
   letter-spacing: -0.408px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 export const MenuButton = ({ color, img, buttonText, to }) => {
-  const navLinkStyle = {
-    fontWeight: '300',
-    color: 'white',
-    textDecoration: 'none',
-    height: '100%',
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-
   return (
-    <MenuButtonContainer type="button" style={{ backgroundImage: `linear-gradient(${color}, ${color}), url(${img})` }}>
-      <Link to={`${to}`} spy smooth style={navLinkStyle}>{buttonText}</Link>
+    <MenuButtonContainer type="button" style={{ backgroundImage: `linear-gradient(${color}, ${color}), url(${img})`, backgroundPosition: 'top' }}>
+      <NavLink to={`${to}`} className="underline">{buttonText}</NavLink>
     </MenuButtonContainer>
   )
 }

@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro';
-import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
 
 export const NavBarWrapper = styled.div`
   width: 100%;
-  height: 40px;
   position: fixed;
   top: 0;
   z-index: 1001;
+`
+
+export const NavBarWrapper2 = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1001;
+  background: #000000d6;
+  height: 41px;
 `
 
 export const NavBarContainer = styled.nav`
@@ -33,6 +41,19 @@ export const LogInContainer = styled.nav`
   position: fixed;
   top: 0px;
   right: 0;
+  z-index: 999;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const LogoContainer = styled.div`
+  height: 40px;
+  width: 180px;
+  position: fixed;
+  top: 0px;
+  left: 10px;
   z-index: 999;
   text-align: center;
   display: flex;
@@ -81,14 +102,97 @@ export const NavBar = () => {
   return (
     <NavBarWrapper style={{ background: navBarTransparent ? '#000000d6' : 'transparent' }}>
       <NavBarContainer>
-        <Link to="#sectionOne" spy smooth href="/#sectionOne" style={navLinkStyle}>HEM</Link>
-        <Link to="#sectionTwo" spy smooth href="/#sectionTwo" style={navLinkStyle}>OM OSS</Link>
-        <Link to="#sectionThree" spy smooth href="/#sectionThree" style={navLinkStyle}>BLI MEDLEM</Link>
-        <Link to="#sectionFour" spy smooth href="/#sectionFour" style={navLinkStyle}>OM TANGO</Link>
+        <NavLink to="/" style={navLinkStyle}>HEM</NavLink>
+        <NavLink to="/om" style={navLinkStyle}>OM OSS</NavLink>
+        <a
+          href="https://www.tangonorte.com/register.php"
+          target="_blank"
+          rel="noreferrer"
+          style={navLinkStyle}>
+            BLI MEDLEM
+        </a>
+        <a
+          href="https://www.tangonorte.com/page.php?id=*"
+          target="_blank"
+          rel="noreferrer"
+          style={navLinkStyle}>
+            OM TANGO
+        </a>
       </NavBarContainer>
       <LogInContainer>
-        <Link to="#sectionFour" spy smooth href="/#sectionFour" style={linkStyle}>LOGGA IN</Link>
+        <a
+          href="https://www.tangonorte.com/page.php?id=main"
+          target="_blank"
+          aria-label="linkedin"
+          rel="noreferrer"
+          style={linkStyle}>
+            LOGGA IN
+        </a>
       </LogInContainer>
+      {navBarTransparent && (
+        <LogoContainer>
+          <img src={`${process.env.PUBLIC_URL}/assets/norte-logo-new-02.svg`} alt="logo" />
+        </LogoContainer>
+      )}
     </NavBarWrapper>
+  )
+}
+
+export const NavBarDark = () => {
+  const navLinkStyle = {
+    fontWeight: '700',
+    color: 'white',
+    textDecoration: 'none',
+    margin: '0',
+    padding: '0',
+    textAlign: 'center'
+  }
+
+  const linkStyle = {
+    fontWeight: '800',
+    color: 'white',
+    textDecoration: 'none',
+    margin: '0',
+    padding: '0',
+    textAlign: 'center'
+  }
+
+  return (
+    <NavBarWrapper2>
+      <NavBarContainer>
+        <NavLink to="/" style={navLinkStyle}>HEM</NavLink>
+        <NavLink to="/om" style={navLinkStyle}>OM OSS</NavLink>
+        <a
+          href="https://www.tangonorte.com/register.php"
+          target="_blank"
+          rel="noreferrer"
+          style={navLinkStyle}>
+            BLI MEDLEM
+        </a>
+        <a
+          href="https://www.tangonorte.com/page.php?id=*"
+          target="_blank"
+          rel="noreferrer"
+          style={navLinkStyle}>
+            OM TANGO
+        </a>
+      </NavBarContainer>
+      <LogInContainer>
+        <a
+          href="https://www.tangonorte.com/page.php?id=main"
+          target="_blank"
+          aria-label="linkedin"
+          rel="noreferrer"
+          style={linkStyle}>
+            LOGGA IN
+        </a>
+      </LogInContainer>
+      <NavLink
+        to="/">
+        <LogoContainer>
+          <img src={`${process.env.PUBLIC_URL}/assets/norte-logo-new-02.svg`} alt="logo" />
+        </LogoContainer>
+      </NavLink>
+    </NavBarWrapper2>
   )
 }

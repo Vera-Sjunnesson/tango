@@ -15,3 +15,20 @@ export const BackgroundGradeContainer = styled.div`
   background-position: top;
   position: relative;
 `
+export const BackgroundContainer2 = styled.div`
+  height: 400px;
+  width: 100%;
+  background-image: url(${(props) => (props.$img || '')});
+  background-size: cover;
+  background-position: top;
+  position: absolute;
+`
+
+export const BackgroundGradeContainer3 = styled.div`
+  height: 100vh;
+  top: 193px;
+  background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
+  background-size: cover;
+  background-position: top;
+  position: relative;
+`

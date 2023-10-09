@@ -6,15 +6,24 @@ export const MenuContainer = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-gap: 46px;
-width: 1010px; 
-/* max-width: 1091px; */
-height: 200px;
-/* position: fixed; */
-/* top: 32px; */
+flex-direction: column;
+gap: 20px;
+width: 80%; 
+height: 335px;
 left: 0;
 right: 0;
 margin: auto;
+margin-top: 40px;
+margin-bottom: 40px;
+
+@media (min-width: 1280px) {
+  flex-direction: row;
+  width: 1010px;
+  height: 200px;
+  gap: 46px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
 `
 
@@ -22,19 +31,19 @@ export const Menu = () => {
   return (
     <MenuContainer>
       <MenuButton
-        to="#sectionFour"
-        color="rgba(238, 195, 66, 0.95)"
-        img={`${process.env.PUBLIC_URL}/images/omfamning01.jpg`}
+        to="/kalendarium"
+        color="rgba(240, 200, 42, 0.9)"
+        img={`${process.env.PUBLIC_URL}/images/dragspel.png`}
         buttonText="KALENDARIUM" />
       <MenuButton
-        to="#sectionFive"
-        color="rgba(240, 130, 37, 0.90)"
-        img={`${process.env.PUBLIC_URL}/images/omfamning01.jpg`}
+        to="/aktuellt"
+        color="rgba(240, 130, 37, 0.9)"
+        img={`${process.env.PUBLIC_URL}/images/S02_1801_d.jpg`}
         buttonText="AKTUELLT" />
       <MenuButton
-        to="#sectionFive"
-        color="rgba(225, 74, 35, 0.88)"
-        img={`${process.env.PUBLIC_URL}/images/omfamning01.jpg`}
+        to="/kalendarium"
+        color="rgba(225, 74, 35, 0.9)"
+        img={`${process.env.PUBLIC_URL}/images/C04_3948_d.jpg`}
         buttonText="SAVE THE DATE" />
     </MenuContainer>
   )
