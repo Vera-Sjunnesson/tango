@@ -151,27 +151,27 @@ export const Calendarium = () => {
                 dj="Dj Luis Angel" />
               <CalendarItem
                 time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
+                featuredHeader="Monday Tango Practice"
                 featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
                 dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
               <CalendarItem
                 time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
+                featuredHeader="Fantastisk Workshophelg"
                 featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
                 dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
               <CalendarItem
                 time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
+                featuredHeader="Jubileumsmilonga med tårtkalas"
                 featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
                 dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
               <CalendarItem
                 time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
+                featuredHeader="Milonga musical seminarium"
                 featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
                 dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
               <CalendarItem
                 time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
+                featuredHeader="Tangokväll på Kulturhuset med prova-på"
                 featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
                 dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
               <CalendarItem

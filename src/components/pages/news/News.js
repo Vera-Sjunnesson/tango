@@ -119,9 +119,9 @@ export const News = () => {
             <FeaturedTextCard>
               <NewsItem
                 color="white"
-                time="fredag 8 september kl 10.21"
-                featuredHeader="Inställt besök av Eric Jorissens"
-                featuredText="Tyvärr är Eric Jorissens gästlärarbesök i oktober inställt." />
+                time="10 oktober kl 18:00"
+                featuredHeader="Tangokväll på Kulturhuset med prova-på"
+                featuredText="Pröva på, på Kulturhuset." />
               <NewsItem
                 time="fredag 8 september kl 10.21"
                 featuredHeader="Inställt besök av Eric Jorissens"
