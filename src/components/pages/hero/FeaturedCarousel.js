@@ -86,8 +86,7 @@ export const FeaturedCarousel = () => {
       <swiper-container
         ref={swiperRef}
         loop="true"
-        autoplay="true"
-        speed={4000}
+        speed={10000}
         style={{
           '--swiper-navigation-size': isMobileOrTablet ? '0px' : ''
         }}>
