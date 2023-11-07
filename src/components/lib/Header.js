@@ -34,6 +34,7 @@ export const HeaderContainer = styled.div`
 export const Logo = styled.img`
   height: 124px;
   margin: 10px auto;
+  z-index: 1001;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     height: 124px;
@@ -42,16 +43,12 @@ export const Logo = styled.img`
 
   @media (min-width: 1280px) {
     height: 124px;
-    margin: 10px;
   }
 `
 
 export const Header = () => {
   const navLinkStyle = {
-    display: 'flex',
-    justifyConten: 'center',
-    alignItems: 'center',
-    width: '100%'
+    zIndex: '1001'
   }
 
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1280px)' })
@@ -66,7 +63,7 @@ export const Header = () => {
         to="/"
         style={navLinkStyle}>
         <Logo
-          src={`${process.env.PUBLIC_URL}/assets/norte-logo2.svg`}
+          src={`${process.env.PUBLIC_URL}/assets/norte-logo.png`}
           alt="Tango Norte Logo" />
       </NavLink>
     </HeaderContainer>

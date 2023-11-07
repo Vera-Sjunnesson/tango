@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
 
@@ -18,24 +18,46 @@ export const NavBarWrapper2 = styled.div`
   height: 41px;
 `
 
-export const NavBarContainer = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 103px;
-  width: 617px;
-  max-width: 1091px;
-  height: 40px;
+export const NavBarContainer = styled.span`
+  background: #ffffff;
+  width: 100%;
+  height: 46px;
   position: fixed;
   top: 0px;
   left: 0;
   right: 0;
   margin: auto;
   z-index: 999;
+  border-bottom: solid 0.5px #222322c4; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const NavWrapper = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 103px;
+  top: 0px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  text-align: center;
+  width: 100%;
+`
+
+export const LogInWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  z-index: 999;
   text-align: center;
 `
 
-export const LogInContainer = styled.nav`
+export const LogInContainer = styled.div`
   height: 40px;
   width: 106px;
   position: fixed;
@@ -62,11 +84,9 @@ export const LogoContainer = styled.div`
 `
 
 export const NavBar = () => {
-  const [navBarTransparent, setNavBarTransparent] = useState(false);
-
   const navLinkStyle = {
     fontWeight: '700',
-    color: navBarTransparent ? 'white' : '#222322',
+    color: '#222322c4',
     textDecoration: 'none',
     margin: '0',
     padding: '0',
@@ -74,66 +94,47 @@ export const NavBar = () => {
   }
 
   const linkStyle = {
-    fontWeight: '800',
-    color: navBarTransparent ? 'white' : '#222322',
+    fontWeight: '700',
+    color: '#222322c4',
     textDecoration: 'none',
     margin: '0',
-    padding: '0',
-    textAlign: 'center'
+    textAlign: 'center',
+    border: '1px solid #222322c4',
+    padding: '14px 10px',
+    background: 'white'
   }
 
-  const NavBarWhite = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 161) {
-      setNavBarTransparent(true)
-    } else if (scrolled <= 161) {
-      setNavBarTransparent(false)
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', NavBarWhite);
-
-    return () => {
-      window.removeEventListener('scroll', NavBarWhite);
-    };
-  }, [])
-
   return (
-    <NavBarWrapper style={{ background: navBarTransparent ? '#000000d6' : 'transparent' }}>
+    <NavBarWrapper>
       <NavBarContainer>
-        <NavLink to="/" style={navLinkStyle}>HEM</NavLink>
-        <NavLink to="/om" style={navLinkStyle}>OM OSS</NavLink>
-        <a
-          href="https://www.tangonorte.com/register.php"
-          target="_blank"
-          rel="noreferrer"
-          style={navLinkStyle}>
-            BLI MEDLEM
-        </a>
-        <a
-          href="https://www.tangonorte.com/page.php?id=*"
-          target="_blank"
-          rel="noreferrer"
-          style={navLinkStyle}>
-            OM TANGO
-        </a>
+        <NavWrapper>
+          <NavLink
+            to="/"
+            style={navLinkStyle}>
+              HEM
+          </NavLink>
+          <NavLink
+            to="/om"
+            style={navLinkStyle}>
+              OM OSS
+          </NavLink>
+          <a
+            href="https://www.tangonorte.com/register.php"
+            target="_blank"
+            rel="noreferrer"
+            style={navLinkStyle}>
+              BLI MEDLEM
+          </a>
+          <a
+            href="https://www.tangonorte.com/page.php?id=main"
+            target="_blank"
+            aria-label="linkedin"
+            rel="noreferrer"
+            style={linkStyle}>
+              LOGGA IN
+          </a>
+        </NavWrapper>
       </NavBarContainer>
-      <LogInContainer>
-        <a
-          href="https://www.tangonorte.com/page.php?id=main"
-          target="_blank"
-          aria-label="linkedin"
-          rel="noreferrer"
-          style={linkStyle}>
-            LOGGA IN
-        </a>
-      </LogInContainer>
-      {navBarTransparent && (
-        <LogoContainer>
-          <img src={`${process.env.PUBLIC_URL}/assets/norte-logo-new-02.svg`} alt="logo" />
-        </LogoContainer>
-      )}
     </NavBarWrapper>
   )
 }
