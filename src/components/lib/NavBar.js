@@ -2,11 +2,29 @@ import React from 'react'
 import styled from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
 
+export const NavBarContainer = styled.div`
+  width: 100%;  
+  position: fixed;
+  top: 59px;
+  z-index: 1001;
+  width: 100%;
+  height: 46px;
+  right: 0;
+  z-index: 999;
+`
+
 export const NavBarWrapper = styled.div`
   width: 100%;
-  position: fixed;
-  top: 0;
   z-index: 1001;
+  width: 100%;
+  height: 46px;
+  position: fixed;
+  right: 0;
+  margin: auto;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const NavBarWrapper2 = styled.div`
@@ -18,34 +36,19 @@ export const NavBarWrapper2 = styled.div`
   height: 41px;
 `
 
-export const NavBarContainer = styled.span`
-  background: #ffffff;
-  width: 100%;
-  height: 46px;
-  position: fixed;
-  top: 0px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 999;
-  border-bottom: solid 0.5px #222322c4; 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
-
 export const NavWrapper = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
-  gap: 103px;
-  top: 0px;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  text-align: center;
-  width: 100%;
+display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 170px;
+    z-index: 999;
+    text-align: center;
+    border-bottom: solid 0.5px #222322c4;
+    background: #ffffff;
+    /* padding: 0 431px; */
+    width: 100%;
+    box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
 `
 
 export const LogInWrapper = styled.div`
@@ -97,45 +100,47 @@ export const NavBar = () => {
     fontWeight: '700',
     color: '#222322c4',
     textDecoration: 'none',
-    margin: '0',
     textAlign: 'center',
-    border: '1px solid #222322c4',
-    padding: '14px 10px',
-    background: 'white'
+    padding: '15px 10px',
+    width: '85px',
+    border: 'solid 0.5px #222322c4',
+    background: 'white',
+    position: 'fixed',
+    top: '0',
+    right: '0',
+    zIndex: '1010'
+
   }
 
+  const menuItems = [
+    { id: 1, name: 'HEM', path: '/' },
+    { id: 2, name: 'OM OSS', path: '/om' },
+    { id: 3, name: 'BLI MEDLEM', path: '/om' }
+  ];
+
   return (
-    <NavBarWrapper>
-      <NavBarContainer>
+    <NavBarContainer>
+      <NavBarWrapper>
         <NavWrapper>
-          <NavLink
-            to="/"
-            style={navLinkStyle}>
-              HEM
-          </NavLink>
-          <NavLink
-            to="/om"
-            style={navLinkStyle}>
-              OM OSS
-          </NavLink>
-          <a
-            href="https://www.tangonorte.com/register.php"
-            target="_blank"
-            rel="noreferrer"
-            style={navLinkStyle}>
-              BLI MEDLEM
-          </a>
-          <a
-            href="https://www.tangonorte.com/page.php?id=main"
-            target="_blank"
-            aria-label="linkedin"
-            rel="noreferrer"
-            style={linkStyle}>
-              LOGGA IN
-          </a>
+          {menuItems.map((item) => {
+            return (
+              <NavLink
+                style={navLinkStyle}
+                key={item.id}
+                path={item.path}
+                name={item.name}>
+                {item.name}
+              </NavLink>
+            )
+          })}
         </NavWrapper>
-      </NavBarContainer>
-    </NavBarWrapper>
+      </NavBarWrapper>
+      <NavLink
+        style={linkStyle}
+        to="/om">
+        LOGGA IN
+      </NavLink>
+    </NavBarContainer>
   )
 }
 
@@ -160,24 +165,22 @@ export const NavBarDark = () => {
 
   return (
     <NavBarWrapper2>
-      <NavBarContainer>
-        <NavLink to="/" style={navLinkStyle}>HEM</NavLink>
-        <NavLink to="/om" style={navLinkStyle}>OM OSS</NavLink>
-        <a
-          href="https://www.tangonorte.com/register.php"
-          target="_blank"
-          rel="noreferrer"
-          style={navLinkStyle}>
-            BLI MEDLEM
-        </a>
-        <a
-          href="https://www.tangonorte.com/page.php?id=*"
-          target="_blank"
-          rel="noreferrer"
-          style={navLinkStyle}>
-            OM TANGO
-        </a>
-      </NavBarContainer>
+      <NavLink to="/" style={navLinkStyle}>HEM</NavLink>
+      <NavLink to="/om" style={navLinkStyle}>OM OSS</NavLink>
+      <a
+        href="https://www.tangonorte.com/register.php"
+        target="_blank"
+        rel="noreferrer"
+        style={navLinkStyle}>
+          BLI MEDLEM
+      </a>
+      <a
+        href="https://www.tangonorte.com/page.php?id=*"
+        target="_blank"
+        rel="noreferrer"
+        style={navLinkStyle}>
+          OM TANGO
+      </a>
       <LogInContainer>
         <a
           href="https://www.tangonorte.com/page.php?id=main"

@@ -32,17 +32,14 @@ export const Menu = () => {
     <MenuContainer>
       <MenuButton
         to="/kalendarium"
-        color="rgba(240, 200, 42, 0.9)"
         img={`${process.env.PUBLIC_URL}/images/dragspel.png`}
         buttonText="KALENDARIUM" />
       <MenuButton
         to="/aktuellt"
-        color="rgba(240, 130, 37, 0.9)"
         img={`${process.env.PUBLIC_URL}/images/S02_1801_d.jpg`}
         buttonText="AKTUELLT" />
       <MenuButton
         to="/kalendarium"
-        color="rgba(225, 74, 35, 0.9)"
         img={`${process.env.PUBLIC_URL}/images/C04_3948_d.jpg`}
         buttonText="SAVE THE DATE" />
     </MenuContainer>

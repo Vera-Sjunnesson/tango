@@ -20,6 +20,7 @@ export const CarouselContainer = styled.div`
 
   @media (min-width: 1280px) {
     height: 600px;
+    top: -55px;
   }
 `
 

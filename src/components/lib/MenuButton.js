@@ -17,9 +17,9 @@ export const MenuButtonContainer = styled.button`
   align-items: center;
   justify-content: center;
 `
-export const MenuButton = ({ color, img, buttonText, to }) => {
+export const MenuButton = ({ img, buttonText, to }) => {
   return (
-    <MenuButtonContainer type="button" style={{ backgroundImage: `linear-gradient(${color}, ${color}), url(${img})`, backgroundPosition: 'top' }}>
+    <MenuButtonContainer type="button" style={{ backgroundImage: `url(${img})`, backgroundPosition: 'top' }}>
       <NavLink to={`${to}`} className="underline">{buttonText}</NavLink>
     </MenuButtonContainer>
   )
