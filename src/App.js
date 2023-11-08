@@ -30,4 +30,3 @@ export const App = () => {
   )
 }
 
-/* <Route path="/404" element={<NotFound />} /> */

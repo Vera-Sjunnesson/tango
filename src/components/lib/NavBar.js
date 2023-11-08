@@ -48,7 +48,7 @@ display: flex;
     background: #ffffff;
     /* padding: 0 431px; */
     width: 100%;
-    box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
+    box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.20);
 `
 
 export const LogInWrapper = styled.div`
@@ -106,8 +106,8 @@ export const NavBar = () => {
     border: 'solid 0.5px #222322c4',
     background: 'white',
     position: 'fixed',
-    top: '0',
-    right: '0',
+    top: '58px',
+    right: '0px',
     zIndex: '1010'
 
   }
