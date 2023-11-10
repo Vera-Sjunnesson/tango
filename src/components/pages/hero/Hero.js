@@ -42,7 +42,7 @@ export const Hero = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
   return (
     <HeroContainer>
-      <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line01new.svg`} />
+      <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/vector1.svg`} />
       <HeroContent>
         {isDesktop && (
           <Header />

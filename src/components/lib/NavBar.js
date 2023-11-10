@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 export const NavBarContainer = styled.div`
   width: 100%;  
   position: fixed;
-  top: 59px;
+  top: 47px;
   z-index: 1001;
   width: 100%;
   height: 46px;
@@ -41,14 +41,12 @@ display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 170px;
+    gap: 111px;
     z-index: 999;
     text-align: center;
-    border-bottom: solid 0.5px #222322c4;
-    background: #ffffff;
-    /* padding: 0 431px; */
     width: 100%;
-    box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.20);
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
 `
 
 export const LogInWrapper = styled.div`
@@ -89,14 +87,15 @@ export const LogoContainer = styled.div`
 export const NavBar = () => {
   const navLinkStyle = {
     fontWeight: '700',
-    color: '#222322c4',
+    color: 'black',
     textDecoration: 'none',
     margin: '0',
     padding: '0',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: '18px'
   }
 
-  const linkStyle = {
+  /*   const linkStyle = {
     fontWeight: '700',
     color: '#222322c4',
     textDecoration: 'none',
@@ -110,12 +109,13 @@ export const NavBar = () => {
     right: '0px',
     zIndex: '1010'
 
-  }
+  } */
 
   const menuItems = [
     { id: 1, name: 'HEM', path: '/' },
     { id: 2, name: 'OM OSS', path: '/om' },
-    { id: 3, name: 'BLI MEDLEM', path: '/om' }
+    { id: 3, name: 'BLI MEDLEM', path: '/om' },
+    { id: 4, name: 'LOGGA IN', path: '/om' }
   ];
 
   return (
@@ -135,11 +135,6 @@ export const NavBar = () => {
           })}
         </NavWrapper>
       </NavBarWrapper>
-      <NavLink
-        style={linkStyle}
-        to="/om">
-        LOGGA IN
-      </NavLink>
     </NavBarContainer>
   )
 }
