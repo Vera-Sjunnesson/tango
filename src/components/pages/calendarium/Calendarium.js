@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import { BackgroundLine, BackgroundLine3 } from 'components/lib/BackgroundLine';
 import { CalendarItem } from 'components/lib/CalendarItem';
 import { useMediaQuery } from 'react-responsive'
-import { NavBarDark } from 'components/lib/NavBar';
+/* import { NavBarDark } from 'components/lib/NavBar'; */
 
 export const CalendarContainer = styled.div`
   position: absolute;
@@ -130,7 +130,6 @@ export const Calendarium = () => {
       {isDesktop ? (
         <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`} id="#sectionFour">
           <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
-          <NavBarDark />
           <AboutH1>
             <FeaturedTextSpan>
               KALENDARIUM

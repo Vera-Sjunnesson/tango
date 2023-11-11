@@ -2,7 +2,7 @@ import React from 'react';
 import { BackgroundContainer, BackgroundContainer2 } from 'components/lib/ContainerStyles';
 import styled from 'styled-components/macro';
 import { BackgroundLine, BackgroundLine2 } from 'components/lib/BackgroundLine';
-import { NavBarDark } from 'components/lib/NavBar';
+/* import { NavBarDark } from 'components/lib/NavBar'; */
 import { useMediaQuery } from 'react-responsive'
 
 export const FeaturedTextCard = styled.div`
@@ -118,7 +118,6 @@ export const About = () => {
       {isDesktop ? (
         <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} id="#sectionTwo">
           <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
-          <NavBarDark />
           <FeaturedTextCard>
             <AboutH1>
               <FeaturedTextSpan>

@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import { BackgroundLine, BackgroundLine4 } from 'components/lib/BackgroundLine';
 import { NewsItem } from 'components/lib/NewsItem';
 import { useMediaQuery } from 'react-responsive'
-import { NavBarDark } from 'components/lib/NavBar';
+/* import { NavBarDark } from 'components/lib/NavBar'; */
 
 export const NewsContainer = styled.div`
   position: absolute;
@@ -87,7 +87,6 @@ export const News = () => {
       {isDesktop ? (
         <BackgroundGradeContainer $grade="#eec342, #eec342" $img={`${process.env.PUBLIC_URL}/assets/dance-line.png`} id="#sectionFive">
           <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line03-01.svg`} />
-          <NavBarDark />
           <NewsContainer>
             <AboutH1>
               <FeaturedTextSpan>

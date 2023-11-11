@@ -136,7 +136,7 @@ export const NavBar = () => {
   )
 }
 
-export const NavBarDark = () => {
+/* export const NavBarDark = () => {
   const navLinkStyle = {
     fontWeight: '700',
     color: 'white',
@@ -191,4 +191,4 @@ export const NavBarDark = () => {
       </NavLink>
     </NavBarWrapper2>
   )
-}
+} */

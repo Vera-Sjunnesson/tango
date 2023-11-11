@@ -15,6 +15,9 @@ Building and designing the website for the Swedish Argentinian Tango Association
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 
-## View it live
+## Picture
 
-<img width="300" alt="Tango Norte Demo" src="./public/images/tango-norte-demo.png">
+<img width="300" alt="Tango Norte Demo 1" src="./public/images/tango-norte-demo.png">
+<img width="300" alt="Tango Norte Demo 2" src="./public/images/tango-norte-demo2.png">
+<img width="300" alt="Tango Norte Demo 3" src="./public/images/tango-norte-demo3.png">
+<img width="300" alt="Tango Norte Demo 4" src="./public/images/tango-norte-demo4.png">
