@@ -4,8 +4,8 @@ Building and designing the website for the Swedish Argentinian Tango Association
 
 ## The challenge
 
-- Build new APIs and retrieving data from the Tango Norte datbase (work in progress)
-- Fetching the data (work in progress)
+- Build APIs and retrieving data from the Tango Norte datbase (work in progress)
+- Fetching the data (work in progress/when APIs are finished)
 - UX: User research, iterating, wireframing and prototyping in Figma
 - Build an accessible interface using React, React Hooks, Styled Components and React Router
 
