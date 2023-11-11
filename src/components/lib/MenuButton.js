@@ -11,7 +11,7 @@ export const MenuButtonContainer = styled.button`
   color: var(--primary-color);
   font-size: 25px;
   font-weight: 500;
-  line-height: 22px; /* 68.75% */
+  line-height: 22px;
   letter-spacing: -0.408px;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ export const MenuButtonContainer = styled.button`
 `
 export const MenuButton = ({ img, buttonText, to }) => {
   return (
-    <MenuButtonContainer type="button" style={{ backgroundImage: `url(${img})`, backgroundPosition: 'top' }}>
+    <MenuButtonContainer type="button" style={{ backgroundImage: `linear-gradient(358deg, rgba(34, 34, 34, 0.8) 22.53%, rgba(255, 255, 255, 0) 100%), url(${img})`, backgroundPosition: 'top' }}>
       <NavLink to={`${to}`} className="underline">{buttonText}</NavLink>
     </MenuButtonContainer>
   )

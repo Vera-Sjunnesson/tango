@@ -5,10 +5,9 @@ import { NavLink } from 'react-router-dom';
 export const NavBarContainer = styled.div`
   width: 100%;  
   position: fixed;
-  top: 47px;
   z-index: 1001;
   width: 100%;
-  height: 46px;
+  height: 161px;
   right: 0;
   z-index: 999;
 `
@@ -17,7 +16,7 @@ export const NavBarWrapper = styled.div`
   width: 100%;
   z-index: 1001;
   width: 100%;
-  height: 46px;
+  height: 161px;
   position: fixed;
   right: 0;
   margin: auto;
@@ -40,13 +39,11 @@ export const NavWrapper = styled.nav`
 display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 161px;
     gap: 111px;
     z-index: 999;
     text-align: center;
     width: 100%;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
 `
 
 export const LogInWrapper = styled.div`
@@ -86,13 +83,13 @@ export const LogoContainer = styled.div`
 
 export const NavBar = () => {
   const navLinkStyle = {
-    fontWeight: '700',
+    fontWeight: '500',
     color: 'black',
     textDecoration: 'none',
     margin: '0',
     padding: '0',
     textAlign: 'center',
-    fontSize: '18px'
+    fontSize: '25px'
   }
 
   /*   const linkStyle = {

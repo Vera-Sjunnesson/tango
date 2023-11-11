@@ -354,11 +354,12 @@ nav {
 }
 
 .underline {
-  font-weight: 500;
-  color: black;
+  font-weight: 700;
+  color: #ffffff;
   text-decoration: none;
   position: relative;
   box-sizing: border-box;
-  background: #ffba1d;
   padding: 10px;
+  letter-spacing: .2rem;
+  font-family: var(--primary-font-family)
 }
