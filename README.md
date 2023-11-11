@@ -17,5 +17,4 @@ Building and designing the website for the Swedish Argentinian Tango Association
 
 ## View it live
 
-![Tango Norte thumbnail]([http://url/to/img.png](https://i.postimg.cc/R01QmY4s/Ska-rmavbild-2023-11-11-kl-22-56-20.png)https://i.postimg.cc/R01QmY4s/Ska-rmavbild-2023-11-11-kl-22-56-20.png)
-
+<img width="300" alt="Tango Norte Demo" src="./public/images/tango-norte-demo.png">
