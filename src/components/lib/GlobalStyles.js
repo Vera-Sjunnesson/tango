@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components/macro';
 export const GlobalStyles = createGlobalStyle`
 
 body, html {
-  font-family: 'Karla', sans-serif;
+  font-family: 'proxima-nova-extra-condensed', sans-serif;
   block-size: fit-content;
   height: 100%;
   overscroll-behavior: none;
@@ -78,6 +78,9 @@ p {
   line-height: 22.5px;
   letter-spacing: -0.408px;
   text-align: left;
+  font-family: "utopia-std", serif;
+  font-weight: 400;
+  font-style: normal;  
 
   @media (min-width: 744px) and (max-width: 1280px) {
     color: var(--primary-color);

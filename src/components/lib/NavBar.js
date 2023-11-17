@@ -7,7 +7,7 @@ export const NavBarContainer = styled.div`
   position: fixed;
   z-index: 1001;
   width: 100%;
-  height: 161px;
+  height: 30px;
   right: 0;
   z-index: 999;
 `
@@ -16,9 +16,9 @@ export const NavBarWrapper = styled.div`
   width: 100%;
   z-index: 1001;
   width: 100%;
-  height: 161px;
+  height: 30px;
   position: fixed;
-  right: 0;
+  right: 10px;
   margin: auto;
   z-index: 999;
   display: flex;
@@ -38,8 +38,8 @@ export const NavBarWrapper2 = styled.div`
 export const NavWrapper = styled.nav`
 display: flex;
     align-items: center;
-    justify-content: center;
-    height: 161px;
+    justify-content: flex-end;
+    height: 47px;
     gap: 111px;
     z-index: 999;
     text-align: center;
@@ -83,13 +83,14 @@ export const LogoContainer = styled.div`
 
 export const NavBar = () => {
   const navLinkStyle = {
-    fontWeight: '500',
+    fontWeight: '700',
     color: 'black',
     textDecoration: 'none',
     margin: '0',
     padding: '0',
     textAlign: 'center',
-    fontSize: '25px'
+    fontSize: '50px',
+    fontFamily: 'proxima-nova-extra-condensed'
   }
 
   /*   const linkStyle = {

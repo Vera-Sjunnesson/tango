@@ -1,4 +1,8 @@
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*Variables*/
 :root {
   /*Colors:*/
@@ -22,8 +26,8 @@
   --icon-hover-color: #000000;   
 
   /*fonts */
-  --primary-font-family: 'Karla', sans-serif;
-  --secondary-font-family: 'Karla', sans-serif
+  --primary-font-family: 'proxima-nova-extra-condensed', sans-serif;
+  --secondary-font-family: 'proxima-nova-extra-condensed', sans-serif
 }
 
 body {
@@ -354,12 +358,12 @@ nav {
 }
 
 .underline {
-  font-weight: 700;
+  font-weight: 600;
   color: #ffffff;
   text-decoration: none;
   position: relative;
   box-sizing: border-box;
   padding: 10px;
-  letter-spacing: .2rem;
+  letter-spacing: .3rem;
   font-family: var(--primary-font-family)
 }

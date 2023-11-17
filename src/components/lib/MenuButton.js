@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 export const MenuButtonContainer = styled.button`
   background-size: cover;
   background-position: top;
-  height: 129px;
+  height: 93px;
   width: 100%;
   box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
   color: var(--primary-color);
@@ -17,10 +17,11 @@ export const MenuButtonContainer = styled.button`
   align-items: center;
   justify-content: center;
 `
-export const MenuButton = ({ img, buttonText, to }) => {
+export const MenuButton = ({ color, img, buttonText, to }) => {
   return (
-    <MenuButtonContainer type="button" style={{ backgroundImage: `linear-gradient(358deg, rgba(34, 34, 34, 0.8) 22.53%, rgba(255, 255, 255, 0) 100%), url(${img})`, backgroundPosition: 'top' }}>
+    <MenuButtonContainer type="button" style={{ backgroundImage: `linear-gradient(358deg, ${color} 22.53%, ${color} 100%), url(${img})`, backgroundPosition: 'top' }}>
       <NavLink to={`${to}`} className="underline">{buttonText}</NavLink>
+      <img src={`${process.env.PUBLIC_URL}/assets/arrow11.svg`} alt="test" style={{ height: 38 }} />
     </MenuButtonContainer>
   )
 }

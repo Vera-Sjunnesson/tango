@@ -87,7 +87,6 @@ export const FeaturedCarousel = () => {
         ref={swiperRef}
         loop="true"
         speed={2000}
-        autoplay="true"
         style={{
           '--swiper-navigation-size': isMobileOrTablet ? '0px' : ''
         }}>
@@ -98,7 +97,7 @@ export const FeaturedCarousel = () => {
             position="top"
             fit="cover"
             featuredHeader="MONDAY TANGO PRACTICE"
-            featuredText="Tre timmar där du kan nöta nya stegkombinationer, öva teknik, bara dansa eller ta en fika med nya och gamla tangovänner i en vänlig och tillåtande atmosfär. Vi dansar på ett rymligt trägolv i ett rum med högt i ... LÄS MER" />
+            featuredText="Tre timmar där du kan nöta nya stegkombinationer, öva teknik, bara dansa eller ta en fika med nya och gamla tangovänner i en vänlig och tillåtande atmosfär. Vi dansar på ett rymligt trägolv i ett rum med högt ..." />
         </swiper-slide>
         <swiper-slide>
           <FeaturedCard

@@ -27,6 +27,7 @@ export const FeaturedTextCard = styled.div`
   transform: translate(-50%, -30%);
   width: 350px;
   padding: 5px 0px 10px 10px;
+  gap: 7px;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     position: absolute;
@@ -68,6 +69,8 @@ export const FeaturedText = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
+  line-height: 25px;
+  font-weight: 
 
   @media (min-width: 744px) and (max-width: 1280px) {
     width: 600px;
@@ -77,6 +80,7 @@ export const FeaturedText = styled.p`
   @media (min-width: 1280px) {
     width: 600px;
     padding: 0;
+    font-size: 20px;
   }
 `
 
@@ -93,12 +97,13 @@ export const FeaturedImg = styled.img`
   }
 `
 
-export const ReadMoreA = styled.a`
+export const ReadMoreA = styled.button`
+  display: flex;
   text-decoration: none;
   background: #222222;
   color: white;
+  font-weight: 700;
   padding: 10px 20px;
-  font-weight: 500;
   z-index: 1001;
   align-self: flex-end;
   margin-right: 14px;
