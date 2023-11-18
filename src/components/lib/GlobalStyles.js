@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components/macro';
 export const GlobalStyles = createGlobalStyle`
 
 body, html {
-  font-family: 'proxima-nova-extra-condensed', sans-serif;
+  font-family: 'Barlow Semi Condensed', sans-serif;
   block-size: fit-content;
   height: 100%;
   overscroll-behavior: none;
@@ -78,9 +78,9 @@ p {
   line-height: 22.5px;
   letter-spacing: -0.408px;
   text-align: left;
-  font-family: "utopia-std", serif;
+  font-family: "tablet-gothic", sans-serif;
   font-weight: 400;
-  font-style: normal;  
+  font-style: normal;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     color: var(--primary-color);
@@ -127,10 +127,8 @@ article img {
   height: 100vh !important;
 
   @media (min-width: 744px) and (max-width: 1279px) {
-    min-width: 120%!important;
-    width: 120%!important;
-    min-height: auto!important;
-    height: auto!important;
+    min-height: 100% !important;
+    height: 100% !important;
   }
 }
 `

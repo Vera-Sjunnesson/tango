@@ -26,8 +26,8 @@
   --icon-hover-color: #000000;   
 
   /*fonts */
-  --primary-font-family: 'proxima-nova-extra-condensed', sans-serif;
-  --secondary-font-family: 'proxima-nova-extra-condensed', sans-serif
+  --primary-font-family: 'Barlow Semi Condensed', sans-serif;
+  --secondary-font-family: 'Barlow', sans-serif;
 }
 
 body {
@@ -74,9 +74,9 @@ code {
 .sidebar {
   height: 100%;
   width: 100%;
-  position: fixed;
-  top: 193px;
-  z-index: 1;
+  position: absolute;
+  top: 123px;
+  z-index: 1000;
   right: -100%;
   background-color: #222222;
   transition: transform .7s ease-in-out;
@@ -102,7 +102,7 @@ code {
   display: block;
   height: 3px;
   width: 30px;
-  background-color: white;
+  background-color: #222222;
 }
 
 .bar-text {
@@ -132,7 +132,6 @@ code {
 
 .nav-right {
   right: 0;
-  background: #222222;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -195,7 +194,7 @@ code {
 }
 
 .nav-right.visible-xs .active .bar {
-  background-color: #FFF;
+  background-color: #222;
   -webkit-transition: all .7s ease;
   -moz-transition: all .7s ease;
   -ms-transition: all .7s ease;
@@ -358,12 +357,56 @@ nav {
 }
 
 .underline {
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 500;
+  color: white;
   text-decoration: none;
   position: relative;
   box-sizing: border-box;
-  padding: 10px;
-  letter-spacing: .3rem;
+  padding: 10px 0;
+  letter-spacing: .2rem;
   font-family: var(--primary-font-family)
+}
+
+@media (min-width:744px) and (max-width:1280px) {
+  .sidebar {
+    height: 86vh;
+    position: absolute;
+    top: 144px;
+  }
+
+  .bar {
+    display: block;
+    height: 6px;
+    width: 50px;
+    background-color: #222222;
+  }
+
+  .top-mobile {
+    margin: 8px auto;
+  }
+
+  .bottom-mobile {
+    margin: 8px auto;
+  }
+  
+  .button {
+    padding: 10px 20px;
+  }
+
+  .button.active .top, .button.active .top-mobile  {
+    -webkit-transform: translateY(14px) rotateZ(45deg);
+    -moz-transform: translateY(14px) rotateZ(45deg);
+    -ms-transform: translateY(14px) rotateZ(45deg);
+    -o-transform: translateY(14px) rotateZ(45deg);
+    transform: translateY(14px) rotateZ(45deg);
+    background-color: #ffffff;
+  }
+  
+  .button.active .bottom, .button.active .bottom-mobile {
+    -webkit-transform: translateY(-14px) rotateZ(-45deg);
+    -moz-transform: translateY(-14px) rotateZ(-45deg);
+    -ms-transform: translateY(-14px) rotateZ(-45deg);
+    -o-transform: translateY(-14px) rotateZ(-45deg);
+    transform: translateY(-14px) rotateZ(-45deg);
+  }
 }

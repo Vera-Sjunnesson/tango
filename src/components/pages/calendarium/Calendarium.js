@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import { BackgroundLine, BackgroundLine3 } from 'components/lib/BackgroundLine';
 import { CalendarItem } from 'components/lib/CalendarItem';
 import { useMediaQuery } from 'react-responsive'
-/* import { NavBarDark } from 'components/lib/NavBar'; */
+import { Header } from 'components/lib/Header';
 
 export const CalendarContainer = styled.div`
   position: absolute;
@@ -117,7 +117,6 @@ export const AboutH5 = styled.h5`
 export const MobileContainer = styled.div`
   height: 140vh;
   position: relative;
-  top: 193px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,6 +129,7 @@ export const Calendarium = () => {
       {isDesktop ? (
         <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`} id="#sectionFour">
           <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
+          <Header />
           <AboutH1>
             <FeaturedTextSpan>
               KALENDARIUM
@@ -190,6 +190,7 @@ export const Calendarium = () => {
         <MobileContainer>
           <BackgroundContainer2 $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`} id="#sectionFour" />
           <BackgroundLine3 backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-02.svg`} />
+          <Header />
           <AboutH1>
             <FeaturedTextSpan>
               KALENDARIUM

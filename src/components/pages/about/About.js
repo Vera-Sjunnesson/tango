@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import { BackgroundLine, BackgroundLine2 } from 'components/lib/BackgroundLine';
 /* import { NavBarDark } from 'components/lib/NavBar'; */
 import { useMediaQuery } from 'react-responsive'
+import { Header } from 'components/lib/Header';
 
 export const FeaturedTextCard = styled.div`
   position: absolute;
@@ -43,7 +44,6 @@ export const TextCard = styled.div`
 export const MobileContainer = styled.div`
   height: 140vh;
   position: relative;
-  top: 193px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,6 +118,7 @@ export const About = () => {
       {isDesktop ? (
         <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} id="#sectionTwo">
           <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
+          <Header />
           <FeaturedTextCard>
             <AboutH1>
               <FeaturedTextSpan>
@@ -145,6 +146,7 @@ export const About = () => {
         <MobileContainer>
           <BackgroundContainer2 $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} />
           <BackgroundLine2 backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-03.svg`} />
+          <Header />
           <FeaturedTextCard>
             <AboutH1>
               <FeaturedTextSpan>

@@ -9,7 +9,7 @@ register();
 
 export const CarouselContainer = styled.div`
   width: 100%;
-  height: 375px;
+  height: 500px;
   margin: auto;
   box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
   position: relative;
@@ -24,14 +24,18 @@ export const CarouselContainer = styled.div`
 `
 
 export const NewsContainer = styled.span`
-  display: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 998;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 998;
   }
 
   @media (min-width: 1280px) {
@@ -40,6 +44,29 @@ export const NewsContainer = styled.span`
     top: 0;
     right: 0;
     z-index: 1000;
+  }
+`
+
+export const TagLine = styled.h4`
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--primary-color);
+  font-weight: 500;
+  background: #0000007a;
+  padding: 2px 10px 5px 10px;
+  letter-spacing: .2rem;
+  font-weight: 500;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    font-size: 25px;
+    line-height: 43.2px;
+    padding: 2px 10px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 25px;
+    line-height: 43.2px;
+    padding: 2px 10px;
   }
 `
 
@@ -81,7 +108,7 @@ export const FeaturedCarousel = () => {
   return (
     <CarouselContainer>
       <NewsContainer>
-        <h2>På gång</h2>
+        <TagLine>På gång</TagLine>
       </NewsContainer>
       <swiper-container
         ref={swiperRef}

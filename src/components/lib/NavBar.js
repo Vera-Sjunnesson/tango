@@ -7,189 +7,69 @@ export const NavBarContainer = styled.div`
   position: fixed;
   z-index: 1001;
   width: 100%;
-  height: 30px;
-  right: 0;
-  z-index: 999;
-`
-
-export const NavBarWrapper = styled.div`
-  width: 100%;
-  z-index: 1001;
-  width: 100%;
-  height: 30px;
-  position: fixed;
+  height: 34px;
   right: 10px;
-  margin: auto;
+  top: 5px;
   z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-export const NavBarWrapper2 = styled.div`
-  width: 100%;
-  position: absolute;
-  top: 0;
-  z-index: 1001;
-  background: #000000d6;
-  height: 41px;
 `
 
 export const NavWrapper = styled.nav`
-display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 47px;
-    gap: 111px;
-    z-index: 999;
-    text-align: center;
-    width: 100%;
-`
-
-export const LogInWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 100%;
+  height: 34px;
+  gap: 111px;
   z-index: 999;
   text-align: center;
+  width: 100%;
 `
 
-export const LogInContainer = styled.div`
-  height: 40px;
-  width: 106px;
-  position: fixed;
-  top: 0px;
-  right: 0;
-  z-index: 999;
+export const NavLinkStyled = styled(NavLink)`
+  position: relative;
+  display: inline-block;
+  font-weight: 900;
+  color: #222222;
+  text-decoration: none;
+  margin: 0;
+  padding: 0 0 5px 0px;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
+  font-size: 40px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 0.2rem;
 
-export const LogoContainer = styled.div`
-  height: 40px;
-  width: 180px;
-  position: fixed;
-  top: 0px;
-  left: 10px;
-  z-index: 999;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &::before {
+    content: "";
+    width: 0;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #222222;
+    transition: width .7s ease-in-out;
+  }
+
+  &.hovered::before {
+    width: 100%;
+  }
 `
 
 export const NavBar = () => {
-  const navLinkStyle = {
-    fontWeight: '700',
-    color: 'black',
-    textDecoration: 'none',
-    margin: '0',
-    padding: '0',
-    textAlign: 'center',
-    fontSize: '50px',
-    fontFamily: 'proxima-nova-extra-condensed'
-  }
+  const addHoverEffect = (e) => {
+    e.currentTarget.classList.add('hovered');
+  };
 
-  /*   const linkStyle = {
-    fontWeight: '700',
-    color: '#222322c4',
-    textDecoration: 'none',
-    textAlign: 'center',
-    padding: '15px 10px',
-    width: '85px',
-    border: 'solid 0.5px #222322c4',
-    background: 'white',
-    position: 'fixed',
-    top: '58px',
-    right: '0px',
-    zIndex: '1010'
-
-  } */
-
-  const menuItems = [
-    { id: 1, name: 'HEM', path: '/' },
-    { id: 2, name: 'OM OSS', path: '/om' },
-    { id: 3, name: 'BLI MEDLEM', path: '/om' },
-    { id: 4, name: 'LOGGA IN', path: '/om' }
-  ];
+  const removeHoverEffect = (e) => {
+    e.currentTarget.classList.remove('hovered');
+  };
 
   return (
     <NavBarContainer>
-      <NavBarWrapper>
-        <NavWrapper>
-          {menuItems.map((item) => {
-            return (
-              <NavLink
-                style={navLinkStyle}
-                key={item.id}
-                path={item.path}
-                name={item.name}>
-                {item.name}
-              </NavLink>
-            )
-          })}
-        </NavWrapper>
-      </NavBarWrapper>
+      <NavWrapper>
+        <NavLinkStyled to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
+        <NavLinkStyled to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
+        <NavLinkStyled to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</NavLinkStyled>
+        <NavLinkStyled to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</NavLinkStyled>
+      </NavWrapper>
     </NavBarContainer>
   )
 }
-
-/* export const NavBarDark = () => {
-  const navLinkStyle = {
-    fontWeight: '700',
-    color: 'white',
-    textDecoration: 'none',
-    margin: '0',
-    padding: '0',
-    textAlign: 'center'
-  }
-
-  const linkStyle = {
-    fontWeight: '800',
-    color: 'white',
-    textDecoration: 'none',
-    margin: '0',
-    padding: '0',
-    textAlign: 'center'
-  }
-
-  return (
-    <NavBarWrapper2>
-      <NavLink to="/" style={navLinkStyle}>HEM</NavLink>
-      <NavLink to="/om" style={navLinkStyle}>OM OSS</NavLink>
-      <a
-        href="https://www.tangonorte.com/register.php"
-        target="_blank"
-        rel="noreferrer"
-        style={navLinkStyle}>
-          BLI MEDLEM
-      </a>
-      <a
-        href="https://www.tangonorte.com/page.php?id=*"
-        target="_blank"
-        rel="noreferrer"
-        style={navLinkStyle}>
-          OM TANGO
-      </a>
-      <LogInContainer>
-        <a
-          href="https://www.tangonorte.com/page.php?id=main"
-          target="_blank"
-          aria-label="linkedin"
-          rel="noreferrer"
-          style={linkStyle}>
-            LOGGA IN
-        </a>
-      </LogInContainer>
-      <NavLink
-        to="/">
-        <LogoContainer>
-          <img src={`${process.env.PUBLIC_URL}/assets/norte-logo-new-02.svg`} alt="logo" />
-        </LogoContainer>
-      </NavLink>
-    </NavBarWrapper2>
-  )
-} */

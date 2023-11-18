@@ -8,42 +8,57 @@ import { NavBar } from './NavBar';
 export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: unset;
   z-index: 999;
-  background: var(--primary-color);
+  flex-direction: row-reverse;
+  justify-content: space-between;
   width: 100%;
-  box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
+/*   box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50); */
 
   @media (min-width: 744px) and (max-width: 1280px) {
+    height: 144px;
     position: unset;
-    height: 161px;
-    width: auto;
-    background: transparent;
-    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
+    width: 100%;
+    box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
+    z-index: 999;
+    position: relative;
   }
 
   @media (min-width: 1280px) {
     position: unset;
     height: 161px;
     width: auto;
-    background: transparent;
     flex-direction: row;
   }
 `
 
 export const Logo = styled.img`
   height: 124px;
-  margin: 10px auto;
+  margin: 0;
   z-index: 1001;
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    height: 124px;
-    margin: 10px;
+    height: 163px;
+    position: absolute;
+    left: -11px;
+    top: 9px;
   }
 
-  @media (min-width: 1280px) {
-    height: 124px;
-    margin: 0px;
+  @media (min-width: 1280px) and (max-width: 1512px) {
+    height: 117px;
+    top: -13px;
+    position: fixed;
+    left: -11px;
+  }
+
+  @media (min-width: 1512px) {
+    height: 160px;
+    top: -13px;
+    position: fixed;
+    left: -11px;
   }
 `
 

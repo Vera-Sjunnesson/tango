@@ -26,7 +26,6 @@ export const BackgroundContainer2 = styled.div`
 
 export const BackgroundGradeContainer3 = styled.div`
   height: 100vh;
-  top: 193px;
   background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
   background-size: cover;
   background-position: top;
