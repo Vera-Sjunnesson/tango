@@ -16,20 +16,13 @@ app.get("/", (req, res) => {
   res.json(listEndPoints(app))
 });
 
-app.get("/artists", (req, res) => {
-  const { gender } = req.query;
-  let artists = artistsMoma;
-  if (gender) {
-    artists = artistsMoma.filter((artist) => {
-      return artist.Gender.toLowerCase() === gender.toLowerCase();
-    });
-  } 
-  if (artists) {
+app.get("/eventlist", (req, res) => {
+  if (norteEvents) {
     res.status(200).json({
       success: true,
       massage: "OK",
       body: {
-        artistsMoma: artists
+        norteEvents: norteEvents
       }
     });
   } else {
@@ -41,95 +34,17 @@ app.get("/artists", (req, res) => {
   }
 });
 
-app.get("/nationality/:nationality", (req, res) => {
-  const nationality = req.params.nationality
-  const { gender } = req.query;
-  let artistsNationality = artistsMoma.filter((artist) => {
-    return artist.Nationality.toLowerCase().includes(nationality.toLowerCase())
-  })
-  if (gender) {
-    artistsNationality = artistsNationality.filter((artist) => {
-      return artist.Gender.toLowerCase() === gender.toLowerCase();
-    });
-  } 
-  if (nationality) {
-    res.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        artist: artistsNationality
-      }
-    });
-  } else {
-    res.status(500).json({
-      success: false,
-      message: "Something went wrong",
-      body: {}
-    });
-  }
-});
-
-app.get("/born-after/:year", (req, res) => {
-  const year = req.params.year;
-  const { gender } = req.query;
-  let artistsBornAfter = artistsMoma.filter((artist) => artist.Birth_Year > year)
-  if (gender) {
-    artistsBornAfter = artistsBornAfter.filter((artist) => {
-      return artist.Gender.toLowerCase() === gender.toLowerCase();
-    });
-  } 
-  if (year) {
-    res.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        artist: artistsBornAfter
-      }
-    });
-  } else {
-    res.status(500).json({
-      success: false,
-      message: "No artist this young",
-      body: {}
-    });
-  }
-});
-
-
-app.get("/artists/:id", (req, res) => {
+app.get("/eventlist/:id", (req, res) => {
   const { id } = req.params
-  const singleArtist = artistsMoma.find((artist) => {
-    return artist.Artist_ID === +id
+  const singleEvent = norteEvents.find((event) => {
+    return event.id === +id
   })
-  if (singleArtist) {
+  if (singleEvent) {
     res.status(200).json({
       success: true,
       message: "OK",
       body: {
-        artistsMoma: singleArtist
-      }
-    });
-  } else {
-    res.status(404).json({
-      success: false,
-      message: "Artist not found",
-      body: {}
-    });
-  }
-});
-
-app.get("/artist/:name", (req, res) => {
-  const { name } = req.params
-  console.log("The name parameter is:", name);
-  const singleArtistName = artistsMoma.find((artist) => {
-    return artist.Name.toLowerCase().includes(name.toLowerCase())
-  })
-  if (singleArtistName) {
-    res.status(200).json({
-      success: true,
-      message: "OK",
-      body: {
-        artist: singleArtistName
+        norteEvents: singleEvent
       }
     });
   } else {
