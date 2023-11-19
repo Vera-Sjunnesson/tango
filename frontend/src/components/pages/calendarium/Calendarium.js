@@ -1,10 +1,10 @@
-import React from 'react';
-import { BackgroundContainer, BackgroundContainer2 } from 'components/lib/ContainerStyles';
+import React, { useState, useEffect } from 'react';
+import { StyledWrapper, BackgroundContainer } from 'components/lib/ContainerStyles';
 import styled from 'styled-components/macro';
-import { BackgroundLine, BackgroundLine3 } from 'components/lib/BackgroundLine';
-import { CalendarItem } from 'components/lib/CalendarItem';
-import { useMediaQuery } from 'react-responsive'
+import { BackgroundLine } from 'components/lib/BackgroundLine';
 import { Header } from 'components/lib/Header';
+import { NavLink } from 'react-router-dom';
+import { ArrowButton } from '../../lib/Buttons';
 
 export const CalendarContainer = styled.div`
   position: absolute;
@@ -18,8 +18,8 @@ export const CalendarContainer = styled.div`
 
   @media (min-width: 744px) and (max-width: 1280px) {
     left: 100px;
-    top: 170px;
-    width: 50%;
+    top: 179px;
+    width: 80%;
     height: 65%;
     padding: 20px;
   }
@@ -27,8 +27,8 @@ export const CalendarContainer = styled.div`
   @media (min-width: 1280px) {
     left: 100px;
     top: 170px;
-    width: 50%;
-    height: 65%;
+    width: 70%;
+    height: 70%;
     padding: 20px;
   }
 `
@@ -64,15 +64,6 @@ export const FeaturedTextSpan = styled.span`
   box-decoration-break: clone;
   background: #000000d6;
   padding: 2px 10px;
-`
-
-export const FeaturedText = styled.p`
-  width: 500px;
-  margin-bottom: 20px;
-  color: #e78431;
-  font-weight: 500;
-  background: #000000d6;
-  padding: 10px 10px;
 `
 
 export const AboutH1 = styled.h1`
@@ -114,141 +105,163 @@ export const AboutH5 = styled.h5`
   }
 `
 
-export const MobileContainer = styled.div`
-  height: 140vh;
-  position: relative;
+export const FeaturedTextCard = styled.li`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 15px 15px 15px 10px;
+  gap: 15px;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    align-items: center;
+    gap: 5px;
+  }
+
+  @media (min-width: 1280px) {
+    align-items: center;
+    gap: 5px;
+  }
+`
+
+export const CalenderTextCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+`
+
+export const CalenderDetailsTextCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  width: 60%;
+  padding-left: 5px;
+  margin-right: 15px;
+`
+
+export const FeaturedText = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+`
+
+export const TimeText = styled.p`
+  color: white;
+  width: 277px;
+  background: #000000d6;
+  width: 100%;
+  padding-left: 5px;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    width: auto;
+    align-self: flex-start;
+    padding: 0px 5px;
+  }
+
+  @media (min-width: 1280px) {
+    width: auto;
+    align-self: flex-start;
+    padding: 0px 5px;
+  }
+`
+export const DjText = styled.p`
+  color: black;
+  font-weight: 700;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    width: 277px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 277px;
+  }
+`
+
+export const ReadMoreA = styled(NavLink)`
+  text-decoration: none;
+  color: #222222;
+  font-weight: 500;
+  z-index: 998;
+  align-self: flex-end;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+  }
+
+  @media (min-width: 1280px) {
+    margin-right: 0px;
+    margin-top: 0px;
+  }
+`
+
+export const CalenderH5 = styled.h5`
+  color: #222222;
+  width: 100%;
 `
 
 export const Calendarium = () => {
-  const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
-  return (
-    <div>
-      {isDesktop ? (
-        <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`} id="#sectionFour">
-          <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
-          <Header />
-          <AboutH1>
-            <FeaturedTextSpan>
-              KALENDARIUM
-            </FeaturedTextSpan>
-          </AboutH1>
-          <CalendarContainer>
-            <AboutH5>STOCKHOLM</AboutH5>
-            <CalendarList>
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="fr 22 sep kl 20.30"
-                featuredHeader="Milonga på Chicago"
-                featuredText="Milonga på Chicago! Avrunda veckan på Chicago! Här erbjuds de bästa fredagsmyset i underbar tango-miljö med musik av topp-DJ:s från när och fjärran. I serveringen finns sedan god mat samt vin, öl och läsk..."
-                dj="Dj Luis Angel" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Monday Tango Practice"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Fantastisk Workshophelg"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Jubileumsmilonga med tårtkalas"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Milonga musical seminarium"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Tangokväll på Kulturhuset med prova-på"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-            </CalendarList>
-          </CalendarContainer>
-        </BackgroundContainer>
-      ) : (
-        <MobileContainer>
-          <BackgroundContainer2 $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`} id="#sectionFour" />
-          <BackgroundLine3 backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-02.svg`} />
-          <Header />
-          <AboutH1>
-            <FeaturedTextSpan>
-              KALENDARIUM
-            </FeaturedTextSpan>
-          </AboutH1>
-          <CalendarContainer>
-            <AboutH5>STOCKHOLM</AboutH5>
-            <CalendarList>
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="fr 22 sep kl 20.30"
-                featuredHeader="Milonga på Chicago"
-                featuredText="Milonga på Chicago! Avrunda veckan på Chicago! Här erbjuds de bästa fredagsmyset i underbar tango-miljö med musik av topp-DJ:s från när och fjärran. I serveringen finns sedan god mat samt vin, öl och läsk..."
-                dj="Dj Luis Angel" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-              <CalendarItem
-                time="on 20 sep kl 18"
-                featuredHeader="Onsdagspraktika i Alvik - på två dansgolv"
-                featuredText="Onsdagspraktika Alvik! Nu får vi finbesök i Alvik igen! Tango Norte är glada att kunna hälsa Analia Vega & Marcelo Varela välkomna till oss. De besöker oss två onsdagar i rad, den 20/9 och även den 27 september...."
-                dj="Workshop: Analia Vega & Marcelo Varela TDj: La Bonita Elza" />
-            </CalendarList>
-          </CalendarContainer>
-        </MobileContainer>
-      )}
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    </div>
+  useEffect(() => {
+    setLoading(true);
+    const fetchEventList = async () => {
+      try {
+        const url = process.env.REACT_APP_EVENTLIST_URL
+        console.log('url:', url);
+        if (!url) {
+          throw new Error('Failed to fetch event list');
+        }
+
+        const response = await fetch(url);
+        console.log('Response:', response);
+        const data = await response.json();
+        setList(data.body.norteEvents);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setTimeout(() => setLoading(false), 1000);
+      }
+    };
+
+    fetchEventList();
+  }, []);
+
+  console.log('list:', list);
+
+  return (
+    <StyledWrapper>
+      <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`}>
+        <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
+        <Header />
+        <CalendarContainer>
+          <AboutH5>STOCKHOLM</AboutH5>
+          <CalendarList>
+            {!loading && list.map((singlEvent) => (
+              <FeaturedTextCard className="noted">
+                <TimeText>{singlEvent.starts}</TimeText>
+                <CalenderH5 className="noted-black">{singlEvent.title}</CalenderH5>
+                <CalenderTextCard>
+                  <CalenderDetailsTextCard>
+                    <FeaturedText>{singlEvent.body}</FeaturedText>
+                    <DjText>{singlEvent.facilitator}</DjText>
+                  </CalenderDetailsTextCard>
+                  <ArrowButton isSmall />
+                </CalenderTextCard>
+              </FeaturedTextCard>
+            ))}
+            {loading
+            && (
+              <FeaturedTextCard>
+                <AboutH5>Loading...</AboutH5>
+              </FeaturedTextCard>
+            )}
+          </CalendarList>
+        </CalendarContainer>
+      </BackgroundContainer>
+    </StyledWrapper>
   );
 }

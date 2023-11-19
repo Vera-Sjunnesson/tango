@@ -22,7 +22,6 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     z-index: 999;
     width: 100%;
-    box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
     z-index: 999;
     position: relative;
   }
@@ -71,7 +70,7 @@ export const Header = ({ isWhite, isLarge, isSmall }) => {
         style={navLinkStyle}>
         <Logo
           $Small={isSmall}
-          src={isWhite ? `${process.env.PUBLIC_URL}/assets/tn-logo-white.svg` : `${process.env.PUBLIC_URL}/assets/tn-logo.svg`}
+          src={isWhite ? `${process.env.PUBLIC_URL}/assets/tn-logo-white.svg` : `${process.env.PUBLIC_URL}/assets/tn-logo-plain.svg`}
           alt="Tango Norte Logo" />
       </NavLink>
     </HeaderContainer>

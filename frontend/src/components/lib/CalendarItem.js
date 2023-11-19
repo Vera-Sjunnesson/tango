@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro';
+import { NavLink } from 'react-router-dom';
 
 export const FeaturedTextCard = styled.li`
   display: flex;
@@ -76,7 +77,7 @@ export const DjText = styled.p`
   }
 `
 
-export const ReadMoreA = styled.a`
+export const ReadMoreA = styled(NavLink)`
   text-decoration: none;
   color: #222222;
   font-weight: 500;

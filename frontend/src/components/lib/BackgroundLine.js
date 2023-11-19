@@ -4,8 +4,19 @@ import styled from 'styled-components/macro';
 export const LineContainer = styled.div`
   background-size: cover;
   background-position: top;
-  height: 100%;
-  width: 100%;
+  height: 400px;
+  width: 200%;
+  position: absolute;
+  right: 0px;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    height: 100%;
+  }
+
+  @media (min-width: 1280px) {
+    height: 100%;
+    width: 100%;
+  }
 `
 
 export const LineContainer2 = styled.div`

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BackgroundContainer, BackgroundContainer2 } from 'components/lib/ContainerStyles';
+import { BackgroundContainer } from 'components/lib/ContainerStyles';
 import styled from 'styled-components/macro';
 import { BackgroundLine, BackgroundLine2 } from 'components/lib/BackgroundLine';
 /* import { NavBarDark } from 'components/lib/NavBar'; */
@@ -144,7 +144,7 @@ export const About = () => {
         </BackgroundContainer>
       ) : (
         <MobileContainer>
-          <BackgroundContainer2 $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} />
+          <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} />
           <BackgroundLine2 backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-03.svg`} />
           <Header />
           <FeaturedTextCard>
