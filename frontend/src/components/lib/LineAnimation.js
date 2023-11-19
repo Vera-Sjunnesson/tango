@@ -26,7 +26,7 @@ display: none;
 
 const transition = { duration: 6, yoyo: Infinity, ease: 'easeOut' }
 
-/* const transition2 = { duration: 3, delay: 5, yoyo: Infinity, ease: 'easeOut' } */
+const transition2 = { duration: 3, delay: 5, yoyo: Infinity, ease: 'easeOut' }
 
 export const LineAnimation = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -48,6 +48,14 @@ export const LineAnimation = () => {
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={transition} />
+              <motion.path
+                d="M1010 1195C1029.93 1130.39 1214 857 1472 847C1730 837 1718 581 1828 323"
+                fill="transparent"
+                strokeWidth="35"
+                stroke="#e88025"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={transition2} />
             </g>
             <defs>
               <clipPath id="clip0_66_10">
@@ -92,12 +100,3 @@ export const LineAnimation = () => {
     </LineContainer>
   );
 }
-
-/* <motion.path
-    d="M1010 1195C1029.93 1130.39 1214 857 1472 847C1730 837 1718 581 1828 323"
-    fill="transparent"
-    strokeWidth="35"
-    stroke="#e88025"
-    initial={{ pathLength: 0 }}
-    animate={{ pathLength: 1 }}
-    transition={transition2} /> */
