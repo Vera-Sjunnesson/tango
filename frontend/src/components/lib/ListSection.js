@@ -57,14 +57,6 @@ export const ListContainer = styled.ul`
   width: 100%;
   align-items: center;
 
-  & :nth-child(odd of .noted) {
-    background: ${(props) => (props.$dark ? '#80b6bf' : '#f0b07f')};
-  }
-
-  & :nth-child(even of .noted) {
-    background: white;
-  }
-
   @media (min-width: 744px) and (max-width: 1280px) {
     left: 100px;
     top: 170px;
@@ -84,6 +76,7 @@ export const ListItemCard = styled.li`
   padding: 15px 15px 15px 10px;
   gap: 15px;
   width: 100%;
+  border-bottom: solid 0.5px #222222;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     align-items: center;
@@ -97,9 +90,8 @@ export const ListItemCard = styled.li`
 `
 
 export const DateText = styled.p`
-  color: white;
+  color: #222222;
   width: 277px;
-  background: #000000d6;
   width: 100%;
   padding: 0 5px;
   width: fit-content;
@@ -167,34 +159,50 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
     const options = {
       weekday: 'short',
       day: 'numeric',
-      month: 'short',
-      hour: 'numeric',
-      minute: 'numeric'
+      month: 'short'
     };
     const date = new Date(inputDate);
     const formattedDate = date.toLocaleDateString('sv-SE', options);
-    const [weekday, day, monthWithDot, time] = formattedDate.split(' ');
+    const [weekday, day, monthWithDot] = formattedDate.split(' ');
     const month = monthWithDot.replace('.', '');
-    return `${weekday} ${day} ${month}, kl ${time}`;
+    return `${weekday} ${day} ${month}`;
+  };
+
+  const getBackgroundColor = (type) => {
+    switch (type) {
+      case 'practica':
+        return '#FDF0E5';
+      case 'class':
+        return '#518a93';
+      case 'milonga':
+        return '#f3cfc5';
+      case 'festival':
+        return '#fef0c8';
+      default:
+        return '#ffffff';
+    }
   };
 
   return (
     <ListWrapper $right={isRight}>
       <ListHeader>{listHeader.toUpperCase()}</ListHeader>
       <ListContainer $dark={isDark}>
-        {!loading && list.map((listItem) => (
-          <ListItemCard className="noted" key={listItem.id}>
-            <DateText>{formatDate(listItem.starts)}</DateText>
-            <StyledH5>{listItem.title}</StyledH5>
-            <ListDetailsSection>
-              <ListDetailsSpan>
-                <ListParagraph>{listItem.body}</ListParagraph>
-                <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
-              </ListDetailsSpan>
-              <ArrowButton isSmall path={`${path}/${listItem.id}`} />
-            </ListDetailsSection>
-          </ListItemCard>
-        ))}
+        {!loading && list.map((listItem) => {
+          const bgColor = getBackgroundColor(listItem.type); // Get background color
+          return (
+            <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
+              <StyledH5>{listItem.title}</StyledH5>
+              <DateText>{formatDate(listItem.starts)}</DateText>
+              <ListDetailsSection>
+                <ListDetailsSpan>
+                  <ListParagraph>{listItem.body}</ListParagraph>
+                  <FacititatorDetails>DJ: {listItem.facilitator}</FacititatorDetails>
+                </ListDetailsSpan>
+                <ArrowButton isSmall path={`${path}/${listItem.id}`} />
+              </ListDetailsSection>
+            </ListItemCard>
+          )
+        })}
         {loading
           && (
             <Loader />

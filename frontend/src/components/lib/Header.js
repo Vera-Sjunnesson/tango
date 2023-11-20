@@ -52,7 +52,7 @@ export const Logo = styled.img`
     left: ${(props) => (props.$Small ? '7px' : '0px')};
 `
 
-export const Header = ({ isWhite, isSmall, isLarge, isHero }) => {
+export const Header = ({ isBlack, isSmall, isLarge, isHero }) => {
   const navLinkStyle = {
     zIndex: '1001'
   }
@@ -70,7 +70,7 @@ export const Header = ({ isWhite, isSmall, isLarge, isHero }) => {
         style={navLinkStyle}>
         <Logo
           $Small={isSmall}
-          src={isWhite ? `${process.env.PUBLIC_URL}/assets/tn-logo-white.svg` : `${process.env.PUBLIC_URL}/assets/tn-logo-plain.svg`}
+          src={isBlack ? `${process.env.PUBLIC_URL}/assets/tn-logo-black.svg` : `${process.env.PUBLIC_URL}/assets/tn-logo-plain.svg`}
           alt="Tango Norte Logo" />
       </NavLink>
     </HeaderContainer>
