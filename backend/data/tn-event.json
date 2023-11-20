@@ -85,7 +85,7 @@
     "bookablefrom": "2023-12-10T00:00:00Z",
     "bookableto": "2023-12-18T23:59:59Z",
     "is_bookable": "leader",
-    "type" : "practica",
+    "type" : "milonga",
     "levels": "5",
     "created": "2023-11-25T08:00:00Z",
     "createdby": 999,
