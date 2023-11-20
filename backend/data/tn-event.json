@@ -181,7 +181,7 @@
     "bookablefrom": "2023-12-20T00:00:00Z",
     "bookableto": "2023-12-28T23:59:59Z",
     "is_bookable": "leader",
-    "type" : "workshop",
+    "type" : "class",
     "levels": "2",
     "created": "2023-12-05T08:00:00Z",
     "createdby": 1111,
