@@ -63,7 +63,7 @@ export const CalendarBoard = () => {
       <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`}>
         <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
         <Header />
-        <ListSection loading={loading} list={list} />
+        <ListSection listHeader="Kalendarium" loading={loading} list={list} path="kalendarium" />
       </BackgroundContainer>
     </StyledWrapper>
   );

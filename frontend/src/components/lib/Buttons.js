@@ -16,6 +16,7 @@ export const ArrowNavLink = styled(NavLink)`
   gap: 0;
   margin-top: 10px;
   max-height: ${(props) => (props.$small ? '36px' : '')};
+  width: fit-content;
 
     &:hover {
       color: #e27b5b;
@@ -57,13 +58,10 @@ export const ArrowHead = styled.img`
   width: 10px; 
 `
 
-export const ArrowButton = ({ isSmall }) => {
+export const ArrowButton = ({ isSmall, path }) => {
   return (
     <ArrowNavLink
-      href="https://www.tangonorte.com/events.php?nid=8681"
-      target="_blank"
-      aria-label="linkedin"
-      rel="noreferrer"
+      to={`/${path}`}
       $small={isSmall}>
       LÄS MER
       <Arrow $small={isSmall}>
