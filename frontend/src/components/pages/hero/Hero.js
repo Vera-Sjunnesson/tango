@@ -13,7 +13,6 @@ export const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #FDF0E5;
   height: 1154px;
   overflow-x: hidden;
   align-items: center;
@@ -21,11 +20,13 @@ export const HeroContainer = styled.div`
   @media (min-width: 744px) and (max-width: 1280px) {
     height: 1617px; 
     overflow-x: hidden;
+    background: #FDF0E5;
   }
 
   @media (min-width: 1280px) {
     height: 100vh;
     display: block;
+    background: #FDF0E5;
   }
 
 `
@@ -33,18 +34,23 @@ export const HeroContent = styled.div`
   position: absolute;
   left: 0px;
   width: 100%;
+  top: 111px;
 
 
   @media (min-width: 744px) and (max-width: 1280px) {
     position: absolute;
-    top: 0px;
+    top: 144px;
     left: 0px;
     width: 100%;
     background: #FDF0E5;
   }
 
   @media (min-width: 1280px) {
-    top: 0px;
+    top: 16vh;
+    height: 84vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `
 
@@ -82,8 +88,8 @@ export const Hero = () => {
         ? (
           <>
             <LineAnimation />
+            <Header isLarge isHero />
             <HeroContent>
-              <Header isLarge />
               <FeaturedCarousel list={list} />
               <Menu />
             </HeroContent>

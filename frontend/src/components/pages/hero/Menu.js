@@ -23,7 +23,7 @@ margin-bottom: 40px;
 @media (min-width: 1280px) {
   flex-direction: row;
   width: 1010px;
-  height: 247px;
+  height: 100%;
   gap: 46px;
   margin-top: auto;
   margin-bottom: auto;

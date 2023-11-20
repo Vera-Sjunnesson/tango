@@ -57,7 +57,7 @@ h3 {
 }
   
   h4 {
-  font-size: 30px;
+  font-size: 40px;
   color: black;
   font-weight: 700;
   margin-bottom: 10px;

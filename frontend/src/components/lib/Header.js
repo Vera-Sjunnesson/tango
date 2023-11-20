@@ -28,7 +28,7 @@ export const HeaderContainer = styled.div`
 
   @media (min-width: 1280px) {
     position: unset;
-    height: 161px;
+    height: ${(props) => (props.$Small ? '88px' : '161px')};
     width: auto;
     flex-direction: row;
   }
@@ -46,24 +46,24 @@ export const Logo = styled.img`
   }
 
   @media (min-width: 1280px) {
-    height: ${(props) => (props.$Small ? '113px' : '142px')};
+    height: ${(props) => (props.$Small ? '100px' : '142px')};
     top: ${(props) => (props.$Small ? '5px' : '1px')};
     position: fixed;
     left: ${(props) => (props.$Small ? '7px' : '0px')};
 `
 
-export const Header = ({ isWhite, isLarge, isSmall }) => {
+export const Header = ({ isWhite, isSmall, isLarge, isHero }) => {
   const navLinkStyle = {
     zIndex: '1001'
   }
 
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1280px)' })
   return (
-    <HeaderContainer>
+    <HeaderContainer $Small={isSmall}>
       {isMobileOrTablet ? (
         <HamburgerMenu />
       ) : (
-        <NavBar isLarge={isLarge} />
+        <NavBar isLarge={isLarge} isHero={isHero} />
       )}
       <NavLink
         to="/"

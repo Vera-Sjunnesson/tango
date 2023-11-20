@@ -23,10 +23,11 @@ export const ListWrapper = styled.div`
   }
 
   @media (min-width: 1280px) {
-    left: 100px;
-    top: 170px;
-    width: 70%;
-    height: 70%;
+    left: ${(props) => (props.$right ? '' : '70px')};
+    right: ${(props) => (props.$right ? '70px' : '')};
+    top: 70px;
+    width: ${(props) => (props.$right ? '60%' : '60%')};
+    height: 75%;
     padding: 20px;
   }
 `
@@ -161,7 +162,7 @@ export const FacititatorDetails = styled.p`
   }
 `
 
-export const ListSection = ({ listHeader, loading, list, isDark, path }) => {
+export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }) => {
   const formatDate = (inputDate) => {
     const options = {
       weekday: 'short',
@@ -178,7 +179,7 @@ export const ListSection = ({ listHeader, loading, list, isDark, path }) => {
   };
 
   return (
-    <ListWrapper>
+    <ListWrapper $right={isRight}>
       <ListHeader>{listHeader.toUpperCase()}</ListHeader>
       <ListContainer $dark={isDark}>
         {!loading && list.map((listItem) => (

@@ -34,10 +34,10 @@ export const News = () => {
 
   return (
     <div>
+      <Header isSmall />
       <BackgroundGradeContainer $grade="#eec342, #eec342" $img={`${process.env.PUBLIC_URL}/assets/dance-line.png`} id="#sectionFive">
         <BackgroundLine isNews backgroundimg={`${process.env.PUBLIC_URL}/assets/line03-01.svg`} />
-        <Header isWhite isSmall />
-        <ListSection listHeader="Aktuellt" loading={loading} list={list} isDark path="aktuellt" />
+        <ListSection listHeader="Aktuellt" loading={loading} list={list} isDark path="aktuellt" isRight />
       </BackgroundGradeContainer>
     </div>
   );

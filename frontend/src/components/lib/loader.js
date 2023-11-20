@@ -14,7 +14,6 @@ export const LottieContainer = styled.div`
 
   .lottie-animation {
     width: 30%;
-    color: blue;
   }
 
   @media (min-width: 1024px) {

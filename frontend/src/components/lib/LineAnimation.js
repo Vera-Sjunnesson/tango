@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import { useMediaQuery } from 'react-responsive'
 
 export const LineContainer = styled.div`
-display: none;
+  display: none;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -19,8 +19,8 @@ display: none;
 
   @media (min-width: 1280px) {
     display: block;
-    display: block;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
   }
 `
 

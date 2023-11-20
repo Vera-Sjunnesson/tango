@@ -35,7 +35,7 @@ export const NavLinkStyled = styled(NavLink)`
   text-align: center;
   font-family: 'Barlow Semi Condensed', sans-serif;
   letter-spacing: 0.2rem;
-  font-size: ${(props) => (props.$large ? '40px' : '30px')};
+  font-size: ${(props) => (props.$large ? '40px' : '25px')};
 
   &::before {
     content: "";
@@ -53,7 +53,7 @@ export const NavLinkStyled = styled(NavLink)`
   }
 `
 
-export const NavBar = ({ isLarge }) => {
+export const NavBar = ({ isLarge, isHero }) => {
   const addHoverEffect = (e) => {
     e.currentTarget.classList.add('hovered');
   };
@@ -65,6 +65,14 @@ export const NavBar = ({ isLarge }) => {
   return (
     <NavBarContainer>
       <NavWrapper $large={isLarge}>
+        {!isHero
+          && (
+            <>
+              <NavLinkStyled $large={isLarge} to="/kalendarium" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>KALENDARIUM</NavLinkStyled>
+              <NavLinkStyled $large={isLarge} to="/aktuellt" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>AKTUELLT</NavLinkStyled>
+              <NavLinkStyled $large={isLarge} to="/kalendarium" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM TANGO</NavLinkStyled>
+            </>
+          )}
         <NavLinkStyled $large={isLarge} to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
         <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
         <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</NavLinkStyled>
