@@ -1,12 +1,11 @@
 import React from 'react';
-import { BackgroundContainer } from 'components/lib/ContainerStyles';
+import { StyledWrapper, BackgroundContainer } from 'components/lib/ContainerStyles';
 import styled from 'styled-components/macro';
-import { BackgroundLine, BackgroundLine2 } from 'components/lib/BackgroundLine';
-/* import { NavBarDark } from 'components/lib/NavBar'; */
-import { useMediaQuery } from 'react-responsive'
+import { BackgroundLine } from 'components/lib/BackgroundLine';
 import { Header } from 'components/lib/Header';
+import { ArrowButton } from 'components/lib/Buttons';
 
-export const FeaturedTextCard = styled.div`
+export const StyledTextCard = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -31,32 +30,29 @@ export const FeaturedTextCard = styled.div`
   }
 `
 
-export const TextCard = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  top: 400px;
-  width: 100%;
+export const StyledH1 = styled.h1`
+  margin-bottom: 20px;
+  color: #e78431;
+  font-weight: 500;
+  font-size: 2rem;
+  
+    @media (min-width: 744px) and (max-width: 1280px) {
+      font-size: 52px;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 52px;
+    }
 `
 
-export const MobileContainer = styled.div`
-  height: 140vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-export const FeaturedTextSpan = styled.span`
+export const StyledTextSpan = styled.span`
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   background: #000000d6;
   padding: 2px 10px;
 `
 
-export const FeaturedText = styled.p`
+export const StyledParagraph = styled.p`
   margin-bottom: 10px;
   color: white;
   font-weight: 300;
@@ -76,103 +72,29 @@ export const FeaturedText = styled.p`
   }
 `
 
-export const AboutH1 = styled.h1`
-  margin-bottom: 20px;
-  color: #e78431;
-  font-weight: 500;
-  font-size: 2rem;
-  
-  @media (min-width: 744px) and (max-width: 1280px) {
-    font-size: 52px;
-  }
-
-  @media (min-width: 1280px) {
-    font-size: 52px;
-  }
-`
-
-export const ReadMoreA = styled.a`
-  text-decoration: none;
-  background: #000000d6;
-  color: white;
-  padding: 10px 20px;
-  font-weight: 500;
-  z-index: 1001;
-  align-self: flex-start;
-  margin-right: 5px;
-  margin-top: 0px;
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-  }
-
-  @media (min-width: 1280px) {
-    margin-right: 0px;
-    margin-top: 0px;
-  }
-`
-
 export const About = () => {
-  const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
   return (
-    <div>
-      {isDesktop ? (
-        <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} id="#sectionTwo">
-          <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
-          <Header />
-          <FeaturedTextCard>
-            <AboutH1>
-              <FeaturedTextSpan>
-                OM TANGO NORTE
-              </FeaturedTextSpan>
-            </AboutH1>
-            <FeaturedText>
-              {/* eslint-disable-next-line max-len */}
-              Svensk-Argentinska Tangoföreningen är en ideell förening som verkar för spridandet av tangokulturen. Tonvikten ligger på dans, men också andra delar av kulturen ligger oss varmt om hjärtat. Föreningen bildades 1988 och använder ofta kortnamnet Tango Norte. All verksamhet bygger på ideellt arbete från medlemmarna.
-              <br />
-              <br />
-              {/* eslint-disable-next-line max-len */}
-              Under höst, vinter och vår har vi flera regelbundna aktiviteter varje vecka och om somrarna ordnar vi tangotillställningar i det fria. Sedan tjugo år arrangerar vi en tangofestival kring nyår med internationella artister: musiker, dansare (lärare) och DJ:s. Dessutom ordnar vi gästlärarbesök och andra aktiviteter då och då under året. Alla evenemang hittar du i kalendariet.
-            </FeaturedText>
-            <ReadMoreA
-              href="https://www.tangonorte.com/events.php?nid=8681"
-              target="_blank"
-              aria-label="linkedin"
-              rel="noreferrer">
-                LÄS MER
-            </ReadMoreA>
-          </FeaturedTextCard>
-        </BackgroundContainer>
-      ) : (
-        <MobileContainer>
-          <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} />
-          <BackgroundLine2 backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-03.svg`} />
-          <Header />
-          <FeaturedTextCard>
-            <AboutH1>
-              <FeaturedTextSpan>
-                OM TANGO NORTE
-              </FeaturedTextSpan>
-            </AboutH1>
-          </FeaturedTextCard>
-          <TextCard>
-            <FeaturedText>
-              {/* eslint-disable-next-line max-len */}
-              Svensk-Argentinska Tangoföreningen är en ideell förening som verkar för spridandet av tangokulturen. Tonvikten ligger på dans, men också andra delar av kulturen ligger oss varmt om hjärtat. Föreningen bildades 1988 och använder ofta kortnamnet Tango Norte. All verksamhet bygger på ideellt arbete från medlemmarna.
-              <br />
-              <br />
-              {/* eslint-disable-next-line max-len */}
-              Under höst, vinter och vår har vi flera regelbundna aktiviteter varje vecka och om somrarna ordnar vi tangotillställningar i det fria. Sedan tjugo år arrangerar vi en tangofestival kring nyår med internationella artister: musiker, dansare (lärare) och DJ:s. Dessutom ordnar vi gästlärarbesök och andra aktiviteter då och då under året. Alla evenemang hittar du i kalendariet.
-            </FeaturedText>
-            <ReadMoreA
-              href="https://www.tangonorte.com/events.php?nid=8681"
-              target="_blank"
-              aria-label="linkedin"
-              rel="noreferrer">
-              LÄS MER
-            </ReadMoreA>
-          </TextCard>
-        </MobileContainer>
-      )}
-    </div>
+    <StyledWrapper>
+      <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} id="#sectionTwo">
+        <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
+        <Header />
+        <StyledTextCard>
+          <StyledH1>
+            <StyledTextSpan>
+              OM TANGO NORTE
+            </StyledTextSpan>
+          </StyledH1>
+          <StyledParagraph>
+            {/* eslint-disable-next-line max-len */}
+            Svensk-Argentinska Tangoföreningen är en ideell förening som verkar för spridandet av tangokulturen. Tonvikten ligger på dans, men också andra delar av kulturen ligger oss varmt om hjärtat. Föreningen bildades 1988 och använder ofta kortnamnet Tango Norte. All verksamhet bygger på ideellt arbete från medlemmarna.
+            <br />
+            <br />
+            {/* eslint-disable-next-line max-len */}
+            Under höst, vinter och vår har vi flera regelbundna aktiviteter varje vecka och om somrarna ordnar vi tangotillställningar i det fria. Sedan tjugo år arrangerar vi en tangofestival kring nyår med internationella artister: musiker, dansare (lärare) och DJ:s. Dessutom ordnar vi gästlärarbesök och andra aktiviteter då och då under året. Alla evenemang hittar du i kalendariet.
+          </StyledParagraph>
+          <ArrowButton />
+        </StyledTextCard>
+      </BackgroundContainer>
+    </StyledWrapper>
   )
 }

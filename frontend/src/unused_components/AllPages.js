@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { ArrowButton } from 'components/lib/ArrowButton';
 import { NavBar } from 'components/lib/NavBar';
-import { Hero } from './hero/Hero';
-import { About } from './about/About';
-import { Member } from './member/Member';
-import { Calendarium } from './calendarium/Calendarium';
-import { News } from './news/News';
+import { Hero } from '../components/pages/hero/Hero';
+import { About } from '../components/pages/about/About';
+import { Member } from '../components/pages/member/Member';
+import { CalendarBoard } from '../components/pages/calendar/CalendarBoard';
+import { News } from '../components/pages/news/News';
 
 export const AllPages = () => {
   const [isOnScreen, setIsOnScreen] = useState(null);
@@ -83,7 +83,7 @@ export const AllPages = () => {
     <>
       <NavBar />
       <Hero heroRef={sectionsRefs[0]} />
-      <Calendarium calendariumRef={sectionsRefs[1]} />
+      <CalendarBoard calendariumRef={sectionsRefs[1]} />
       <News newsRef={sectionsRefs[2]} />
       <About aboutRef={sectionsRefs[3]} />
       <Member memberRef={sectionsRefs[4]} />

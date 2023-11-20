@@ -18,6 +18,15 @@ export const BackgroundContainer = styled.div`
   }
 `
 
+export const BackgroundGradeContainer = styled.div`
+  height: 100vh;
+  background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  overflow-x: hidden;
+`
+
 export const StyledWrapper = styled.div`
   height: 140vh;
   position: relative;
@@ -31,20 +40,4 @@ export const StyledWrapper = styled.div`
   @media (min-width: 1280px) {
     display: contents;
   }
-`
-
-export const BackgroundGradeContainer = styled.div`
-  height: 100vh;
-  background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
-  background-size: cover;
-  background-position: top;
-  position: relative;
-`
-
-export const BackgroundGradeContainer3 = styled.div`
-  height: 100vh;
-  background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
-  background-size: cover;
-  background-position: top;
-  position: relative;
 `

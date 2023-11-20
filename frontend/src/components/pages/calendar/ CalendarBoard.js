@@ -1,10 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { BackgroundGradeContainer } from 'components/lib/ContainerStyles';
+import { StyledWrapper, BackgroundContainer } from 'components/lib/ContainerStyles';
+import styled from 'styled-components/macro';
 import { BackgroundLine } from 'components/lib/BackgroundLine';
 import { Header } from 'components/lib/Header';
 import { ListSection } from 'components/lib/ListSection';
 
-export const News = () => {
+export const AboutH1 = styled.h1`
+  position: absolute;
+  color: white;
+  top: 274px;
+  width: 100%;
+  margin-bottom: 20px;
+  color: #e78431;
+  font-weight: 500;
+  font-size: 2rem;
+  
+  @media (min-width: 744px) and (max-width: 1280px) {
+    font-size: 52px;
+    left: 100px;
+    top: 100px;
+    width: auto;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 52px;
+    left: 100px;
+    top: 100px;
+    width: auto;
+  }
+`
+
+export const CalendarBoard = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -33,12 +59,12 @@ export const News = () => {
   }, []);
 
   return (
-    <div>
-      <BackgroundGradeContainer $grade="#eec342, #eec342" $img={`${process.env.PUBLIC_URL}/assets/dance-line.png`} id="#sectionFive">
-        <BackgroundLine isNews backgroundimg={`${process.env.PUBLIC_URL}/assets/line03-01.svg`} />
-        <Header isWhite isSmall />
-        <ListSection loading={loading} list={list} isDark />
-      </BackgroundGradeContainer>
-    </div>
+    <StyledWrapper>
+      <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`}>
+        <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
+        <Header />
+        <ListSection loading={loading} list={list} />
+      </BackgroundContainer>
+    </StyledWrapper>
   );
 }
