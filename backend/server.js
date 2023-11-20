@@ -17,16 +17,23 @@ app.get("/", (req, res) => {
 });
 
 app.get("/eventlist", (req, res) => {
+  const { featured } = req.query;
+  let featuredNorteEvents = norteEvents;
+  if (featured) {
+    featuredNorteEvents = norteEvents.filter((event) => {
+      return event.featured === true;
+    });
+  } 
   if (norteEvents) {
     res.status(200).json({
       success: true,
       massage: "OK",
       body: {
-        norteEvents: norteEvents
+        norteEvents: featuredNorteEvents
       }
     });
   } else {
-    res.status(500).json({
+    res.status(404).json({
       success: false,
       massage: "Something went wrong",
       body: {}

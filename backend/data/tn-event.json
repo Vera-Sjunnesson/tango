@@ -26,7 +26,8 @@
     "createdby": 567,
     "venue_booked": "2023-10-28",
     "responsible": 789,
-    "coresponsible": 890
+    "coresponsible": 890,
+    "featured": true
   },
   {
     "id": 2,
@@ -55,7 +56,8 @@
     "createdby": 678,
     "venue_booked": "2023-10-30",
     "responsible": 890,
-    "coresponsible": 901
+    "coresponsible": 901,
+    "featured": true
   },
   {
     "id": 3,
@@ -84,7 +86,8 @@
     "createdby": 999,
     "venue_booked": "2023-11-28",
     "responsible": 1010,
-    "coresponsible": 1111
+    "coresponsible": 1111,
+    "featured": true
   },
   {
     "id": 4,
@@ -113,7 +116,8 @@
     "createdby": 1111,
     "venue_booked": "2023-12-08",
     "responsible": 1212,
-    "coresponsible": 1313
+    "coresponsible": 1313,
+    "featured": false
   },
   {
     "id": 21,
@@ -142,7 +146,8 @@
     "createdby": 1111,
     "venue_booked": "2023-12-08",
     "responsible": 1212,
-    "coresponsible": 1313
+    "coresponsible": 1313,
+    "featured": false
   },
   {
     "id": 27,
@@ -171,7 +176,8 @@
     "createdby": 1111,
     "venue_booked": "2023-12-08",
     "responsible": 1212,
-    "coresponsible": 1313
+    "coresponsible": 1313,
+    "featured": false
   },
   {
     "id": 28,
@@ -200,7 +206,8 @@
     "createdby": 1111,
     "venue_booked": "2023-12-08",
     "responsible": 1212,
-    "coresponsible": 1313
+    "coresponsible": 1313,
+    "featured": false
   },
   {
     "id": 29,
@@ -229,7 +236,8 @@
     "createdby": 1111,
     "venue_booked": "2023-12-08",
     "responsible": 1212,
-    "coresponsible": 1313
+    "coresponsible": 1313,
+    "featured": false
   },
   {
     "id": 30,
@@ -258,7 +266,8 @@
     "createdby": 1111,
     "venue_booked": "2023-12-08",
     "responsible": 1212,
-    "coresponsible": 1313
+    "coresponsible": 1313,
+    "featured": false
   },
   {
     "id": 31,
@@ -287,6 +296,7 @@
     "createdby": 1111,
     "venue_booked": "2023-12-08",
     "responsible": 1212,
-    "coresponsible": 1313
+    "coresponsible": 1313,
+    "featured": false
   }
 ]
