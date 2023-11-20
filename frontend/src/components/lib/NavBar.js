@@ -6,7 +6,7 @@ export const NavBarContainer = styled.div`
   width: 100%;  
   position: fixed;
   z-index: 1001;
-  width: 100%;
+  width: ${(props) => (props.$large ? '100%' : '80%')};
   height: 34px;
   right: 10px;
   top: 5px;
@@ -17,8 +17,9 @@ export const NavWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  justify-content: ${(props) => (props.$large ? 'flex-end' : 'space-between')};
   height: 34px;
-  gap: ${(props) => (props.$large ? '111px' : '68px')};
+  gap: ${(props) => (props.$large ? '111px' : '0px')};
   z-index: 999;
   text-align: center;
   width: 100%;
@@ -51,6 +52,20 @@ export const NavLinkStyled = styled(NavLink)`
   &.hovered::before {
     width: 100%;
   }
+
+  &.active::before {
+    width: 100%;
+  }
+`
+
+export const NavDivider = styled.span`
+  align-self: center;
+  background: #222222;
+  content: " ";
+  height: 20px;
+  margin-bottom: 5px;
+  /* opacity: .3; */
+  width: 4px;
 `
 
 export const NavBar = ({ isLarge, isHero }) => {
@@ -63,7 +78,7 @@ export const NavBar = ({ isLarge, isHero }) => {
   };
 
   return (
-    <NavBarContainer>
+    <NavBarContainer $large={isLarge}>
       <NavWrapper $large={isLarge}>
         {!isHero
           && (
@@ -71,9 +86,10 @@ export const NavBar = ({ isLarge, isHero }) => {
               <NavLinkStyled $large={isLarge} to="/kalendarium" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>KALENDARIUM</NavLinkStyled>
               <NavLinkStyled $large={isLarge} to="/aktuellt" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>AKTUELLT</NavLinkStyled>
               <NavLinkStyled $large={isLarge} to="/kalendarium" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM TANGO</NavLinkStyled>
+              <NavDivider />
+              <NavLinkStyled $large={isLarge} to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
             </>
           )}
-        <NavLinkStyled $large={isLarge} to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
         <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
         <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</NavLinkStyled>
         <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</NavLinkStyled>
