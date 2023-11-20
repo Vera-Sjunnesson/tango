@@ -17,7 +17,7 @@
     },
     "cost": 20,
     "facilitator": "Maria Rodriguez",
-    "image": "../frontend/public/images/R00_6554_d.jpg",
+    "image": "./images/R00_6554_d.jpg",
     "bookablefrom": "2023-11-10T00:00:00Z",
     "bookableto": "2023-11-18T23:59:59Z",
     "is_bookable": "couple",
