@@ -27,7 +27,8 @@
     "venue_booked": "2023-10-28",
     "responsible": 789,
     "coresponsible": 890,
-    "featured": true
+    "featured": true,
+    "image-position" : "top"
   },
   {
     "id": 2,
@@ -57,7 +58,8 @@
     "venue_booked": "2023-10-30",
     "responsible": 890,
     "coresponsible": 901,
-    "featured": true
+    "featured": true,
+    "image-position" : "center"
   },
   {
     "id": 3,
@@ -87,7 +89,8 @@
     "venue_booked": "2023-11-28",
     "responsible": 1010,
     "coresponsible": 1111,
-    "featured": true
+    "featured": true,
+    "image-position" : "bottom"
   },
   {
     "id": 4,
@@ -117,7 +120,8 @@
     "venue_booked": "2023-12-08",
     "responsible": 1212,
     "coresponsible": 1313,
-    "featured": false
+    "featured": false,
+    "image-position" : "bottom"
   },
   {
     "id": 21,
@@ -147,7 +151,8 @@
     "venue_booked": "2023-12-08",
     "responsible": 1212,
     "coresponsible": 1313,
-    "featured": false
+    "featured": false,
+    "image-position" : "bottom"
   },
   {
     "id": 27,
@@ -177,7 +182,8 @@
     "venue_booked": "2023-12-08",
     "responsible": 1212,
     "coresponsible": 1313,
-    "featured": false
+    "featured": false,
+    "image-position" : "bottom"
   },
   {
     "id": 28,
@@ -207,7 +213,8 @@
     "venue_booked": "2023-12-08",
     "responsible": 1212,
     "coresponsible": 1313,
-    "featured": false
+    "featured": false,
+    "image-position" : "bottom"
   },
   {
     "id": 29,
@@ -237,7 +244,8 @@
     "venue_booked": "2023-12-08",
     "responsible": 1212,
     "coresponsible": 1313,
-    "featured": false
+    "featured": false,
+    "image-position" : "bottom"
   },
   {
     "id": 30,
@@ -267,7 +275,8 @@
     "venue_booked": "2023-12-08",
     "responsible": 1212,
     "coresponsible": 1313,
-    "featured": false
+    "featured": false,
+    "image-position" : "bottom"
   },
   {
     "id": 31,
@@ -297,6 +306,7 @@
     "venue_booked": "2023-12-08",
     "responsible": 1212,
     "coresponsible": 1313,
-    "featured": false
+    "featured": false,
+    "image-position" : "bottom"
   }
 ]
