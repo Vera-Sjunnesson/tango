@@ -5,7 +5,7 @@ import { Hero } from 'components/pages/hero/Hero';
 import { CalendarBoard } from 'components/pages/calendar/ CalendarBoard';
 import { News } from 'components/pages/news/News';
 import { About } from 'components/pages/about/About';
-import { EventDetails } from 'components/pages/details/EventDetails.1';
+import { EventDetails } from 'components/pages/details/EventDetails';
 import { AboutTango } from 'components/pages/aboutTango/AboutTango';
 import { LogIn } from 'components/pages/personal/LogIn';
 

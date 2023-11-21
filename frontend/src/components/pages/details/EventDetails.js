@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { SINGLE_EVENT_URL } from 'utils/urls';
@@ -142,59 +141,57 @@ export const EventDetails = () => {
       hour: 'numeric',
       minute: 'numeric'
     };
-  
     const date = new Date(inputDate);
     const formattedTime = date.toLocaleTimeString('sv-SE', options);
-    
     const [hour] = formattedTime.split(':');
     return `${hour}`;
   };
 
   return (
-    <>
-        <HeroContainer>
-          {loading ? (
-            <Loader />
-          ) : (
-            <>
-              <LineAnimationShort />
-              <Header isSmall />
-              <DetailsWrapper>
-                <DetailsCard>
-                  <ListHeader>{details?.title}</ListHeader>
-                  <DetailsImage src={details?.image ? details?.image : "No data" } alt="event image" />
-                  <TimeAndPlaceDetails>
-                    <StyledParagraph>
-                      <StyledParagraphBold>
-                        När:&nbsp;&nbsp;
-                      </StyledParagraphBold>
-                      {formatDate(details?.starts)}
-                    </StyledParagraph>
-                    <StyledParagraph>
-                      <StyledParagraphBold>
-                        Tid:&nbsp;&nbsp;
-                      </StyledParagraphBold>
-                      kl {formatTime(details?.starts)}-{formatTime(details?.ends)}
-                    </StyledParagraph>
-                    <StyledParagraph>
-                      <StyledParagraphBold>
-                        Plats:&nbsp;&nbsp;
-                      </StyledParagraphBold>
-                      {details?.venue?.name}
-                    </StyledParagraph>
-                  </TimeAndPlaceDetails>
-                  <StyledParagraph>{details?.body ? details?.body : "No data"}</StyledParagraph>
-                  <StyledParagraph>
-                    <StyledParagraphBold>
-                      Dj:&nbsp;
-                    </StyledParagraphBold>
-                    {details?.facilitator ? details?.facilitator : "No data"}
-                  </StyledParagraph>
-                  <ArrowButton text="ANMÄL DIG" />
-                </DetailsCard>
-              </DetailsWrapper></>
-          )}
-      </HeroContainer>
-    </>
+
+    <HeroContainer>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <LineAnimationShort />
+          <Header isSmall />
+          <DetailsWrapper>
+            <DetailsCard>
+              <ListHeader>{details?.title}</ListHeader>
+              <DetailsImage src={details?.image ? details?.image : 'No data'} alt="event image" />
+              <TimeAndPlaceDetails>
+                <StyledParagraph>
+                  <StyledParagraphBold>
+                    När:&nbsp;&nbsp;
+                  </StyledParagraphBold>
+                  {formatDate(details?.starts)}
+                </StyledParagraph>
+                <StyledParagraph>
+                  <StyledParagraphBold>
+                    Tid:&nbsp;&nbsp;
+                  </StyledParagraphBold>
+                  kl {formatTime(details?.starts)}-{formatTime(details?.ends)}
+                </StyledParagraph>
+                <StyledParagraph>
+                  <StyledParagraphBold>
+                    Plats:&nbsp;&nbsp;
+                  </StyledParagraphBold>
+                  {details?.venue?.name}
+                </StyledParagraph>
+              </TimeAndPlaceDetails>
+              <StyledParagraph>{details?.body ? details?.body : 'No data'}</StyledParagraph>
+              <StyledParagraph>
+                <StyledParagraphBold>
+                  Dj:&nbsp;
+                </StyledParagraphBold>
+                {details?.facilitator ? details?.facilitator : 'No data'}
+              </StyledParagraph>
+              <ArrowButton text="ANMÄL DIG" />
+            </DetailsCard>
+          </DetailsWrapper>
+        </>
+      )}
+    </HeroContainer>
   )
 }
