@@ -70,7 +70,7 @@ export const Hero = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => setLoading(false), 1000);
+        setTimeout(() => setLoading(false), 500);
       }
     };
 
@@ -79,8 +79,10 @@ export const Hero = () => {
 
   return (
     <HeroContainer>
-      {!loading
+      {loading
         ? (
+          <Loader />
+        ) : (
           <>
             <LineAnimation />
             <Header isLarge isHero />
@@ -89,8 +91,6 @@ export const Hero = () => {
               <Menu />
             </HeroWrapper>
           </>
-        ) : (
-          <Loader />
         )}
     </HeroContainer>
   );
