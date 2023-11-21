@@ -106,6 +106,7 @@ code {
   -ms-transform: translateX(-100%);
   -o-transform: translateX(-100%);
   transform: translateX(-100%);
+  z-index: 1050 !important;
 }
 
 .bar {

@@ -36,6 +36,9 @@ export const MenuButtonContainer = styled(NavLink)`
   @media (min-width: 744px) and (max-width: 1280px) {
     height: 222px;
   }
+  @media (min-width: 1280px) {
+    height: 100%;
+  }
 `
 export const TextContainer = styled.span`
   height: 50px;
@@ -70,9 +73,9 @@ export const Arrow = styled.span`
   justify-content: flex-start;
 `
 
-export const MenuButton = ({ img, buttonText, to }) => {
+export const MenuButton = ({ img, buttonText, to, position }) => {
   return (
-    <MenuButtonContainer type="button" to={`${to}`} style={{ backgroundImage: `linear-gradient(358deg, rgba(34, 34, 34, 0.5) 22.53%, rgba(255, 255, 255, 0) 100%), url(${img})`, backgroundPosition: 'top' }}>
+    <MenuButtonContainer type="button" to={`${to}`} style={{ backgroundImage: `linear-gradient(358deg, rgba(34, 34, 34, 0.5) 22.53%, rgba(255, 255, 255, 0) 100%), url(${img})`, backgroundPosition: `${position}` }}>
       <TextContainer>
         {buttonText}
         <Arrow>

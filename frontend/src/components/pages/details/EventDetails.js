@@ -58,10 +58,18 @@ export const DetailsWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1001;
+  z-index: 0;
   position: absolute;
   top: 171px;
   width: 100%;
+  
+  @media (min-width: 744px) and (max-width: 1280px) {
+    z-index: 990;
+  }
+  
+  @media (min-width: 1280px) {
+    z-index: 1010;
+  }
 `;
 
 export const DetailsCard = styled.div`

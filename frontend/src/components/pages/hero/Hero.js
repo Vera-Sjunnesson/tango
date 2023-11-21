@@ -22,6 +22,7 @@ export const HeroContainer = styled.div`
     height: 100vh;
     display: block;
     background: #FDF0E5;
+    overflow: hidden;
   }
 
 `
