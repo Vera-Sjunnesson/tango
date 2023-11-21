@@ -4,7 +4,7 @@ import { SINGLE_EVENT_URL } from 'utils/urls';
 import { Header } from 'components/lib/Header';
 import { LineAnimationShort } from 'components/lib/LineAnimation';
 import styled from 'styled-components/macro';
-import { Loader } from 'components/lib/Loader';
+import { Loader } from 'components/lib/loader';
 import { ArrowButton } from 'components/lib/Buttons';
 
 export const HeroContainer = styled.div`

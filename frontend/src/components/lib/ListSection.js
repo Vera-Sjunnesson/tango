@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { ArrowButton } from './Buttons';
-import { Loader } from './Loader';
+import { Loader } from './loader';
 import { ListDescription } from './ListDescription';
 
 export const ListWrapper = styled.div`

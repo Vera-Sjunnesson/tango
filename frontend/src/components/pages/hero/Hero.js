@@ -3,7 +3,7 @@ import { Header } from 'components/lib/Header';
 /* import { BackgroundLine } from 'components/lib/BackgroundLine'; */
 import styled from 'styled-components/macro';
 import { LineAnimation } from 'components/lib/LineAnimation';
-import { Loader } from 'components/lib/Loader';
+import { Loader } from 'components/lib/loader';
 import { FeaturedCarousel } from './FeaturedCarousel';
 import { Menu } from './Menu';
 
