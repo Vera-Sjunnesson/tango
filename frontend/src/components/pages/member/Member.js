@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Label, Form, TextInput, TextInputBox, LabelLogin, Error } from 'components/lib/Input'
