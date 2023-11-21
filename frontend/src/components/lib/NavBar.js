@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export const NavBarContainer = styled.div`
   width: 100%;  
-  position: fixed;
+  position: absolut;
   z-index: 1001;
   width: ${(props) => (props.$large ? '100%' : '80%')};
   height: 34px;
@@ -85,14 +85,14 @@ export const NavBar = ({ isLarge, isHero }) => {
             <>
               <NavLinkStyled $large={isLarge} to="/kalendarium" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>KALENDARIUM</NavLinkStyled>
               <NavLinkStyled $large={isLarge} to="/aktuellt" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>AKTUELLT</NavLinkStyled>
-              <NavLinkStyled $large={isLarge} to="/kalendarium" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM TANGO</NavLinkStyled>
+              <NavLinkStyled $large={isLarge} to="/om-tango" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM TANGO</NavLinkStyled>
               <NavDivider />
               <NavLinkStyled $large={isLarge} to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
             </>
           )}
         <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
-        <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</NavLinkStyled>
-        <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</NavLinkStyled>
+        <NavLinkStyled $large={isLarge} to="/logga-in" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</NavLinkStyled>
+        <NavLinkStyled $large={isLarge} to="/logga-in" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</NavLinkStyled>
       </NavWrapper>
     </NavBarContainer>
   )

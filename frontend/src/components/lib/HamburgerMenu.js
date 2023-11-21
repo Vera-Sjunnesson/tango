@@ -62,12 +62,13 @@ export const HamburgerMenu = () => {
               </li>
               <li
                 className={toggleSideBar
-                  ? 'sidebar-item active' : 'sidebar-item'}>
+                  ? 'sidebar-item active'
+                  : 'sidebar-item'}>
                 <NavLink
                   className="sidebar-anchor"
-                  to="/om"
+                  to="/"
                   onClick={onAnchorClick}>
-                  OM TANGO NORTE
+                  LOGGA IN
                 </NavLink>
               </li>
               <li
@@ -85,14 +86,22 @@ export const HamburgerMenu = () => {
               <li
                 className={toggleSideBar
                   ? 'sidebar-item active' : 'sidebar-item'}>
-                <a
-                  href="https://www.tangonorte.com/page.php?id=*"
-                  target="_blank"
-                  rel="noreferrer"
+                <NavLink
                   className="sidebar-anchor"
+                  to="/om"
                   onClick={onAnchorClick}>
-                    OM TANGO
-                </a>
+                  OM TANGO NORTE
+                </NavLink>
+              </li>
+              <li
+                className={toggleSideBar
+                  ? 'sidebar-item active' : 'sidebar-item'}>
+                <NavLink
+                  className="sidebar-anchor"
+                  to="/om-tango"
+                  onClick={onAnchorClick}>
+                  OM TANGO
+                </NavLink>
               </li>
               <li
                 className={toggleSideBar
@@ -113,18 +122,6 @@ export const HamburgerMenu = () => {
                   onClick={onAnchorClick}>
                   AKTUELLT
                 </NavLink>
-              </li>
-              <li
-                className={toggleSideBar
-                  ? 'sidebar-item active' : 'sidebar-item'}>
-                <a
-                  href="https://www.tangonorte.com/news.php"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="sidebar-anchor"
-                  onClick={onAnchorClick}>
-                    SAVE THE DATE
-                </a>
               </li>
             </ul>
           </div>

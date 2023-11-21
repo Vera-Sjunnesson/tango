@@ -5,7 +5,8 @@ import { SINGLE_EVENT_URL } from 'utils/urls';
 import { Header } from 'components/lib/Header';
 import { LineAnimationShort } from 'components/lib/LineAnimation';
 import styled from 'styled-components/macro';
-import { Loader } from 'components/lib/loader';
+import { Loader } from 'components/lib/Loader';
+import { ArrowButton } from 'components/lib/Buttons';
 
 export const HeroContainer = styled.div`
   width: 100%;
@@ -189,6 +190,7 @@ export const EventDetails = () => {
                     </StyledParagraphBold>
                     {details?.facilitator ? details?.facilitator : "No data"}
                   </StyledParagraph>
+                  <ArrowButton text="ANMÄL DIG" />
                 </DetailsCard>
               </DetailsWrapper></>
           )}

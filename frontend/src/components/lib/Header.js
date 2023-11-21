@@ -13,7 +13,6 @@ export const HeaderContainer = styled.div`
   flex-direction: row-reverse;
   justify-content: space-between;
   width: 100%;
-/*   box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50); */
 
   @media (min-width: 744px) and (max-width: 1280px) {
     height: 144px;
@@ -28,9 +27,8 @@ export const HeaderContainer = styled.div`
 
   @media (min-width: 1280px) {
     position: unset;
-    height: ${(props) => (props.$Small ? '88px' : '161px')};
+    height: ${(props) => (props.$Small ? '104px' : '161px')};
     width: auto;
-    flex-direction: row;
   }
 `
 
@@ -40,7 +38,7 @@ export const Logo = styled.img`
   z-index: 1001;
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    height: 163px;
+    height: ${(props) => (props.$Small ? '124px' : '163px')};
     position: absolute;
     top: 9px;
   }
@@ -48,7 +46,7 @@ export const Logo = styled.img`
   @media (min-width: 1280px) {
     height: ${(props) => (props.$Small ? '100px' : '142px')};
     top: ${(props) => (props.$Small ? '5px' : '1px')};
-    position: fixed;
+    position: absolute;
     left: ${(props) => (props.$Small ? '7px' : '0px')};
 `
 

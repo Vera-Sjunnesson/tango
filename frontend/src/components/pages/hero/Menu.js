@@ -43,7 +43,7 @@ export const Menu = () => {
         img={`${process.env.PUBLIC_URL}/images/S02_1801_d.jpg`}
         buttonText="AKTUELLT" />
       <MenuButton
-        to="/kalendarium"
+        to="/om-tango"
         img={`${process.env.PUBLIC_URL}/images/C04_3948_d.jpg`}
         buttonText="OM TANGO" />
     </MenuContainer>

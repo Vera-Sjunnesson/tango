@@ -220,7 +220,7 @@ export const FeaturedCarousel = ({ list }) => {
               <FeaturedTextCard>
                 <FeaturedHeading>{listItem.title.toUpperCase()}</FeaturedHeading>
                 <FeaturedText>{listItem.body}</FeaturedText>
-                <ArrowButton path={`${listItem.id}`} />
+                <ArrowButton path={`${listItem.id}`} text="LÄS MER" />
               </FeaturedTextCard>
             </Article>
           </swiper-slide>

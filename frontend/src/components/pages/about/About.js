@@ -3,14 +3,13 @@ import { StyledWrapper, BackgroundContainer } from 'components/lib/ContainerStyl
 import styled from 'styled-components/macro';
 import { BackgroundLine } from 'components/lib/BackgroundLine';
 import { Header } from 'components/lib/Header';
-import { ArrowButton } from 'components/lib/Buttons';
 
 export const StyledTextCard = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 274px;
+  top: 523px;
   width: 100%;
 
   @media (min-width: 744px) and (max-width: 1280px) {
@@ -75,9 +74,9 @@ export const StyledParagraph = styled.p`
 export const About = () => {
   return (
     <StyledWrapper>
+      <Header isSmall />
       <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} id="#sectionTwo">
         <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
-        <Header />
         <StyledTextCard>
           <StyledH1>
             <StyledTextSpan>
@@ -92,7 +91,6 @@ export const About = () => {
             {/* eslint-disable-next-line max-len */}
             Under höst, vinter och vår har vi flera regelbundna aktiviteter varje vecka och om somrarna ordnar vi tangotillställningar i det fria. Sedan tjugo år arrangerar vi en tangofestival kring nyår med internationella artister: musiker, dansare (lärare) och DJ:s. Dessutom ordnar vi gästlärarbesök och andra aktiviteter då och då under året. Alla evenemang hittar du i kalendariet.
           </StyledParagraph>
-          <ArrowButton />
         </StyledTextCard>
       </BackgroundContainer>
     </StyledWrapper>

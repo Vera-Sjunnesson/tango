@@ -30,6 +30,10 @@
   --secondary-font-family: 'Barlow', sans-serif;
 }
 
+*, html {
+  scroll-behavior: smooth !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -82,8 +86,8 @@ code {
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 123px;
-  z-index: 1000;
+  top: 110px;
+  z-index: 1050;
   right: -100%;
   background-color: #222222;
   transition: transform .7s ease-in-out;
@@ -331,12 +335,13 @@ nav {
 
 .sidebar-anchor {
   color: #FFF;
+  font-weight: 900;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.6em;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 7px;
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .sidebar-anchor:before {
@@ -373,33 +378,6 @@ nav {
   padding: 10px 0;
   letter-spacing: .2rem;
   font-family: var(--primary-font-family)
-}
-
-.loader {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: block;
-  margin:15px auto;
-  position: relative;
-  color: #e88025;
-  box-sizing: border-box;
-  animation: animloader 1s linear infinite alternate;
-}
-
-@keyframes animloader {
-  0% {
-    box-shadow: -38px -6px, -14px 6px,  14px -6px;
-  }
-  33% {
-    box-shadow: -38px 6px, -14px -6px,  14px 6px;
-  }
-  66% {
-    box-shadow: -38px -6px, -14px 6px, 14px -6px;
-  }
-  100% {
-    box-shadow: -38px 6px, -14px -6px, 14px 6px;
-  }
 }
 
 @media (min-width:744px) and (max-width:1280px) {

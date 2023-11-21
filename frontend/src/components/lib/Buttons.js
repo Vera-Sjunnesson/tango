@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom';
 export const ArrowNavLink = styled(NavLink)`
   display: flex;
   text-decoration: none;
-  background: #000000d6;
-  color: white;
+  background: ${(props) => (props.$white ? 'transparent' : '#222222')};
+  color: #fff;
   font-weight: 500;
-  padding: ${(props) => (props.$small ? '10px' : '10px 20px')};
+  padding: ${(props) => (props.$small ? '10px 10px 10px 0px' : '10px 20px')};
   z-index: 998;
   letter-spacing: 0.2rem;
   justify-content: flex-start;
@@ -20,16 +20,15 @@ export const ArrowNavLink = styled(NavLink)`
 
     &:hover {
       color: #e27b5b;
-      border-color: #e27b5b;
     }
 
     .arrow {
       width: 30px;
       transition: all 0.3s ease;
-      border: 1px solid #fff;
+      border: ${(props) => (props.$white ? '1px solid #222222' : '1px solid #fff')};
       position: relative;
       background: #fff;
-      right: -10px;
+      right: ${(props) => (props.$white ? '-13px' : '-10px')};
       border-radius: 70px;
     }
   
@@ -40,7 +39,7 @@ export const ArrowNavLink = styled(NavLink)`
 `
 
 export const Arrow = styled.span`
-  display: ${(props) => (props.$small ? 'none' : 'flex')};
+  display: flex;
   cursor: pointer;
   align-items: center;
   transition: all 0.3s ease;
@@ -55,18 +54,19 @@ export const Arrow = styled.span`
 `
 
 export const ArrowHead = styled.img`
-  width: 10px; 
+  width: ${(props) => (props.$white ? '15px' : '10px')};
 `
 
-export const ArrowButton = ({ isSmall, path }) => {
+export const ArrowButton = ({ isSmall, isWhite, path, text }) => {
   return (
     <ArrowNavLink
       to={`/${path}`}
-      $small={isSmall}>
-      LÄS MER
+      $small={isSmall}
+      $white={isWhite}>
+      {isWhite ? '' : `${text}`}
       <Arrow $small={isSmall}>
         <span className="arrow" />
-        <ArrowHead src={`${process.env.PUBLIC_URL}/assets/arrow-head.png`} alt="test" />
+        <ArrowHead $white={isWhite} src={isWhite ? `${process.env.PUBLIC_URL}/assets/arrow-black.png` : `${process.env.PUBLIC_URL}/assets/arrow-head.png`} alt="arrow-head" />
       </Arrow>
     </ArrowNavLink>
   )

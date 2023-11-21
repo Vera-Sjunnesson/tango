@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { ArrowButton } from './Buttons';
-import { Loader } from './loader';
+import { Loader } from './Loader';
+import { ListDescription } from './ListDescription';
 
 export const ListWrapper = styled.div`
   position: absolute;
@@ -34,20 +35,15 @@ export const ListWrapper = styled.div`
 
 export const ListHeader = styled.h4`
   color: #222222;
-  padding: 15px;
   font-weight: 900;
-  padding: 10px;
   letter-spacing: .2rem;
   
   @media (min-width: 744px) and (max-width: 1280px) {
-    margin-bottom: 20px;
     padding: 0px;
   }
 
   @media (min-width: 1280px) {
-    margin-bottom: 20px;
-    padding: 0;
-    margin-left: 5px;
+    padding: 10px 0 10px 0;
   }
 `
 
@@ -65,6 +61,7 @@ export const ListContainer = styled.ul`
 
   @media (min-width: 1280px) {
     left: 100px;
+    height: 100%;
     top: 170px;
     overflow-y: scroll;
   }
@@ -81,11 +78,17 @@ export const ListItemCard = styled.li`
   @media (min-width: 744px) and (max-width: 1280px) {
     align-items: center;
     gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   @media (min-width: 1280px) {
     align-items: center;
     gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 `
 
@@ -112,6 +115,16 @@ export const DateText = styled.p`
 export const StyledH5 = styled.h5`
   color: #222222;
   width: 100%;
+  font-size: 24px;
+  margin: 0;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    width: auto;
+  }
+
+  @media (min-width: 1280px) {
+    width: auto;
+  }
 `
 
 export const ListDetailsSection = styled.div`
@@ -128,8 +141,6 @@ export const ListDetailsSpan = styled.span`
   gap: 5px;
   align-items: flex-start;
   width: 60%;
-  padding-left: 5px;
-  margin-right: 15px;
 `
 
 export const ListParagraph = styled.p`
@@ -146,11 +157,28 @@ export const FacititatorDetails = styled.p`
   color: #222222;
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    width: 277px;
   }
 
   @media (min-width: 1280px) {
-    width: 277px;
+  }
+`
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    margin: 0px;
+    padding: 15px 0px;
+  }
+
+  @media (min-width: 1280px) {
+    margin: 0;
+    padding: 15px 0px;
   }
 `
 
@@ -171,11 +199,11 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
   const getBackgroundColor = (type) => {
     switch (type) {
       case 'practica':
-        return '#FDF0E5';
-      case 'class':
         return '#518a93';
+      case 'class':
+        return '#edc343';
       case 'milonga':
-        return '#f3cfc5';
+        return '#e88025';
       case 'festival':
         return '#fef0c8';
       default:
@@ -185,20 +213,23 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
 
   return (
     <ListWrapper $right={isRight}>
-      <ListHeader>{listHeader.toUpperCase()}</ListHeader>
+      <HeaderContainer>
+        <ListHeader>{listHeader.toUpperCase()}</ListHeader>
+        <ListDescription />
+      </HeaderContainer>
       <ListContainer $dark={isDark}>
         {!loading && list.map((listItem) => {
           const bgColor = getBackgroundColor(listItem.type); // Get background color
           return (
             <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
               <StyledH5>{listItem.title}</StyledH5>
-              <DateText>{formatDate(listItem.starts)}</DateText>
+              <FacititatorDetails>{formatDate(listItem.starts)}</FacititatorDetails>
               <ListDetailsSection>
                 <ListDetailsSpan>
                   <ListParagraph>{listItem.body}</ListParagraph>
                   <FacititatorDetails>DJ: {listItem.facilitator}</FacititatorDetails>
                 </ListDetailsSpan>
-                <ArrowButton isSmall path={`${path}/${listItem.id}`} />
+                <ArrowButton isSmall isWhite path={`${path}/${listItem.id}`} />
               </ListDetailsSection>
             </ListItemCard>
           )
