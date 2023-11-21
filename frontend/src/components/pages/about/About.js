@@ -75,8 +75,8 @@ export const About = () => {
   return (
     <StyledWrapper>
       <Header isSmall />
-      <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`} id="#sectionTwo">
-        <BackgroundLine backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
+      <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`}>
+        <BackgroundLine isCover backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
         <StyledTextCard>
           <StyledH1>
             <StyledTextSpan>

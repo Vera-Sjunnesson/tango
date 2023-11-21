@@ -44,7 +44,7 @@ export const Card = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 50%;
   height: 100px;
 
   @media (min-width: 744px) and (max-width: 1280px) {

@@ -382,7 +382,6 @@ nav {
 @media (min-width:744px) and (max-width:1280px) {
   .sidebar {
     height: 86vh;
-    position: absolute;
     top: 144px;
   }
 

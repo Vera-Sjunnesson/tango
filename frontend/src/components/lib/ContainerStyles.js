@@ -23,7 +23,6 @@ export const BackgroundGradeContainer = styled.div`
   background-size: cover;
   background-position: top;
   position: relative;
-  overflow-x: hidden;
 `
 
 export const StyledWrapper = styled.div`
@@ -32,7 +31,6 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden;
 
   @media (min-width: 744px) and (max-width: 1280px) {
   }
