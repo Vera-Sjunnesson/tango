@@ -79,13 +79,12 @@ code {
   background: #555; 
 }
 
-/* MENU */
-@import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic);
+/* HAMBURGER MENU */
 
 .sidebar {
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 110px;
   z-index: 1050;
   right: -100%;

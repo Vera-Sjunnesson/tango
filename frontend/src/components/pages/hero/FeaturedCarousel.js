@@ -209,8 +209,9 @@ export const FeaturedCarousel = ({ list }) => {
       </NewsContainer>
       <swiper-container
         ref={swiperRef}
+        effect="slide"
         loop="true"
-        speed={2000}
+        speed={3000}
         style={{
           '--swiper-navigation-size': isMobileOrTablet ? '0px' : ''
         }}>

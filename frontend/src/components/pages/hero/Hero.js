@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from 'components/lib/Header';
-/* import { BackgroundLine } from 'components/lib/BackgroundLine'; */
 import styled from 'styled-components/macro';
 import { LineAnimation } from 'components/lib/LineAnimation';
 import { Loader } from 'components/lib/loader';
@@ -10,11 +9,7 @@ import { Menu } from './Menu';
 export const HeroContainer = styled.div`
   width: 100%;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 1154px;
-  overflow-x: hidden;
   align-items: center;
 
   @media (min-width: 744px) and (max-width: 1280px) {
@@ -30,7 +25,7 @@ export const HeroContainer = styled.div`
   }
 
 `
-export const HeroContent = styled.div`
+export const HeroWrapper = styled.div`
   position: absolute;
   left: 0px;
   width: 100%;
@@ -89,10 +84,10 @@ export const Hero = () => {
           <>
             <LineAnimation />
             <Header isLarge isHero />
-            <HeroContent>
+            <HeroWrapper>
               <FeaturedCarousel list={list} />
               <Menu />
-            </HeroContent>
+            </HeroWrapper>
           </>
         ) : (
           <Loader />

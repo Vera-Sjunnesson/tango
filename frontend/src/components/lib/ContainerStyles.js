@@ -5,7 +5,6 @@ export const BackgroundContainer = styled.div`
   background-size: cover;
   background-position: top;
   position: relative;
-  overflow-x: hidden;
   width: 100%;
   height: 100%;
 
