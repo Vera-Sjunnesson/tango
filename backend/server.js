@@ -13,7 +13,19 @@ app.use(express.json());
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.json(listEndPoints(app))
+  const welcomeText = "Tango Norte events and venues";
+  const deployedAPI = "https://tn-norte.onrender.com";
+  const endpoints = (listEndPoints(app))
+
+  res.send({
+    success: true,
+    message: "OK",
+    body: {
+      welcomeText,
+      deployedAPI,
+      endpoints
+    }
+  });
 });
 
 app.get("/eventlist", (req, res) => {
@@ -33,7 +45,7 @@ app.get("/eventlist", (req, res) => {
       }
     });
   } else {
-    res.status(404).json({
+    res.status(500).json({
       success: false,
       massage: "Something went wrong",
       body: {}
@@ -57,7 +69,7 @@ app.get("/eventlist/:id", (req, res) => {
   } else {
     res.status(404).json({
       success: false,
-      message: "Artist not found",
+      message: "Single event not found",
       body: {}
     });
   }
