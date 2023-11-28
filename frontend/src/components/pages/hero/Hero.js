@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import React, { useState, useEffect } from 'react';
 import { Header } from 'components/lib/Header';
 import styled from 'styled-components/macro';
@@ -67,7 +68,25 @@ export const Hero = () => {
         const response = await fetch(url);
         console.log('Response:', response);
         const data = await response.json();
-        setList(data.body.norteEvents);
+        const images = [
+          `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
+          `${process.env.PUBLIC_URL}/images/S02_4517_c_d_BW.png`,
+          `${process.env.PUBLIC_URL}/images/C05_0020_d_no_logo.png`,
+          `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
+          `${process.env.PUBLIC_URL}/images/S02_4517_c_d_BW.png`,
+          `${process.env.PUBLIC_URL}/images/C05_0020_d_no_logo.png`
+        ];
+        console.log('images', images)
+        const combinedDataWithImages = data.map((item, index) => {
+          return {
+            ...item,
+            image: images[index % images.length]
+          };
+        });
+        
+        setList(combinedDataWithImages);
+        console.log('herolist', list)
+
       } catch (error) {
         console.error(error);
       } finally {

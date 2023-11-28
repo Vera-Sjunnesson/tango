@@ -223,11 +223,13 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
           return (
             <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
               <StyledH5>{listItem.title}</StyledH5>
-              <FacititatorDetails>{formatDate(listItem.starts)}</FacititatorDetails>
+              <FacititatorDetails>
+                {formatDate(listItem.starts)}
+              </FacititatorDetails>
               <ListDetailsSection>
                 <ListDetailsSpan>
                   <ListParagraph>{listItem.body}</ListParagraph>
-                  <FacititatorDetails>DJ: {listItem.facilitator}</FacititatorDetails>
+                  <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
                 </ListDetailsSpan>
                 <ArrowButton isSmall isWhite path={`${path}/${listItem.id}`} />
               </ListDetailsSection>

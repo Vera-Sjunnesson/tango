@@ -47,7 +47,8 @@ export const CalendarBoard = () => {
         const response = await fetch(url);
         console.log('Response:', response);
         const data = await response.json();
-        setList(data.body.norteEvents);
+        setList(data);
+        console.log('list', list)
       } catch (error) {
         console.error(error);
       } finally {
