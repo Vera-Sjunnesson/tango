@@ -380,6 +380,36 @@ nav {
   font-family: var(--primary-font-family)
 }
 
+.rbc-toolbar .rbc-toolbar-label {
+  flex-grow: 1;
+  padding: 0 10px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: #222222;
+}
+
+.rbc-header {
+  padding: 5px 1px;
+}
+
+.rbc-header + .rbc-header {
+  font-weight: 500;
+  color: #222222;
+}
+
+.rbc-event {
+  height: 100%;
+  padding: 5px;
+}
+
+.rbc-ellipsis, .rbc-event-label, .rbc-row-segment .rbc-event-content, .rbc-show-more {
+  white-space: wrap;
+  font-weight: 500;
+  color: #222222;
+  overflow: visible;
+}
+
 @media (min-width:744px) and (max-width:1280px) {
   .sidebar {
     height: 86vh;

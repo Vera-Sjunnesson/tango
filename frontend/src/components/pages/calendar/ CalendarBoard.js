@@ -47,7 +47,7 @@ export const CalendarBoard = () => {
         const response = await fetch(url);
         console.log('Response:', response);
         const data = await response.json();
-        setList((prevList) => [...prevList, ...data]); // Using functional update
+        setList((prevList) => [...prevList, ...data]);
       } catch (error) {
         console.error(error);
       } finally {

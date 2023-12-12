@@ -74,7 +74,6 @@ export const ListItemCard = styled.li`
   padding: 15px 15px 15px 10px;
   gap: 15px;
   width: 100%;
-  border-bottom: solid 0.5px #222222;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     align-items: center;
@@ -90,26 +89,6 @@ export const ListItemCard = styled.li`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-`
-
-export const DateText = styled.p`
-  color: #222222;
-  width: 277px;
-  width: 100%;
-  padding: 0 5px;
-  width: fit-content;
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-    width: auto;
-    align-self: flex-start;
-    padding: 0px 5px;
-  }
-
-  @media (min-width: 1280px) {
-    width: auto;
-    align-self: flex-start;
-    padding: 0px 5px;
   }
 `
 
@@ -126,6 +105,22 @@ export const StyledH5 = styled.h5`
   @media (min-width: 1280px) {
     width: auto;
   }
+`
+
+export const DateHeader = styled.h4`
+  color: #222222;
+  background: white;
+  width: 100%;
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+  padding: 20px 10px 10px;
+
+    @media (min-width: 744px) and (max-width: 1280px) {
+    }
+
+    @media (min-width: 1280px) {
+    }
 `
 
 export const ListDetailsSection = styled.div`
@@ -151,6 +146,7 @@ export const ListParagraph = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   color: black;
+  font-family: ${(props) => (props.$day ? 'Barlow Semi Condensed' : 'tablet-gothic')};
 `
 
 export const FacititatorDetails = styled.p`
@@ -183,7 +179,29 @@ export const HeaderContainer = styled.div`
   }
 `
 
+// Function to sort list items by date
+const sortListItemsByDate = (list) => {
+  const sortedList = {};
+
+  // Group list items by date
+  list.forEach((item) => {
+    const date = new Date(item.starts);
+    const formatter = new Intl.DateTimeFormat('sv-SE', { weekday: 'short', day: 'numeric', month: 'short' });
+    const formattedDate = formatter.format(date).replace('.', '');
+
+    if (sortedList[formattedDate]) {
+      sortedList[formattedDate].push(item);
+    } else {
+      sortedList[formattedDate] = [item];
+    }
+  });
+
+  return sortedList;
+};
+
 export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }) => {
+  const sortedList = sortListItemsByDate(list);
+
   const formatDate = (inputDate) => {
     const options = {
       weekday: 'short',
@@ -192,8 +210,9 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
     };
     const date = new Date(inputDate);
     const formattedDate = date.toLocaleDateString('sv-SE', options);
-    const [weekday, day, month] = formattedDate.split(' ');
-    return `${weekday} ${day} ${month}`;
+    const [weekday, day, monthWithDot] = formattedDate.split(' ');
+    const monthWithoutDot = monthWithDot.replace('.', '');
+    return `${weekday} ${day} ${monthWithoutDot}`;
   };
 
   const getBackgroundColor = (type) => {
@@ -218,24 +237,31 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
         <ListDescription />
       </HeaderContainer>
       <ListContainer $dark={isDark}>
-        {!loading && list.map((listItem) => {
-          const bgColor = getBackgroundColor(listItem.type); // Get background color
-          return (
-            <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
-              <StyledH5>{listItem.title}</StyledH5>
-              <FacititatorDetails>
-                {formatDate(listItem.starts)}
-              </FacititatorDetails>
-              <ListDetailsSection>
-                <ListDetailsSpan>
-                  <ListParagraph>{listItem.body}</ListParagraph>
-                  <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
-                </ListDetailsSpan>
-                <ArrowButton isSmall isWhite path={`${path}/${listItem.id}`} />
-              </ListDetailsSection>
-            </ListItemCard>
-          )
-        })}
+        {!loading
+          && Object.keys(sortedList).map((date) => (
+            <div key={date}>
+              <DateHeader>{date}</DateHeader>
+              {sortedList[date].map((listItem) => {
+                const bgColor = getBackgroundColor(listItem.type); // Get background color
+                return (
+                  <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
+                    <StyledH5>{listItem.title}</StyledH5>
+                    <ListParagraph $day>
+                      {formatDate(listItem.starts)}
+                    </ListParagraph>
+                    <ListDetailsSection>
+                      <ListDetailsSpan>
+                        <ListParagraph
+                          dangerouslySetInnerHTML={{ __html: renderMarkdown(listItem.body) }} />
+                        <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
+                      </ListDetailsSpan>
+                      <ArrowButton isSmall isWhite path={`${path}/${listItem.id}`} />
+                    </ListDetailsSection>
+                  </ListItemCard>
+                );
+              })}
+            </div>
+          ))}
         {loading
           && (
             <Loader />
