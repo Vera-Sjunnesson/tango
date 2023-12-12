@@ -37,17 +37,17 @@ export const Menu = () => {
       <MenuButton
         position="top"
         to="/kalendarium"
-        img={`${process.env.PUBLIC_URL}/images/dragspel.png`}
+        img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`}
         buttonText="KALENDARIUM" />
       <MenuButton
         position="top"
         to="/aktuellt"
-        img={`${process.env.PUBLIC_URL}/images/S02_1801_d.jpg`}
+        img={`${process.env.PUBLIC_URL}/images/S02_1842_d.jpg`}
         buttonText="AKTUELLT" />
       <MenuButton
-        position="top"
+        position="bottom"
         to="/om-tango"
-        img={`${process.env.PUBLIC_URL}/images/C04_3948_d.jpg`}
+        img={`${process.env.PUBLIC_URL}/images/tango-performance.jpg`}
         buttonText="OM TANGO" />
     </MenuContainer>
   )

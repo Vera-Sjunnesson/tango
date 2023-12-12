@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export const NavBarContainer = styled.div`
   width: 100%;  
-  position: absolut;
+  position: absolute;
   z-index: 1001;
   width: ${(props) => (props.$large ? '100%' : '80%')};
   height: 34px;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { SINGLE_EVENT_URL } from 'utils/urls';
+import { SINGLE_NEWS_ITEM_URL } from 'utils/urls';
 import { Header } from 'components/lib/Header';
 import { LineAnimationShort } from 'components/lib/LineAnimation';
 import styled from 'styled-components/macro';
@@ -102,7 +102,18 @@ export const DetailsImage = styled.img`
   object-fit: cover;
 `;
 
-export const EventDetails = () => {
+export const renderMarkdown = (text) => {
+  if (text) {
+    const emphasizedText = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    const linkedText = emphasizedText.replace(
+      /{{\*(.*?)\*\/(.*?)}}/g,
+      '<a href="$2"><em>$1</em></a>'
+    );
+    return linkedText;
+  }
+}
+
+export const NewsDetails = () => {
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(false)
 
@@ -114,12 +125,11 @@ export const EventDetails = () => {
         if (id === undefined) {
           throw new Error('Event ID is undefined');
         }
-        const url = SINGLE_EVENT_URL(id);
-        console.log('url', url)
-        console.log('id', id)
+        const url = SINGLE_NEWS_ITEM_URL(id);
         if (!url) {
           throw new Error('Failed to fetch event details');
         }
+
         const response = await fetch(url);
         const data = await response.json();
         setDetails(data);
@@ -133,31 +143,7 @@ export const EventDetails = () => {
     fetchEventDetails();
   }, [id]);
 
-  const formatDate = (inputDate) => {
-    const options = {
-      weekday: 'short',
-      day: 'numeric',
-      month: 'short'
-    };
-    const date = new Date(inputDate);
-    const formattedDate = date.toLocaleDateString('sv-SE', options);
-    const [weekday, day, month] = formattedDate.split(' ');
-    return `${weekday} ${day} ${month}`;
-  };
-
-  const formatTime = (inputDate) => {
-    const options = {
-      hour: 'numeric',
-      minute: 'numeric'
-    };
-    const date = new Date(inputDate);
-    const formattedTime = date.toLocaleTimeString('sv-SE', options);
-    const [hour] = formattedTime.split(':');
-    return `${hour}`;
-  };
-
   return (
-
     <HeroContainer>
       {loading ? (
         <Loader />
@@ -169,29 +155,10 @@ export const EventDetails = () => {
             <DetailsCard>
               <ListHeader>{details[0]?.title}</ListHeader>
               {details[0]?.image && (
-                <DetailsImage src={details[0]?.image ? `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg` : details[0]?.image} alt="event image" />
+                <DetailsImage src={details[0]?.picture ? `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg` : details[0]?.picture} alt="news item image" />
               )}
-              <TimeAndPlaceDetails>
-                <StyledParagraph>
-                  <StyledParagraphBold>
-                    När:&nbsp;&nbsp;
-                  </StyledParagraphBold>
-                  {formatDate(details[0]?.starts)}
-                </StyledParagraph>
-                <StyledParagraph>
-                  <StyledParagraphBold>
-                    Tid:&nbsp;&nbsp;
-                  </StyledParagraphBold>
-                  kl {formatTime(details[0]?.starts)}-{formatTime(details[0]?.ends)}
-                </StyledParagraph>
-                <StyledParagraph>
-                  <StyledParagraphBold>
-                    Plats:&nbsp;&nbsp;
-                  </StyledParagraphBold>
-                  {details[0]?.venue_name}
-                </StyledParagraph>
-              </TimeAndPlaceDetails>
-              <StyledParagraph>{details[0]?.body ? details[0]?.body : 'No data'}</StyledParagraph>
+              <StyledParagraph
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(details[0]?.body) }} />
               {details[0]?.facilitator && (
                 <StyledParagraphBold>
                   {details[0]?.facilitator ? details[0]?.facilitator : 'No data'}

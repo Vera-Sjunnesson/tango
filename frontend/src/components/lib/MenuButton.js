@@ -75,7 +75,7 @@ export const Arrow = styled.span`
 
 export const MenuButton = ({ img, buttonText, to, position }) => {
   return (
-    <MenuButtonContainer type="button" to={`${to}`} style={{ backgroundImage: `linear-gradient(358deg, rgba(34, 34, 34, 0.5) 22.53%, rgba(255, 255, 255, 0) 100%), url(${img})`, backgroundPosition: `${position}` }}>
+    <MenuButtonContainer type="button" to={`${to}`} style={{ backgroundImage: `linear-gradient(358deg, rgba(34, 34, 34, 0.4) 22.53%, rgba(255, 255, 255, 0) 100%), url(${img})`, backgroundPosition: `${position}` }}>
       <TextContainer>
         {buttonText}
         <Arrow>

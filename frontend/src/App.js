@@ -8,6 +8,7 @@ import { About } from 'components/pages/about/About';
 import { EventDetails } from 'components/pages/details/EventDetails';
 import { AboutTango } from 'components/pages/aboutTango/AboutTango';
 import { LogIn } from 'components/pages/personal/LogIn';
+import { NewsDetails } from 'components/pages/details/NewsDetails';
 
 export const App = () => {
   return (
@@ -15,11 +16,10 @@ export const App = () => {
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/:id" element={<EventDetails />} />
         <Route path="/kalendarium" element={<CalendarBoard />} />
         <Route path="/kalendarium/:id" element={<EventDetails />} />
         <Route path="/aktuellt" element={<News />} />
-        <Route path="/aktuellt/:id" element={<EventDetails />} />
+        <Route path="/aktuellt/:id" element={<NewsDetails />} />
         <Route path="/om" element={<About />} />
         <Route path="/om-tango" element={<AboutTango />} />
         <Route path="/logga-in" element={<LogIn />} />

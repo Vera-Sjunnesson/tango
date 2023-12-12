@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import { register } from 'swiper/element/bundle';
 import { useMediaQuery } from 'react-responsive'
 import { ArrowButton } from 'components/lib/Buttons';
+import { renderMarkdown } from '../details/NewsDetails';
 
 register();
 
@@ -156,14 +157,16 @@ export const FeaturedText = styled.p`
 
   @media (min-width: 744px) and (max-width: 1280px) {
     padding: 0;
-    font-size: 16px;
     width: 100%;
   }
 
   @media (min-width: 1280px) {
     padding: 0;
-    font-size: 16px;
     width: 648px;
+  }
+
+  & em {
+    font-weight: 900;
   }
 `
 
@@ -202,6 +205,14 @@ export const FeaturedCarousel = ({ list }) => {
     swiperContainer.initialize();
   }, []);
 
+  const addEllipsis = (text) => {
+    if (!isMobileOrTablet) {
+      return `${text}...`;
+    } else {
+      return text
+    }
+  };
+
   return (
     <CarouselContainer>
       <NewsContainer>
@@ -220,8 +231,10 @@ export const FeaturedCarousel = ({ list }) => {
             <Article style={{ backgroundImage: `linear-gradient(15deg, rgba(34, 34, 34, 0.8) 30%, rgba(255, 255, 255, 0) 65%), url(${listItem.image})`, backgroundSize: 'cover', backgroundPosition: `${listItem.imageposition}` }}>
               <FeaturedTextCard>
                 <FeaturedHeading>{listItem.title.toUpperCase()}</FeaturedHeading>
-                <FeaturedText>{listItem.body}</FeaturedText>
-                <ArrowButton path={`${listItem.id}`} text="LÄS MER" />
+                <FeaturedText
+                  // eslint-disable-next-line max-len
+                  dangerouslySetInnerHTML={{ __html: addEllipsis(renderMarkdown(listItem.body)) }} />
+                <ArrowButton path={`aktuellt/${listItem.anid}`} text="LÄS MER" />
               </FeaturedTextCard>
             </Article>
           </swiper-slide>

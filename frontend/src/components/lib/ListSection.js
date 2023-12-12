@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { renderMarkdown } from 'components/pages/details/NewsDetails';
 import { ArrowButton } from './Buttons';
 import { Loader } from './loader';
 import { ListDescription } from './ListDescription';
@@ -191,8 +192,7 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
     };
     const date = new Date(inputDate);
     const formattedDate = date.toLocaleDateString('sv-SE', options);
-    const [weekday, day, monthWithDot] = formattedDate.split(' ');
-    const month = monthWithDot.replace('.', '');
+    const [weekday, day, month] = formattedDate.split(' ');
     return `${weekday} ${day} ${month}`;
   };
 
@@ -232,6 +232,37 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
                   <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
                 </ListDetailsSpan>
                 <ArrowButton isSmall isWhite path={`${path}/${listItem.id}`} />
+              </ListDetailsSection>
+            </ListItemCard>
+          )
+        })}
+        {loading
+          && (
+            <Loader />
+          )}
+      </ListContainer>
+    </ListWrapper>
+  );
+}
+
+export const ListSectionNews = ({ listHeader, loading, list, isDark, isRight }) => {
+  return (
+    <ListWrapper $right={isRight}>
+      <HeaderContainer>
+        <ListHeader>{listHeader.toUpperCase()}</ListHeader>
+        <ListDescription />
+      </HeaderContainer>
+      <ListContainer $dark={isDark}>
+        {!loading && list.map((listItem) => {
+          return (
+            <ListItemCard className="noted" key={listItem.newsid}>
+              <StyledH5>{listItem.title}</StyledH5>
+              <ListDetailsSection>
+                <ListDetailsSpan>
+                  <ListParagraph
+                    dangerouslySetInnerHTML={{ __html: renderMarkdown(listItem.body) }} />
+                </ListDetailsSpan>
+                <ArrowButton isSmall isWhite path={`aktuellt/${listItem.id}`} />
               </ListDetailsSection>
             </ListItemCard>
           )
