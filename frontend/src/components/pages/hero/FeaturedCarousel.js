@@ -222,7 +222,7 @@ export const FeaturedCarousel = ({ list }) => {
         ref={swiperRef}
         effect="slide"
         loop="true"
-        speed={3000}
+        speed={2000}
         style={{
           '--swiper-navigation-size': isMobileOrTablet ? '0px' : ''
         }}>

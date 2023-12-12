@@ -107,6 +107,7 @@ code {
   -o-transform: translateX(-100%);
   transform: translateX(-100%);
   z-index: 1050 !important;
+  position: absolute;
 }
 
 .bar {

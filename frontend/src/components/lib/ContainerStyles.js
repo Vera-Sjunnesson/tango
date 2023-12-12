@@ -26,13 +26,14 @@ export const BackgroundGradeContainer = styled.div`
 `
 
 export const StyledWrapper = styled.div`
-  height: 140vh;
+  height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media (min-width: 744px) and (max-width: 1280px) {
+    height: 140vh;
   }
 
   @media (min-width: 1280px) {

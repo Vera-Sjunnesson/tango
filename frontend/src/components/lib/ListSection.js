@@ -145,8 +145,20 @@ export const ListParagraph = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  overflow-wrap: break-word;
   color: black;
+  width: 100%;
   font-family: ${(props) => (props.$day ? 'Barlow Semi Condensed' : 'tablet-gothic')};
+
+    @media (min-width: 744px) and (max-width: 1280px) {
+      overflow-wrap: normal;
+      width: auto;
+    }
+
+    @media (min-width: 1280px) {
+      overflow-wrap: normal;
+      width: auto;
+    }
 `
 
 export const FacititatorDetails = styled.p`
@@ -239,7 +251,7 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
       <ListContainer $dark={isDark}>
         {!loading
           && Object.keys(sortedList).map((date) => (
-            <div key={date}>
+            <div style={{ width: '100%' }} key={date}>
               <DateHeader>{date}</DateHeader>
               {sortedList[date].map((listItem) => {
                 const bgColor = getBackgroundColor(listItem.type); // Get background color
@@ -276,7 +288,6 @@ export const ListSectionNews = ({ listHeader, loading, list, isDark, isRight }) 
     <ListWrapper $right={isRight}>
       <HeaderContainer>
         <ListHeader>{listHeader.toUpperCase()}</ListHeader>
-        <ListDescription />
       </HeaderContainer>
       <ListContainer $dark={isDark}>
         {!loading && list.map((listItem) => {

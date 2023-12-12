@@ -45,6 +45,7 @@ export const LineAnimation = () => {
                 fill="transparent"
                 strokeWidth="35"
                 stroke="#e88025"
+                viewport={{ once: true }}
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={transition} />
@@ -53,6 +54,7 @@ export const LineAnimation = () => {
                 fill="transparent"
                 strokeWidth="35"
                 stroke="#e88025"
+                viewport={{ once: true }}
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={transition2} />
