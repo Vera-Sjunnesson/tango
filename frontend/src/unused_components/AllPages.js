@@ -3,7 +3,7 @@ import { ArrowButton } from 'components/lib/ArrowButton';
 import { NavBar } from 'components/lib/NavBar';
 import { Hero } from '../components/pages/hero/Hero';
 import { About } from '../components/pages/about/About';
-import { Member } from '../components/pages/member/Member';
+import { Register } from '../components/pages/member/Register';
 import { CalendarBoard } from '../components/pages/calendar/CalendarBoard';
 import { News } from '../components/pages/news/News';
 
@@ -86,7 +86,7 @@ export const AllPages = () => {
       <CalendarBoard calendariumRef={sectionsRefs[1]} />
       <News newsRef={sectionsRefs[2]} />
       <About aboutRef={sectionsRefs[3]} />
-      <Member memberRef={sectionsRefs[4]} />
+      <Register memberRef={sectionsRefs[4]} />
       <ArrowButton handleScrollToNextSection={handleScrollToNextSection} atBottom={atBottom} />
     </>
   )

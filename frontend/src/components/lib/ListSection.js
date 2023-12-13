@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { renderMarkdown } from 'components/pages/details/NewsDetails';
-import { ArrowButton } from './Buttons';
+import { NavLink } from 'react-router-dom';
+import { ArrowButton2, ArrowButton } from './Buttons';
 import { Loader } from './loader';
 import { ListDescription } from './ListDescription';
 
@@ -92,6 +93,30 @@ export const ListItemCard = styled.li`
   }
 `
 
+export const ListItemCardNews = styled.li`
+  display: flex;
+  flex-direction: column;
+  padding: 15px 15px 15px 10px;
+  gap: 15px;
+  width: 100%;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    align-items: center;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1280px) {
+    align-items: center;
+    gap: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+`
+
 export const StyledH5 = styled.h5`
   color: #222222;
   width: 100%;
@@ -131,6 +156,12 @@ export const ListDetailsSection = styled.div`
   align-items: flex-end;
 `
 
+export const ListDetailsSectionNews = styled(ListDetailsSection)`
+  width: 100%;
+  height: 100%;
+  align-items: flex-start;
+`
+
 export const ListDetailsSpan = styled.span`
   display: flex;
   flex-direction: column;
@@ -149,6 +180,36 @@ export const ListParagraph = styled.p`
   color: black;
   width: 100%;
   font-family: ${(props) => (props.$day ? 'Barlow Semi Condensed' : 'tablet-gothic')};
+
+  & em {
+    font-weight: 900;
+  }
+
+    @media (min-width: 744px) and (max-width: 1280px) {
+      overflow-wrap: normal;
+      width: auto;
+    }
+
+    @media (min-width: 1280px) {
+      overflow-wrap: normal;
+      width: auto;
+    }
+`
+
+export const ListParagraphNews = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  color: black;
+  width: 100%;
+  font-family: ${(props) => (props.$day ? 'Barlow Semi Condensed' : 'tablet-gothic')};
+
+  & em {
+    font-weight: 900;
+  }
 
     @media (min-width: 744px) and (max-width: 1280px) {
       overflow-wrap: normal;
@@ -211,7 +272,7 @@ const sortListItemsByDate = (list) => {
   return sortedList;
 };
 
-export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }) => {
+export const ListSection = ({ listHeader, loading, list, isDark, isRight }) => {
   const sortedList = sortListItemsByDate(list);
 
   const formatDate = (inputDate) => {
@@ -256,20 +317,22 @@ export const ListSection = ({ listHeader, loading, list, isDark, path, isRight }
               {sortedList[date].map((listItem) => {
                 const bgColor = getBackgroundColor(listItem.type); // Get background color
                 return (
-                  <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
-                    <StyledH5>{listItem.title}</StyledH5>
-                    <ListParagraph $day>
-                      {formatDate(listItem.starts)}
-                    </ListParagraph>
-                    <ListDetailsSection>
-                      <ListDetailsSpan>
-                        <ListParagraph
-                          dangerouslySetInnerHTML={{ __html: renderMarkdown(listItem.body) }} />
-                        <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
-                      </ListDetailsSpan>
-                      <ArrowButton isSmall isWhite path={`${path}/${listItem.id}`} />
-                    </ListDetailsSection>
-                  </ListItemCard>
+                  <NavLink to={`/kalendarium/${listItem.id}`}>
+                    <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
+                      <StyledH5>{listItem.title}</StyledH5>
+                      <ListParagraph $day>
+                        {formatDate(listItem.starts)}
+                      </ListParagraph>
+                      <ListDetailsSection>
+                        <ListDetailsSpan>
+                          <ListParagraph
+                            dangerouslySetInnerHTML={{ __html: renderMarkdown(listItem.body) }} />
+                          <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
+                        </ListDetailsSpan>
+                        <ArrowButton2 isSmall isWhite />
+                      </ListDetailsSection>
+                    </ListItemCard>
+                  </NavLink>
                 );
               })}
             </div>
@@ -292,16 +355,17 @@ export const ListSectionNews = ({ listHeader, loading, list, isDark, isRight }) 
       <ListContainer $dark={isDark}>
         {!loading && list.map((listItem) => {
           return (
-            <ListItemCard className="noted" key={listItem.newsid}>
-              <StyledH5>{listItem.title}</StyledH5>
-              <ListDetailsSection>
+            <ListItemCardNews className="noted" key={listItem.newsid}>
+              <img src={`${process.env.PUBLIC_URL}/images/new-years.png`} alt="New Years Eve Tango" style={{ width: '60%' }} />
+              <ListDetailsSectionNews>
                 <ListDetailsSpan>
-                  <ListParagraph
+                  <StyledH5>{listItem.title}</StyledH5>
+                  <ListParagraphNews
                     dangerouslySetInnerHTML={{ __html: renderMarkdown(listItem.body) }} />
                 </ListDetailsSpan>
                 <ArrowButton isSmall isWhite path={`aktuellt/${listItem.id}`} />
-              </ListDetailsSection>
-            </ListItemCard>
+              </ListDetailsSectionNews>
+            </ListItemCardNews>
           )
         })}
         {loading

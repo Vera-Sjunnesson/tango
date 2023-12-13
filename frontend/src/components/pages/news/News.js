@@ -3,6 +3,7 @@ import { BackgroundGradeContainer } from 'components/lib/ContainerStyles';
 import { BackgroundLine } from 'components/lib/BackgroundLine';
 import { Header } from 'components/lib/Header';
 import { ListSectionNews } from 'components/lib/ListSection';
+import { GoBackButton } from 'components/lib/Buttons';
 
 export const News = () => {
   const [list, setList] = useState([]);
@@ -36,6 +37,7 @@ export const News = () => {
     <div>
       <Header isSmall />
       <BackgroundGradeContainer $grade="#eec342, #eec342" $img={`${process.env.PUBLIC_URL}/assets/dance-line.png`} id="#sectionFive">
+        <GoBackButton />
         <BackgroundLine isNews backgroundimg={`${process.env.PUBLIC_URL}/assets/line03-01.svg`} />
         <ListSectionNews listHeader="Aktuellt" loading={loading} list={list} isDark isRight />
       </BackgroundGradeContainer>

@@ -45,9 +45,14 @@ export const LineAnimation = () => {
                 fill="transparent"
                 strokeWidth="35"
                 stroke="#e88025"
+                whileInView="visible"
                 viewport={{ once: true }}
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
+                variants={{
+                  visible: { opacity: 1, scale: 1 },
+                  hidden: { opacity: 0, scale: 0 }
+                }}
                 transition={transition} />
               <motion.path
                 d="M1010 1195C1029.93 1130.39 1214 857 1472 847C1730 837 1718 581 1828 323"

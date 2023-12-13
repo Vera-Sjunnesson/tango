@@ -48,6 +48,10 @@ export const ListHeader = styled.h4`
 export const StyledParagraph = styled.p`
   font-weight: 500;
   color: #222222;
+
+  & em {
+    font-weight: 900;
+  }
 `
 export const StyledParagraphBold = styled.span`
   font-weight: 700;

@@ -61,8 +61,6 @@ export const TextContainer = styled.span`
   padding: 10px 0;
   letter-spacing: .2rem;
   font-family: var(--primary-font-family)
-
-  &
 `
 
 export const Arrow = styled.span`

@@ -7,8 +7,9 @@ import { News } from 'components/pages/news/News';
 import { About } from 'components/pages/about/About';
 import { EventDetails } from 'components/pages/details/EventDetails';
 import { AboutTango } from 'components/pages/aboutTango/AboutTango';
-import { LogIn } from 'components/pages/personal/LogIn';
+import { LogIn } from 'components/pages/member/LogIn';
 import { NewsDetails } from 'components/pages/details/NewsDetails';
+import { Register } from 'components/pages/member/Register';
 
 export const App = () => {
   return (
@@ -23,6 +24,7 @@ export const App = () => {
         <Route path="/om" element={<About />} />
         <Route path="/om-tango" element={<AboutTango />} />
         <Route path="/logga-in" element={<LogIn />} />
+        <Route path="/registrera" element={<Register />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
     </BrowserRouter>

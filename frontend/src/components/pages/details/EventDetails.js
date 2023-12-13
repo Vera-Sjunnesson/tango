@@ -6,6 +6,7 @@ import { LineAnimationShort } from 'components/lib/LineAnimation';
 import styled from 'styled-components/macro';
 import { Loader } from 'components/lib/loader';
 import { ArrowButton } from 'components/lib/Buttons';
+import { renderMarkdown } from './NewsDetails';
 
 export const HeroContainer = styled.div`
   width: 100%;
@@ -48,6 +49,10 @@ export const ListHeader = styled.h4`
 export const StyledParagraph = styled.p`
   font-weight: 500;
   color: #222222;
+
+  & em {
+    font-weight: 900;
+  }
 `
 export const StyledParagraphBold = styled.span`
   font-weight: 700;
@@ -191,13 +196,14 @@ export const EventDetails = () => {
                   {details[0]?.venue_name}
                 </StyledParagraph>
               </TimeAndPlaceDetails>
-              <StyledParagraph>{details[0]?.body ? details[0]?.body : 'No data'}</StyledParagraph>
+              <StyledParagraph
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(details[0]?.body) }} />
               {details[0]?.facilitator && (
                 <StyledParagraphBold>
                   {details[0]?.facilitator ? details[0]?.facilitator : 'No data'}
                 </StyledParagraphBold>
               )}
-              <ArrowButton text="ANMÄL DIG" />
+              <ArrowButton text="LÄS MER" />
             </DetailsCard>
           </DetailsWrapper>
         </>

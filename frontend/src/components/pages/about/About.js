@@ -3,6 +3,7 @@ import { StyledWrapper, BackgroundContainer } from 'components/lib/ContainerStyl
 import styled from 'styled-components/macro';
 import { BackgroundLine } from 'components/lib/BackgroundLine';
 import { Header } from 'components/lib/Header';
+import { GoBackButton } from 'components/lib/Buttons';
 
 export const StyledTextCard = styled.div`
   position: absolute;
@@ -76,6 +77,7 @@ export const About = () => {
     <StyledWrapper>
       <Header isSmall />
       <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`}>
+        <GoBackButton />
         <BackgroundLine isCover backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
         <StyledTextCard>
           <StyledH1>

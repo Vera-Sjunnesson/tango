@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form';
-import { Label, Form, TextInput, TextInputBox, LabelLogin, Error } from 'components/lib/Input'
-import { Button } from 'components/lib/Button'
+import React, { useEffect, useRef } from 'react'
+import { Label, Form, TextInput, TextInputBox } from 'components/lib/Input'
 import styled, { css } from 'styled-components/macro';
+import { Header } from 'components/lib/Header';
+import { ArrowButton, GoBackButton } from 'components/lib/Buttons';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -33,6 +33,7 @@ export const OuterContainer = styled.div`
   align-items: center;
   gap: 10px;
   height: 100vh;
+  margin-top: 84px;
 `
 
 export const InnerContainer = styled.div`
@@ -81,6 +82,7 @@ export const CardsContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   box-sizing: border-box;
+  height: 100%;
 
   ${(props) => props.activitycontainer1 && css`
     max-width: 287px;
@@ -126,71 +128,53 @@ export const Memberh1 = styled.h1`
   color: #e78431;;
 `
 
-export const Member = ({ memberRef }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm();
+export const LogIn = ({ memberRef }) => {
+  const videoEl = useRef(null);
 
-  const onSubmit = () => {
-    alert('Thank you for creating an account!');
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPassword('');
+  const attemptPlay = () => {
+    // eslint-disable-next-line no-unused-expressions
+    videoEl
+      && videoEl.current
+      && videoEl.current.play().catch((error) => {
+        console.error('Error attempting to play', error);
+      });
   };
+
+  useEffect(() => {
+    attemptPlay();
+  }, []);
 
   return (
     <Wrapper height="100%" ref={memberRef} id="#sectionThree">
+      <GoBackButton />
+      <Header isSmall />
       <OuterContainer>
         <InnerContainer grid community>
-          <ImgCardLarge style={{ backgroundImage: `url('${process.env.PUBLIC_URL}/images/S01_5813_d.jpg')` }} workouts />
+          <div style={{ display: 'flex', height: '100%', alignItems: 'flex-start' }}>
+            <video
+              style={{ maxWidth: '100%', width: '800px', margin: '0 auto' }}
+              playsInline
+              loop
+              muted
+              controls
+              alt="All the devices"
+              src={`${process.env.PUBLIC_URL}/video/pexels-los-muertos-crew-8281161(540p).mp4`}
+              ref={videoEl} />
+          </div>
           <CardsContainer formcontainer>
-          <Memberh1>BLI MEDLEM</Memberh1>
+            <Memberh1>LOGGA IN</Memberh1>
             <h4>Registrera dig</h4>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-              <TextInputBox>
-                <Label htmlFor="fname">Förnamn</Label>
-                <TextInput type="text" id="fname" name="fname" {...register('firstName', { required: true, pattern: /^[A-Za-z]+$/i, minLength: 2 })} onChange={(event) => setFirstName(event.target.value)} value={firstName} />
-                {errors?.firstName && <Error>Skriv in ditt förnamn</Error>}
-              </TextInputBox>
-              <TextInputBox>
-                <Label htmlFor="lname">Efternamn</Label>
-                <TextInput type="text" id="lname" name="lname" {...register('lastName', { required: true, pattern: /^[A-Za-z]+$/i, maxLength: 100 })} onChange={(event) => setLastName(event.target.value)} value={lastName} />
-                {errors?.lastName && <Error>Skriv in ditt efternamn</Error>}
-              </TextInputBox>
+            <Form>
               <TextInputBox grow>
-                <Label htmlFor="co">C/O</Label>
+                <Label htmlFor="co">Användarnamn</Label>
                 <TextInput type="text" id="co" name="co" />
               </TextInputBox>
               <TextInputBox grow>
-                <Label htmlFor="street">Gatuadress</Label>
+                <Label htmlFor="street">Lösenord</Label>
                 <TextInput type="text" id="street" name="street" />
               </TextInputBox>
               <TextInputBox grow>
-                <Label htmlFor="postaddress">Postadress</Label>
-                <TextInput type="postaddress" id="postaddress" name="postaddress" />
-              </TextInputBox>
-              <TextInputBox grow>
-                <Label htmlFor="email">E-postadress</Label>
-                <TextInput type="email" id="email" name="email" {...register('email', { required: true, pattern: /^\S+@\S+$/i })} onChange={(event) => setEmail(event.target.value)} value={email} />
-                {errors?.email?.type === 'required' && <Error>Please enter your email</Error>}
-                {errors?.lastName?.type === 'pattern' && (<Error>Please enter a valid email</Error>)}
-              </TextInputBox>
-              <TextInputBox grow>
-                <Label htmlFor="password">Lösenord</Label>
-                <TextInput type="text" id="password" name="password" {...register('password', { required: true, minLength: 6 })} onChange={(event) => setPassword(event.target.value)} value={password} />
-                {errors.password && (<Error>Password must be six or more characters</Error>)}
-              </TextInputBox>
-              <Button square type="submit">SKICKA</Button>
-              <TextInputBox grow>
-                <LabelLogin>Redan medlem?</LabelLogin>
-                <Button login>Logga in</Button>
+                <ArrowButton text="LOGGA IN" />
               </TextInputBox>
             </Form>
           </CardsContainer>

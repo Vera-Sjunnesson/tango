@@ -4,6 +4,9 @@ import styled from 'styled-components/macro';
 import { BackgroundLine } from 'components/lib/BackgroundLine';
 import { Header } from 'components/lib/Header';
 import { ListSection } from 'components/lib/ListSection';
+import { GoBackButton } from 'components/lib/Buttons';
+import { useMediaQuery } from 'react-responsive'
+import { CalendarDisplay } from './CalendarDisplay';
 
 export const AboutH1 = styled.h1`
   position: absolute;
@@ -33,6 +36,7 @@ export const AboutH1 = styled.h1`
 export const CalendarBoard = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
 
   useEffect(() => {
     setLoading(true);
@@ -59,12 +63,18 @@ export const CalendarBoard = () => {
   }, []);
 
   return (
-    <StyledWrapper>
-      <Header isSmall />
-      <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`}>
-        <BackgroundLine isCover backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
-        <ListSection listHeader="Kalendarium" loading={loading} list={list} path="kalendarium" />
-      </BackgroundContainer>
-    </StyledWrapper>
+    <>
+      <StyledWrapper>
+        <Header isSmall />
+        <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`}>
+          <GoBackButton />
+          <BackgroundLine isCover backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
+          <ListSection listHeader="Kalendarium" loading={loading} list={list} />
+        </BackgroundContainer>
+      </StyledWrapper>
+      {isDesktop && (
+        <CalendarDisplay />
+      )}
+    </>
   );
 }
