@@ -10,6 +10,7 @@ import { AboutTango } from 'components/pages/aboutTango/AboutTango';
 import { LogIn } from 'components/pages/member/LogIn';
 import { NewsDetails } from 'components/pages/details/NewsDetails';
 import { Register } from 'components/pages/member/Register';
+import { Footer } from 'components/pages/footer/Footer';
 
 export const App = () => {
   return (
@@ -27,6 +28,7 @@ export const App = () => {
         <Route path="/registrera" element={<Register />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

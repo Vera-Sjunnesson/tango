@@ -356,7 +356,7 @@ export const ListSectionNews = ({ listHeader, loading, list, isDark, isRight }) 
         {!loading && list.map((listItem) => {
           return (
             <ListItemCardNews className="noted" key={listItem.newsid}>
-              <img src={`${process.env.PUBLIC_URL}/images/new-years.png`} alt="New Years Eve Tango" style={{ width: '60%' }} />
+              <img src={`${process.env.PUBLIC_URL}/images/new-years.png`} alt="New Years Eve Tango" style={{ width: '70%' }} />
               <ListDetailsSectionNews>
                 <ListDetailsSpan>
                   <StyledH5>{listItem.title}</StyledH5>

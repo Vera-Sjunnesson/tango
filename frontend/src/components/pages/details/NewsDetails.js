@@ -5,7 +5,7 @@ import { Header } from 'components/lib/Header';
 import { LineAnimationShort } from 'components/lib/LineAnimation';
 import styled from 'styled-components/macro';
 import { Loader } from 'components/lib/loader';
-import { ArrowButton } from 'components/lib/Buttons';
+import { ArrowButton, GoBackButton } from 'components/lib/Buttons';
 
 export const HeroContainer = styled.div`
   width: 100%;
@@ -153,6 +153,7 @@ export const NewsDetails = () => {
         <Loader />
       ) : (
         <>
+          <GoBackButton />
           <LineAnimationShort />
           <Header isSmall />
           <DetailsWrapper>
@@ -168,7 +169,8 @@ export const NewsDetails = () => {
                   {details[0]?.facilitator ? details[0]?.facilitator : 'No data'}
                 </StyledParagraphBold>
               )}
-              <ArrowButton text="ANMÄL DIG" />
+              <img src={`${process.env.PUBLIC_URL}/images/new-years.png`} alt="New Years Eve Tango" style={{ width: '60%' }} />
+              <ArrowButton text="LÄS MER" />
             </DetailsCard>
           </DetailsWrapper>
         </>

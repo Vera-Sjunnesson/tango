@@ -5,7 +5,7 @@ import { Header } from 'components/lib/Header';
 import { LineAnimationShort } from 'components/lib/LineAnimation';
 import styled from 'styled-components/macro';
 import { Loader } from 'components/lib/loader';
-import { ArrowButton } from 'components/lib/Buttons';
+import { ArrowButton, GoBackButton } from 'components/lib/Buttons';
 import { renderMarkdown } from './NewsDetails';
 
 export const HeroContainer = styled.div`
@@ -169,6 +169,7 @@ export const EventDetails = () => {
       ) : (
         <>
           <LineAnimationShort />
+          <GoBackButton />
           <Header isSmall />
           <DetailsWrapper>
             <DetailsCard>
