@@ -1,33 +1,26 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /*Variables*/
 :root {
   /*Colors:*/
-  --primary-color: #fffdfb;
-  --secondary-color: #000000;
+  --primary-color: #ffffff;
+  --secondary-color: #222222;
 
-  --primary-headline-color: rgba(243, 79, 33, 0.705);
-  --secondary-headline-color: #565656;
+  --primary-headline-color: #222222;
+  --secondary-headline-color: #ffffff;
 
-  --primary-container-color: #FCEDEA;
-  --secondary-container-color: #f85f36;
+  --primary-background-color: #ffffff;
+  --secondary-background-color: #FDF0E5;
+
+  --primary-orange: #e88025;
+  --primary-blue: #518a93;
+  --primary-yellow: #edc343;
+  --secondary-yellow: #fef0c8;
   
-  --button-color: #F5F5F5;
-
-  --primary-button-hover-color: #94b647;
-  --secondary-button-hover-color: #b2cee5;
-  --tertiary-button-hover-color: #ffba1d; 
- 
-  --icon-color: #a09d9d;
-  
-  --icon-hover-color: #000000;   
+  --primary-hover-color: #e27b5b; 
 
   /*fonts */
-  --primary-font-family: 'Barlow Semi Condensed', sans-serif;
-  --secondary-font-family: 'Barlow', sans-serif;
+  --primary-font-family: 'tablet-gothic', sans-serif;
+  --secondary-font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 *, html {

@@ -4,8 +4,8 @@ import { NavBar } from 'components/lib/NavBar';
 import { Hero } from '../components/pages/hero/Hero';
 import { About } from '../components/pages/about/About';
 import { Register } from '../components/pages/member/Register';
-import { CalendarBoard } from '../components/pages/calendar/CalendarBoard';
-import { News } from '../components/pages/news/News';
+import { CalendarBoard } from '../components/pages/calendar_news/CalendarBoard';
+import { News } from '../components/pages/calendar_news/News';
 
 export const AllPages = () => {
   const [isOnScreen, setIsOnScreen] = useState(null);

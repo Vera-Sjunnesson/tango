@@ -1,100 +1,72 @@
-/* eslint-disable */ 
 import React, { useState, useEffect } from 'react';
 import { Header } from 'components/lib/Header';
-import styled from 'styled-components/macro';
 import { LineAnimation } from 'components/lib/LineAnimation';
 import { Loader } from 'components/lib/loader';
-import { FeaturedCarousel } from './FeaturedCarousel';
-import { Menu } from './Menu';
-
-export const HeroContainer = styled.div`
-  width: 100%;
-  position: relative;
-  height: 1154px;
-  align-items: center;
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-    height: 1617px; 
-    overflow-x: hidden;
-    background: #FDF0E5;
-  }
-
-  @media (min-width: 1280px) {
-    height: 100vh;
-    display: block;
-    background: #FDF0E5;
-    overflow: hidden;
-  }
-
-`
-export const HeroWrapper = styled.div`
-  position: absolute;
-  left: 0px;
-  width: 100%;
-  top: 111px;
-
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-    position: absolute;
-    top: 144px;
-    left: 0px;
-    width: 100%;
-    background: #FDF0E5;
-  }
-
-  @media (min-width: 1280px) {
-    top: 16vh;
-    height: 84vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-`
+import { FeaturedCarousel } from './sections_hero/FeaturedCarousel';
+import { Menu } from './sections_hero/Menu';
+import { HeroContainer, HeroWrapper } from './styles_hero/HeroStyles';
 
 export const Hero = () => {
-  const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false)
+  const [list, setList] = useState([]);
+  const [eventList, setEventList] = useState([]);
+
+  const fetchFrontList = async () => {
+    try {
+      const url = process.env.REACT_APP_FEATURED_EVENTLIST_URL
+      console.log('url:', url);
+      if (!url) {
+        throw new Error('Failed to fetch event list');
+      }
+
+      const response = await fetch(url);
+      console.log('Response:', response);
+      const data = await response.json();
+      const images = [
+        `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
+        `${process.env.PUBLIC_URL}/images/S02_4517_c_d_BW.png`,
+        `${process.env.PUBLIC_URL}/images/C05_0020_d_no_logo.png`,
+        `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
+        `${process.env.PUBLIC_URL}/images/S02_4517_c_d_BW.png`,
+        `${process.env.PUBLIC_URL}/images/C05_0020_d_no_logo.png`
+      ];
+      const combinedDataWithImages = data.map((item, index) => {
+        return {
+          ...item,
+          image: images[index % images.length]
+        };
+      });
+      setList(combinedDataWithImages);
+      console.log('herolist', list)
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setTimeout(() => setLoading(false), 500);
+    }
+  };
+
+  const fetchEventList = async () => {
+    try {
+      const url = process.env.REACT_APP_EVENTLIST_URL
+      console.log('url:', url);
+      if (!url) {
+        throw new Error('Failed to fetch event list');
+      }
+
+      const response = await fetch(url);
+      console.log('Response:', response);
+      const data = await response.json();
+      setEventList((prevList) => [...prevList, ...data]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     setLoading(true);
-    const fetchEventList = async () => {
-      try {
-        const url = process.env.REACT_APP_FEATURED_EVENTLIST_URL
-        console.log('url:', url);
-        if (!url) {
-          throw new Error('Failed to fetch event list');
-        }
-
-        const response = await fetch(url);
-        console.log('Response:', response);
-        const data = await response.json();
-        const images = [
-          `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
-          `${process.env.PUBLIC_URL}/images/S02_4517_c_d_BW.png`,
-          `${process.env.PUBLIC_URL}/images/C05_0020_d_no_logo.png`,
-          `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
-          `${process.env.PUBLIC_URL}/images/S02_4517_c_d_BW.png`,
-          `${process.env.PUBLIC_URL}/images/C05_0020_d_no_logo.png`
-        ];
-        console.log('images', images)
-        const combinedDataWithImages = data.map((item, index) => {
-          return {
-            ...item,
-            image: images[index % images.length]
-          };
-        });
-        
-        setList(combinedDataWithImages);
-        console.log('herolist', list)
-
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setTimeout(() => setLoading(false), 500);
-      }
-    };
-
     fetchEventList();
+    fetchFrontList();
+  // eslint-disable-next-line
   }, []);
 
   return (
@@ -107,7 +79,7 @@ export const Hero = () => {
             <LineAnimation />
             <Header isLarge isHero />
             <HeroWrapper>
-              <FeaturedCarousel list={list} />
+              <FeaturedCarousel list={list} eventList={eventList} />
               <Menu />
             </HeroWrapper>
           </>

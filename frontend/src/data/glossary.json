@@ -1,0 +1,230 @@
+[
+  {
+      "name": "Abrazo",
+      "meaning": "omfamning"
+  },
+  {
+      "name": "Adelante",
+      "meaning": "framåt"
+  },
+  {
+      "name": "Adorno",
+      "meaning": "utsmyckning"
+  },
+  {
+      "name": "Atras",
+      "meaning": "bakåt"
+  },
+  {
+      "name": "Bailar",
+      "meaning": "att dansa"
+  },
+  {
+      "name": "Balanceo",
+      "meaning": "avbrutet sidsteg. Se även vaiven"
+  },
+  {
+      "name": "Bandoneón",
+      "meaning": "litet \"dragspel\" mycket typiskt för tango"
+  },
+  {
+      "name": "Barrida",
+      "meaning": "en rörelse där ena partnern föser den andras fot"
+  },
+  {
+      "name": "Boleo",
+      "meaning": "(från ordet bolear = att kasta). Följaren håller ihop knäna och sparkar bakåt"
+  },
+  {
+      "name": "Boleos",
+      "meaning": "kan vara höga eller låga. Kan även göras av föraren"
+  },
+  {
+      "name": "Cadena",
+      "meaning": "kedja. En sekvens där båda omväxlande gör samma steg, ihopflätade till en kedja"
+  },
+  {
+      "name": "Calesita",
+      "meaning": "(=karusell) Följaren står stilla på en fot, medan föraren dansar runt följaren"
+  },
+  {
+      "name": "Caminata",
+      "meaning": "promenad. För många är det grunden i tango. Skenbart enkelt men bland det svåraste att lära sig"
+  },
+  {
+      "name": "Caminar",
+      "meaning": "att gå"
+  },
+  {
+      "name": "Candombe",
+      "meaning": "dansstil med afrikanskt ursprung där rytmen markeras av trummor. Musikalisk föregångare till milonga och tango"
+  },
+  {
+      "name": "Canyengue",
+      "meaning": "äldre tangostil, som man tror den dansades på 1920-30-talet. Rekonstruerades 1996 (jfr den här artikeln). Kallas även tango orillero"
+  },
+  {
+      "name": "Colgada",
+      "meaning": "Paret lutar/hänger ut från varandra ( \\/ ) och balanserar varandras vikt för att hålla balansen"
+  },
+  {
+      "name": "Compás",
+      "meaning": "takt. (Se även ritmo)"
+  },
+  {
+      "name": "Cortina",
+      "meaning": "(=ridå) en kort musiksnutt som bryter de olika musikavsnitten (tandas) på en milonga"
+  },
+  {
+      "name": "Cruzada",
+      "meaning": "från cruzar = korsa. När den ena partnern bytt fot så att båda dansar på höger samtidigt och vänster samtidigt. (Jfr parallellt då ena partnern går på höger går den andra på vänster fot)"
+  },
+  {
+      "name": "Cuadrado",
+      "meaning": "fyrkant"
+  },
+  {
+      "name": "Cucharita",
+      "meaning": "(=den lilla skeden) Föraren lyfter följarens fot och för den till ett kors"
+  },
+  {
+      "name": "Doble tiempo",
+      "meaning": "(dubbelt tempo) när man tar steg i dubbla tempot, se även traspié"
+  },
+  {
+      "name": "Enrosque",
+      "meaning": "(=skruv) En dekoration som mannen utför under en giro. Medan kvinnan utför sin molinete, pivoterar mannen på ena benet och hakar fast det andra benet bakom det på vilken han pivoterar"
+  },
+  {
+      "name": "Gancho",
+      "meaning": "krok. När den ena partnern krokar sitt ben om den andras. Kan utföras av både följare och förare"
+  },
+  {
+      "name": "Giro",
+      "meaning": "sväng. Föraren för följaren i en cirkel runt sig, antingen i halvgiro eller helgiro. Kvinnans steg kallas molinete"
+  },
+  {
+      "name": "Lapiz",
+      "meaning": "(=penna) När man ritar med tåspetsen i golvet. Äldre beteckning: rulo"
+  },
+  {
+      "name": "Media luna",
+      "meaning": "halvmåne=halvgiro"
+  },
+  {
+      "name": "Milonga",
+      "meaning": "betyder antingen dansen milonga, en snabbare och ”gladare” variant av tango, eller danstillfälle (till skillnad från praktika, som är övningstillfälle)"
+  },
+  {
+      "name": "Milonguero/milonguera",
+      "meaning": "benämning på, ofta äldre, person som dansat tango länge och mycket. Person som ofta syns på milongor"
+  },
+  {
+      "name": "Molinete",
+      "meaning": "(=väderkvarn) den serie om fyra steg som kvinnan utför i en giro: framåtsteg, sidsteg, bakåtsteg, sidsteg, och så vidare"
+  },
+  {
+      "name": "Mordida",
+      "meaning": "(=bett) Ena partnerns fot är inklämd mellan den andra partnerns två fötter. Kallas ibland \"sandwich\", dock ej i Argentina"
+  },
+  {
+      "name": "Ocho",
+      "meaning": "åtta. En av de vanligaste figurerna i tango. Fötterna rör sig i ett mönster som påminner om en åtta på golvet"
+  },
+  {
+      "name": "Ocho adelante",
+      "meaning": "framåtåtta"
+  },
+  {
+      "name": "Ocho atrás",
+      "meaning": "bakåtåtta"
+  },
+  {
+    "name": "Ocho cortado",
+    "meaning": "avbruten åtta. Kallas ibland ocho milonguero."
+  },
+  {
+      "name": "Orquesta típica",
+      "meaning": "(\"typisk orkester\") den vanligaste sättningen i en traditionell tangoorkester på 1930-50-talet, med två-tre bandoneóner, två-tre violiner, bas, piano."
+  },
+  {
+      "name": "Parada",
+      "meaning": "man stoppar partnens fot."
+  },
+  {
+      "name": "Pista",
+      "meaning": "dansgolv."
+  },
+  {
+      "name": "Pivot",
+      "meaning": "att dansaren vrider sig på foten, runt sin egen axel."
+  },
+  {
+      "name": "Postura",
+      "meaning": "hållning."
+  },
+  {
+      "name": "Práctica",
+      "meaning": "praktika, tangoträning, övningsdans. (På svenska: praktika.)"
+  },
+  {
+      "name": "Ritmo",
+      "meaning": "rytm. (Se även compas.)"
+  },
+  {
+      "name": "Rulo",
+      "meaning": "äldre beteckning för lapiz."
+  },
+  {
+      "name": "Sacada",
+      "meaning": "Att man följer partnerns fot eller ben och förflyttar vikten, så att det ser ut som att man flyttar partnerns ben. Kan vara med eller utan kontakt."
+  },
+  {
+      "name": "Salida",
+      "meaning": "utgång. Stegsekvens, som ofta börjar med att föraren går rakt åt vänster och följaren åt höger. Många dansare använder varianter av salida som grundsteg i tango."
+  },
+  {
+      "name": "Sandwiche",
+      "meaning": "Ena partnerns fot är inklämd mellan den andra partnerns två fötter. Kallas i Argentina mordida (=bett)."
+  },
+  {
+      "name": "Tanda",
+      "meaning": "En sekvens av tangor, vanligtvis tre eller fyra, i samma stil. Tandan bryts av en cortina."
+  },
+  {
+      "name": "Tango fantasia",
+      "meaning": "tango för scen, uppvisning. Ofta koreograferad. Kallas även Tango danza."
+  },
+  {
+      "name": "Tango nuevo",
+      "meaning": "Ursprungligen en musikterm som syftade på Astor Piazzollas nya konsertanta tangomusik: tango nuevo är endast i begränsad omfattning en dansstil. Har ibland fått betydelsen 'modern argentinsk tangodans', men är egentligen bara ett sätt att analysera och lära ut tangoteknik och tangorörelse. Ofta används termen felaktigt för att beteckna en blandning av lite ovanligare salónrörelser i kombination med vissa element ur tango fantasia."
+  },
+  {
+      "name": "Tango salón",
+      "meaning": "social dans med varierande omfamning (dvs inte lika tät som i milonguerostil). Från början markerade ordet att det var tango som lämpade sig för salongerna, snarare än skumma barer, bordeller, bakgator, samt att det inte var någon uppvisningsdans."
+  },
+  {
+      "name": "Tango milonguero",
+      "meaning": "tango dansad med tät omfamning. Termen är uppfunnen av Susana Miller och är egentligen missvisande, eftersom det finns många milongueror i Buenos Aires som inte dansar med tät omfamning."
+  },
+  {
+      "name": "Traspié",
+      "meaning": "(=snedsteg, snubbla). När man tar steg i dubbelt tempo. Ordet traspié används mest i milonga. I tango kallas samma sak för synkopering eller acceleration eller helt enkelt steg i dubbla tempot."
+  },
+  {
+      "name": "Vaiven",
+      "meaning": "avbrutet framåt- eller bakåtsteg. Se även balanceo."
+  },
+  {
+      "name": "Vals cruzado",
+      "meaning": "tango till valsmusik."
+  },
+  {
+      "name": "Voleo",
+      "meaning": "felstavning av \"boleo\" (se ovan)."
+  },
+  {
+      "name": "Volgada",
+      "meaning": "Paret lutar sig mot varandra ( /\\ ) för att få gemensam balans, som i starkt lutande milonguero-stil."
+  }
+]

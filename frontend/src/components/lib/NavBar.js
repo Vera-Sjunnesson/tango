@@ -58,6 +58,35 @@ export const NavLinkStyled = styled(NavLink)`
   }
 `
 
+export const AnchorStyled = styled.a`
+  position: relative;
+  display: inline-block;
+  font-weight: 900;
+  color: #222222;
+  text-decoration: none;
+  margin: 0;
+  padding: 0 0 5px 0px;
+  text-align: center;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 0.2rem;
+  font-size: ${(props) => (props.$large ? '40px' : '22px')};
+
+  &::before {
+    content: "";
+    width: 0;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #222222;
+    transition: width .7s ease-in-out;
+  }
+
+  &.hovered::before {
+    width: 100%;
+  }
+`
+
 export const NavDivider = styled.span`
   align-self: center;
   background: #222222;
@@ -89,14 +118,14 @@ export const NavBar = ({ isLarge, isHero }) => {
               <NavDivider />
               <NavLinkStyled $large={isLarge} to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
               <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
-              <NavLinkStyled $large={isLarge} to="/registrera" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</NavLinkStyled>
-              <NavLinkStyled $large={isLarge} to="/logga-in" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</NavLinkStyled>
+              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/register.php" target="_blank" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</AnchorStyled>
+              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/page.php?id=main" target="_blank" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</AnchorStyled>
             </>
           ) : (
             <>
               <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
-              <NavLinkStyled $large={isLarge} to="/registrera" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</NavLinkStyled>
-              <NavLinkStyled $large={isLarge} to="/logga-in" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</NavLinkStyled>
+              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/register.php" target="_blank" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</AnchorStyled>
+              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/page.php?id=main" target="_blank" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</AnchorStyled>
             </>
           )}
       </NavWrapper>

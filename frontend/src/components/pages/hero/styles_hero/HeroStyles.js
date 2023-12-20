@@ -1,13 +1,52 @@
-/* eslint-disabled */
-import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components/macro';
-import { register } from 'swiper/element/bundle';
-import { useMediaQuery } from 'react-responsive'
-import { ArrowButton } from 'components/lib/Buttons';
-import { renderMarkdown } from '../details/NewsDetails';
+import { NavLink } from 'react-router-dom';
 
-register();
+/* HERO */
+export const HeroContainer = styled.div`
+  width: 100%;
+  position: relative;
+  height: 1154px;
+  align-items: center;
 
+  @media (min-width: 744px) and (max-width: 1280px) {
+    height: 1617px; 
+    overflow-x: hidden;
+    background: #FDF0E5;
+  }
+
+  @media (min-width: 1280px) {
+    height: 100vh;
+    display: block;
+    background: #FDF0E5;
+    overflow: hidden;
+  }
+
+`
+export const HeroWrapper = styled.div`
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  top: 111px;
+
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    position: absolute;
+    top: 144px;
+    left: 0px;
+    width: 100%;
+    background: #FDF0E5;
+  }
+
+  @media (min-width: 1280px) {
+    top: 16vh;
+    height: 84vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+/* FEATURED CAROUSEL */
 export const CarouselContainer = styled.div`
   width: 100%;
   height: 500px;
@@ -20,7 +59,7 @@ export const CarouselContainer = styled.div`
   }
 
   @media (min-width: 1280px) {
-    height: 600px;
+    height: 80%;
   }
 `
 
@@ -83,7 +122,7 @@ export const Article = styled.article`
 
   @media (min-width: 1280px) {
     display: block;
-    height: 600px;
+    height: 100%;
   }
 `
 
@@ -154,6 +193,7 @@ export const FeaturedText = styled.p`
   line-height: 25px;
   width: 100%;
   font-size: 16px;
+  color: #ffffff;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     padding: 0;
@@ -170,76 +210,100 @@ export const FeaturedText = styled.p`
   }
 `
 
-export const FeaturedCarousel = ({ list }) => {
-  const swiperRef = useRef(null);
-  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1280px)' })
+/* MENU BUTTONS */
+export const MenuContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-direction: column;
+gap: 30px;
+width: 80%; 
+left: 0;
+right: 0;
+margin: auto;
+margin-top: 40px;
+margin-bottom: 40px;
 
-  useEffect(() => {
-    const swiperContainer = swiperRef.current;
-    const params = {
-      navigation: true,
-      pagination: true,
-      injectStyles: [
-        `
-        .swiper-button-next,
-        .swiper-button-prev {
-          position: absolute;
-          top: 50%;
-          width: calc(var(--swiper-navigation-size)/ 44 * 27);
-          height: var(--swiper-navigation-size);
-          margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
-          z-index: 10;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--swiper-navigation-color,var(--swiper-theme-color));
-
-          .swiper-pagination-bullet {
-            color: var(--swiper-pagination-color, var(--swiper-theme-color));
-          }
-      `
-      ]
-    };
-    Object.assign(swiperContainer, params);
-    swiperContainer.initialize();
-  }, []);
-
-  const addEllipsis = (text) => {
-    if (!isMobileOrTablet) {
-      return `${text}...`;
-    } else {
-      return text
-    }
-  };
-
-  return (
-    <CarouselContainer>
-      <NewsContainer>
-        <TagLine>På gång</TagLine>
-      </NewsContainer>
-      <swiper-container
-        ref={swiperRef}
-        effect="slide"
-        loop="true"
-        speed={2000}
-        style={{
-          '--swiper-navigation-size': isMobileOrTablet ? '0px' : ''
-        }}>
-        {list.map((listItem) => (
-          <swiper-slide key={listItem.id}>
-            <Article style={{ backgroundImage: `linear-gradient(15deg, rgba(34, 34, 34, 0.8) 30%, rgba(255, 255, 255, 0) 65%), url(${listItem.image})`, backgroundSize: 'cover', backgroundPosition: `${listItem.imageposition}` }}>
-              <FeaturedTextCard>
-                <FeaturedHeading>{listItem.title.toUpperCase()}</FeaturedHeading>
-                <FeaturedText
-                  // eslint-disable-next-line max-len
-                  dangerouslySetInnerHTML={{ __html: addEllipsis(renderMarkdown(listItem.body)) }} />
-                <ArrowButton path={`aktuellt/${listItem.anid}`} text="LÄS MER" />
-              </FeaturedTextCard>
-            </Article>
-          </swiper-slide>
-        ))}
-      </swiper-container>
-    </CarouselContainer>
-  );
+@media (min-width: 744px) and (max-width: 1280px) {
+  position: absolute;
+  z-index: 1;
 }
+
+@media (min-width: 1280px) {
+  flex-direction: row;
+  width: 1010px;
+  gap: 46px;
+  height: 20%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+`
+
+export const MenuButtonContainer = styled(NavLink)`
+  background-size: cover;
+  background-position: top;
+  height: 155px;
+  width: 100%;
+  box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
+  color: var(--primary-color);
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+
+  .arrow{
+    width: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid #fff;
+    position: relative;
+    background: #fff;
+    right: -14px;
+    border-radius: 70px;
+  }
+
+  &:hover .arrow {
+    width: 70px;
+  }
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    height: 222px;
+  }
+  @media (min-width: 1280px) {
+    height: 100%;
+  }
+`
+export const TextContainer = styled.span`
+  height: 50px;
+  width: 100%;
+  color: var(--primary-color);
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: #518a93;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px 0;
+  letter-spacing: .2rem;
+  font-family: var(--primary-font-family)
+`
+
+export const Arrow = styled.span`
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  transition: all 0.3s ease;
+  justify-content: flex-start;
+`

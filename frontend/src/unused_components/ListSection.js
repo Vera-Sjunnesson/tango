@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { renderMarkdown } from 'components/pages/details/NewsDetails';
 import { NavLink } from 'react-router-dom';
-import { ArrowButton2, ArrowButton } from './Buttons';
-import { Loader } from './loader';
-import { ListDescription } from './ListDescription';
+import { ArrowButton2, ArrowButton } from '../components/lib/Buttons';
+import { Loader } from '../components/lib/loader';
+import { ListDescription } from '../components/pages/calendar_news/sections_calendar_news/ListDescription';
 
 export const ListWrapper = styled.div`
   position: absolute;
@@ -356,7 +356,6 @@ export const ListSectionNews = ({ listHeader, loading, list, isDark, isRight }) 
         {!loading && list.map((listItem) => {
           return (
             <ListItemCardNews className="noted" key={listItem.newsid}>
-              <img src={`${process.env.PUBLIC_URL}/images/new-years.png`} alt="New Years Eve Tango" style={{ width: '70%' }} />
               <ListDetailsSectionNews>
                 <ListDetailsSpan>
                   <StyledH5>{listItem.title}</StyledH5>

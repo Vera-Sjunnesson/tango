@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Label, Form, TextInput, TextInputBox } from 'components/lib/Input'
+import { Label, Form, TextInput, TextInputBox } from 'unused_components/Input'
 import styled, { css } from 'styled-components/macro';
 import { Header } from 'components/lib/Header';
 import { ArrowButton, GoBackButton } from 'components/lib/Buttons';
@@ -125,7 +125,7 @@ export const ImgCardLarge = styled.div`
 `
 
 export const Memberh1 = styled.h1`
-  color: #e78431;;
+  color: #e78431;
 `
 
 export const LogIn = ({ memberRef }) => {

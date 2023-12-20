@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form';
-import { Label, Form, TextInput, TextInputBox, Error } from 'components/lib/Input'
+import { Label, Form, TextInput, TextInputBox, Error } from 'unused_components/Input'
 import styled, { css } from 'styled-components/macro';
 import { Header } from 'components/lib/Header';
 import { ArrowButton, GoBackButton } from 'components/lib/Buttons';

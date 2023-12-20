@@ -3,17 +3,18 @@ import { createGlobalStyle } from 'styled-components/macro';
 export const GlobalStyles = createGlobalStyle`
 
 body, html {
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: var(--primary-font-family);
   block-size: fit-content;
   height: 100%;
   overscroll-behavior: none;
-  background: var(--primary-color);
+  background: var(--primary-background-color);
 }
   
 h1 {
+  font-family: var(--secondary-font-family);
   color: var(--primary-color);
   font-size: 1.7rem;
-  font-weight: 500;
+  font-weight: 900;
   line-height: 35px;
   letter-spacing: -0.408px;
   margin-bottom: 6.5px;
@@ -34,64 +35,59 @@ h1 {
 }
   
   h2 {
-    font-size: 20px;
-    line-height: 43.2px;
+    font-family: var(--secondary-font-family);
+    font-size: 52px;
+    line-height: 60px;
     color: var(--primary-color);
     font-weight: 500;
-    background: #0000007a;
-    padding: 2px 10px;
+    padding: 0px 0px 15px;
 
     @media (min-width: 744px) and (max-width: 1280px) {
-      font-size: 25px;
+      font-size: 52px;
     }
   
     @media (min-width: 1280px) {
-      font-size: 25px;
+      font-size: 60px;
+      line-height: 70px;
     }
 }
   
 h3 {
+  font-family: var(--secondary-font-family);
   font-size: 16px;
   line-height: 32.4px;
   color: var(--secondary-color);
 }
   
   h4 {
+  font-family: var(--secondary-font-family);
   font-size: 40px;
-  color: black;
+  color: var(--secondary-color);
   font-weight: 700;
   margin-bottom: 10px;
   }
 
 h5 {
+  font-family: var(--secondary-font-family);
   font-size: 20px;
   line-height: 26px;
   margin-bottom: 5px;
-  color: black;
+  color: var(--secondary-color);
   font-weight: 700;
 }
   
 p {
-  color: var(--primary-color);
-  font-size: 16px;
+  color: var(--secondary-color);
+  font-size: 18px;
   font-weight: 400;
   line-height: 22.5px;
-  letter-spacing: -0.408px;
   text-align: left;
-  font-family: "tablet-gothic", sans-serif;
   font-weight: 400;
   font-style: normal;
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-    color: var(--primary-color);
-  }
-
-  @media (min-width: 1280px) {
-    color: var(--primary-color);
-  }
 }
 
 button {
+  font-family: var(--secondary-font-family);
   border: none;
   font-weight: 500;
   font-size: 20px;
@@ -103,12 +99,13 @@ button {
   gap: 14px;
   width: fit-content;
   cursor: pointer;
+  background: transparent;
 }
 
-/* a {
+a {
   text-decoration: none;
-  color: var(--secondary-color);
-} */
+  font-size: 18px;
+}
 
 article {
   display: flex;
