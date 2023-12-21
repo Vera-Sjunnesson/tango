@@ -3,14 +3,26 @@ import { Header } from 'components/lib/Header';
 import { ArrowDown, GoBackButton } from 'components/lib/Buttons';
 import { Card, Description, StyledWrapper, HeaderSpan, ListHeader, TangoCardSection } from './styles_about_tango/AboutTangoStyles';
 
-export const TangoCard = ({ color, description, href, hovercolor }) => {
+export const TangoCard = ({ color, description, href }) => {
   return (
     <Card
       to={href}
       target="_blank"
       rel="noreferrer"
       style={{ background: `${color}` }}
-      onMouseEnter={(e) => { e.target.style.backgroundColor = `${hovercolor}` }}
+      onMouseEnter={(e) => { e.target.style.backgroundColor = '#222222' }}
+      onMouseLeave={(e) => { e.target.style.backgroundColor = `${color}` }}>
+      <Description className="title">{description}</Description>
+    </Card>
+  )
+}
+
+export const TangoCardNav = ({ color, description, path }) => {
+  return (
+    <Card
+      to={path}
+      style={{ background: `${color}` }}
+      onMouseEnter={(e) => { e.target.style.backgroundColor = '#222222' }}
       onMouseLeave={(e) => { e.target.style.backgroundColor = `${color}` }}>
       <Description className="title">{description}</Description>
     </Card>
@@ -53,14 +65,14 @@ export const AboutTango = () => {
           ref={videoEl} />
       </div>
       <TangoCardSection>
-        <TangoCard color="#e88025" description="Tangoordlista" href="/om-tango/ordlist" hovercolor="#222222" />
-        <TangoCard color="#518a93" description="Tangomusik" href="https://www.tangonorte.com/page.php?id=musik" hovercolor="#222222" />
-        <TangoCard color="#e88025" description="Intervjuer" href="https://www.tangonorte.com/page.php?id=Intervjuer" hovercolor="#222222" />
-        <TangoCard color="#ede29f" description="DJ:a tango" href="https://www.tangonorte.com/page.php?id=DJtips" hovercolor="#222222" />
-        <TangoCard color="#edc343" description="Festivalhistoria" href="https://www.tangonorte.com/page.php?id=Festivalhistoria" hovercolor="#222222" />
-        <TangoCard color="#edc343" description="Gästlärare" href="https://www.tangonorte.com/page.php?id=guestteachers" hovercolor="#222222" />
-        <TangoCard color="#ede29f" description="Tangoessä" href="https://tidskriftenrespons.se/artikel/takes-idiot-tango/" hovercolor="#222222" />
-        <TangoCard color="#518a93" description="Buenos Aires" href="https://www.tangonorte.com/page.php?id=TangoturisteniBuenosAires" hovercolor="#222222" />
+        <TangoCardNav color="#e88025" description="Tangoordlista" path="/om-tango/ordlista" />
+        <TangoCardNav color="#518a93" description="Tangomusik" path="/om-tango/musik" />
+        <TangoCardNav color="#e88025" description="Intervjuer" path="/om-tango/intervuer" />
+        <TangoCard color="#ede29f" description="DJ:a tango" href="https://www.tangonorte.com/page.php?id=DJtips" />
+        <TangoCard color="#edc343" description="Festivalhistoria" href="https://www.tangonorte.com/page.php?id=Festivalhistoria" />
+        <TangoCard color="#ede29f" description="Gästlärare" href="https://www.tangonorte.com/page.php?id=guestteachers" />
+        <TangoCard color="#edc343" description="Tangoessä" href="https://tidskriftenrespons.se/artikel/takes-idiot-tango/" />
+        <TangoCard color="#518a93" description="Buenos Aires" href="https://www.tangonorte.com/page.php?id=TangoturisteniBuenosAires" />
       </TangoCardSection>
     </StyledWrapper>
   );

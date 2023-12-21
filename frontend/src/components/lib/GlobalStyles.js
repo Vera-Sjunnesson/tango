@@ -36,7 +36,7 @@ h1 {
   
   h2 {
     font-family: var(--secondary-font-family);
-    font-size: 52px;
+    font-size: 45px;
     line-height: 60px;
     color: var(--primary-color);
     font-weight: 500;

@@ -72,6 +72,7 @@ export const GoDownNavLink = styled(NavLink)`
   background: transparent;
   width: 100px;
   padding: 10px;
+  align-self: center;
 
     .arrow {
       width: 40px;

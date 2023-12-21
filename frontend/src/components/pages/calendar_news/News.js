@@ -18,12 +18,10 @@ export const News = () => {
     const fetchEventList = async () => {
       try {
         const url = process.env.REACT_APP_NEWS_LIST_URL
-        console.log('url:', url);
         if (!url) {
           throw new Error('Failed to fetch event list');
         }
         const response = await fetch(url);
-        console.log('Response:', response);
         const data = await response.json();
         setList(data);
       } catch (error) {
@@ -49,10 +47,10 @@ export const News = () => {
           <ListContainer $dark>
             {!loading && list.map((listItem) => {
               return (
-                <NavLink to={`/aktuellt/${listItem.newsid}`}>
+                <NavLink to={`/aktuellt/${listItem.newsid}`} key={listItem.newsid}>
                   <ListItemCardNews key={listItem.newsid}>
                     {listItem.picture && (
-                      <img src={`https://www.tangonorte.com/img/www.tangonorte.com/page/${listItem.picture}`} alt="news" style={{ width: 200 }} />
+                      <img src={`https://www.tangonorte.com/img/www.tangonorte.com/page/${listItem.picture}`} alt="news" style={{ width: '100%' }} />
                     )}
                     <ListDetailsSectionNews>
                       <ListDetailsSpan>

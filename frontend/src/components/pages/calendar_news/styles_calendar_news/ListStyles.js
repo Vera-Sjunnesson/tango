@@ -4,12 +4,14 @@ export const ListWrapper = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 400px;
+  top: ${(props) => (props.$right ? '147px' : '400px')};
   width: 100%;
-  height: 100%;
-  background: white;
+  height: ${(props) => (props.$right ? '666px' : '100%')};
+  background: var(--primary-color);
   padding: 0px;
   box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
+  overflow-y: ${(props) => (props.$right ? 'scroll' : '')};
+  overflow-x: ${(props) => (props.$right ? 'hidden' : '')};
 
   @media (min-width: 744px) and (max-width: 1280px) {
     left: 100px;
@@ -102,7 +104,6 @@ export const ListItemCardNews = styled.li`
   @media (min-width: 744px) and (max-width: 1280px) {
     align-items: center;
     gap: 5px;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
   }
@@ -110,7 +111,6 @@ export const ListItemCardNews = styled.li`
   @media (min-width: 1280px) {
     align-items: center;
     gap: 5px;
-    flex-direction: row;
     justify-content: space-between;
     gap: 20px;
   }
@@ -159,13 +159,19 @@ export const ListDetailsSectionNews = styled(ListDetailsSection)`
   width: 100%;
   height: auto;
   align-items: center;
+  justify-content: center;
+  gap: 20px;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     height: auto;
+    justify-content: space-between;
+    gap: 0px;
   }
 
   @media (min-width: 1280px) {
     height: 100%;
+    justify-content: space-between;
+    gap: 0px;
   }
 `
 
@@ -245,16 +251,17 @@ export const HeaderContainer = styled.div`
   flex-wrap: wrap;
   column-gap: 30px;
   row-gap: 10px;
-  margin-bottom: 20px;
-  padding: 15px;
+  margin-bottom: ${(props) => (props.$right ? '0px' : '20px')};
+  padding: ${(props) => (props.$right ? '15px 15px 0px' : '15px')};
 
   @media (min-width: 744px) and (max-width: 1280px) {
     margin: 0px;
-    padding: 15px 0px;
+    padding: ${(props) => (props.$right ? '10px 10px 0px' : '15px 0px')};
   }
 
   @media (min-width: 1280px) {
     margin: 0;
-    padding: ${(props) => (props.$right ? '10px 10px 10px' : '15px 0px')};
+    padding: ${(props) => (props.$right ? '10px 10px 0px' : '15px 0px')};
+    align-items: ${(props) => (props.$right ? 'center' : '')};
   }
 `

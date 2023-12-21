@@ -114,6 +114,7 @@ export const Article = styled.article`
   position: relative;
   width: 100%;
   height: 500px;
+  background-position: center;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     display: block;
@@ -123,6 +124,7 @@ export const Article = styled.article`
   @media (min-width: 1280px) {
     display: block;
     height: 100%;
+    background-position: top;
   }
 `
 
@@ -267,7 +269,7 @@ export const MenuButtonContainer = styled(NavLink)`
   }
 
   &:hover .arrow {
-    width: 70px;
+    width: 55px;
   }
 
   @media (min-width: 744px) and (max-width: 1280px) {

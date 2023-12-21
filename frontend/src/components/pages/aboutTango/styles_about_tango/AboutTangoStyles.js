@@ -30,6 +30,21 @@ export const ListHeader = styled.h2`
   }
 `
 
+export const ListHeaderSmall = styled(ListHeader)`
+  font-size: 2.5rem;
+  padding: 10px;
+  
+  @media (min-width: 744px) and (max-width: 1280px) {
+    font-size: 80px;
+    padding: 30px 0px 10px 0px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 80px;
+    padding: 20px 0px 0px 0px;
+  }
+`
+
 export const HeaderSpan = styled.span`
   position: absolute;
   top: 50%;

@@ -18,15 +18,16 @@ export const BackgroundContainer = styled.div`
 `
 
 export const BackgroundContainer2 = styled.div`
-  background-image: url(${(props) => (props.$img || '')}), url(${(props) => (props.$img || '')});
-  background-size: contain;
+  background-image: url(${(props) => (props.$img || '')}), url(${(props) => (props.$img2 || '')});
+  background-size: ${(props) => (props.$cover ? 'cover' : 'contain')};
   background-position: top;
-  background-repeat: repeat;
-  /* position: relative; */
+  background-repeat: no-repeat;
+  background-color: var(--primary-yellow);
   width: 100%;
-  /* height: 100%; */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
   @media (min-width: 744px) and (max-width: 1280px) {
   }
@@ -34,6 +35,10 @@ export const BackgroundContainer2 = styled.div`
   @media (min-width: 1280px) {
     height: 100%;
     position: relative;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
   }
 `
 

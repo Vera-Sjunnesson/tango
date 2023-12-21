@@ -28,7 +28,6 @@ export const NavWrapper = styled.nav`
 export const NavLinkStyled = styled(NavLink)`
   position: relative;
   display: inline-block;
-  font-weight: 900;
   color: #222222;
   text-decoration: none;
   margin: 0;
@@ -37,6 +36,7 @@ export const NavLinkStyled = styled(NavLink)`
   font-family: 'Barlow Semi Condensed', sans-serif;
   letter-spacing: 0.2rem;
   font-size: ${(props) => (props.$large ? '40px' : '22px')};
+  font-weight: ${(props) => (props.$large ? '900' : '700')};
 
   &::before {
     content: "";
@@ -61,7 +61,6 @@ export const NavLinkStyled = styled(NavLink)`
 export const AnchorStyled = styled.a`
   position: relative;
   display: inline-block;
-  font-weight: 900;
   color: #222222;
   text-decoration: none;
   margin: 0;
@@ -70,6 +69,7 @@ export const AnchorStyled = styled.a`
   font-family: 'Barlow Semi Condensed', sans-serif;
   letter-spacing: 0.2rem;
   font-size: ${(props) => (props.$large ? '40px' : '22px')};
+  font-weight: ${(props) => (props.$large ? '900' : '700')};
 
   &::before {
     content: "";
@@ -94,7 +94,7 @@ export const NavDivider = styled.span`
   height: 20px;
   margin-bottom: 5px;
   /* opacity: .3; */
-  width: 4px;
+  width: 3px;
 `
 
 export const NavBar = ({ isLarge, isHero }) => {

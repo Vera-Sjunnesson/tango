@@ -43,13 +43,11 @@ export const CalendarBoard = () => {
     const fetchEventList = async () => {
       try {
         const url = process.env.REACT_APP_EVENTLIST_URL
-        console.log('url:', url);
         if (!url) {
           throw new Error('Failed to fetch event list');
         }
 
         const response = await fetch(url);
-        console.log('Response:', response);
         const data = await response.json();
         setList((prevList) => [...prevList, ...data]);
       } catch (error) {
@@ -112,7 +110,7 @@ export const CalendarBoard = () => {
                     {sortedList[date].map((listItem) => {
                       const bgColor = getBackgroundColor(listItem.type); // Get background color
                       return (
-                        <NavLink to={`/kalendarium/${listItem.id}`}>
+                        <NavLink to={`/kalendarium/${listItem.id}`} key={listItem.id}>
                           <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
                             <StyledH5>{listItem.title}</StyledH5>
                             <ListParagraph $day>

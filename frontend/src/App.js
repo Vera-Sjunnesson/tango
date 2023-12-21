@@ -11,6 +11,8 @@ import { NewsDetails } from 'components/pages/details/NewsDetails';
 import { Footer } from 'components/lib/Footer';
 import { VenueDetails } from 'components/pages/details/VenueDetails';
 import { Glossary } from 'components/pages/aboutTango/Glossary';
+import { Music } from 'components/pages/aboutTango/Music';
+import { Interviews } from 'components/pages/aboutTango/Interviews';
 
 export const App = () => {
   return (
@@ -25,7 +27,9 @@ export const App = () => {
         <Route path="/aktuellt/:id" element={<NewsDetails />} />
         <Route path="/om" element={<About />} />
         <Route path="/om-tango" element={<AboutTango />} />
-        <Route path="/om-tango/ordlist" element={<Glossary />} />
+        <Route path="/om-tango/ordlista" element={<Glossary />} />
+        <Route path="/om-tango/musik" element={<Music />} />
+        <Route path="/om-tango/intervuer" element={<Interviews />} />
         <Route path="/lokal/:venueid" element={<VenueDetails />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>

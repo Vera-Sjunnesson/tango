@@ -63,12 +63,11 @@ export const FeaturedCarousel = ({ list, eventList }) => {
             ? `kalendarium/${listItem.anid}`
             : `aktuellt/${listItem.anid}`;
           return (
-            <swiper-slide key={listItem.id}>
+            <swiper-slide key={listItem.anid}>
               <Article
                 style={{
                   backgroundImage: `linear-gradient(15deg, rgba(34, 34, 34, 0.8) 30%, rgba(255, 255, 255, 0) 65%), url(${listItem.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: `${listItem.imageposition}`
+                  backgroundSize: 'cover'
                 }}>
                 <FeaturedTextCard>
                   <FeaturedHeading>{listItem.title.toUpperCase()}</FeaturedHeading>

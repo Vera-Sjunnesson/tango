@@ -21,8 +21,6 @@ export const VenueDetails = () => {
           throw new Error('Venue ID is undefined');
         }
         const url = SINGLE_VENUE_ITEM_URL(venueid);
-        console.log('url', url)
-        console.log('id', venueid)
         if (!url) {
           throw new Error('Failed to fetch venue details');
         }

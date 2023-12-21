@@ -20,15 +20,12 @@ export const EventDetails = () => {
           throw new Error('Event ID is undefined');
         }
         const url = SINGLE_EVENT_URL(id);
-        console.log('url', url)
-        console.log('id', id)
         if (!url) {
           throw new Error('Failed to fetch event details');
         }
         const response = await fetch(url);
         const data = await response.json();
         setDetails(data);
-        console.log('details', data[0].image);
       } catch (error) {
         console.error(error);
       } finally {

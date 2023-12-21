@@ -14,13 +14,11 @@ export const Hero = () => {
   const fetchFrontList = async () => {
     try {
       const url = process.env.REACT_APP_FEATURED_EVENTLIST_URL
-      console.log('url:', url);
       if (!url) {
         throw new Error('Failed to fetch event list');
       }
 
       const response = await fetch(url);
-      console.log('Response:', response);
       const data = await response.json();
       const images = [
         `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
@@ -37,7 +35,6 @@ export const Hero = () => {
         };
       });
       setList(combinedDataWithImages);
-      console.log('herolist', list)
     } catch (error) {
       console.error(error);
     } finally {
@@ -48,13 +45,11 @@ export const Hero = () => {
   const fetchEventList = async () => {
     try {
       const url = process.env.REACT_APP_EVENTLIST_URL
-      console.log('url:', url);
       if (!url) {
         throw new Error('Failed to fetch event list');
       }
 
       const response = await fetch(url);
-      console.log('Response:', response);
       const data = await response.json();
       setEventList((prevList) => [...prevList, ...data]);
     } catch (error) {
