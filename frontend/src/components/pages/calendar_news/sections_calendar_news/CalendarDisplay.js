@@ -11,13 +11,11 @@ export const CalendarDisplay = () => {
     const fetchEventList = async () => {
       try {
         const url = process.env.REACT_APP_EVENTLIST_URL
-        console.log('url:', url);
         if (!url) {
           throw new Error('Failed to fetch event list');
         }
 
         const response = await fetch(url);
-        console.log('Response:', response);
         const data = await response.json();
         // Transforming the 'starts' property to 'start' and adding 'end' property
         const transformedData = data.map((item) => ({
