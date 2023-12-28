@@ -17,6 +17,10 @@ export const FeaturedCarousel = ({ list, eventList }) => {
     const params = {
       navigation: true,
       pagination: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true
+      },
       injectStyles: [
         `
         .swiper-button-next,

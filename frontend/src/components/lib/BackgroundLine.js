@@ -5,13 +5,14 @@ export const LineContainer = styled.div`
   background-size: ${(props) => (props.$cover ? 'cover' : '')};
   background-position: top;
   height: ${(props) => (props.$news ? '100%' : '400px')};
-  width: ${(props) => (props.$cover ? '200%' : '100%')};
+  width: ${(props) => (props.$cover ? '300%' : '100%')};
   position: absolute;
   right: 0px;
   right: ${(props) => (props.$news ? '' : '0px')};
   left: ${(props) => (props.$news ? '0' : '')};
 
   @media (min-width: 744px) and (max-width: 1280px) {
+    width: ${(props) => (props.$cover ? '200%' : '100%')};
     height: 100%;
     left: ${(props) => (props.$news ? '0px' : '')};
   }

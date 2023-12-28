@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 export const ListWrapper = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
   top: ${(props) => (props.$right ? '147px' : '400px')};
@@ -10,23 +9,29 @@ export const ListWrapper = styled.div`
   padding: 0px;
   box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
   padding-bottom: 20px;
+  z-index: ${(props) => (props.$right ? '' : '1')};
+  position: ${(props) => (props.$right ? 'relative' : '')};
   
   @media (min-width: 744px) and (max-width: 1280px) {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 80%;
     height: 65%;
     padding: 0px 20px 20px 20px;
+    z-index: 0;
   }
 
   @media (min-width: 1280px) {
+    position: absolute;
     left: ${(props) => (props.$right ? '' : '70px')};
     right: ${(props) => (props.$right ? '70px' : '')};
     top: 70px;
     width: ${(props) => (props.$right ? '50%' : '60%')};
     height: ${(props) => (props.$right ? '65%' : '75%')};
     padding: 0px 20px 20px 20px;
+    z-index: 0;
   }
 `
 
@@ -46,6 +51,7 @@ export const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   align-items: center;
 
   @media (min-width: 744px) and (max-width: 1280px) {
@@ -261,5 +267,17 @@ export const HeaderContainer = styled.div`
     margin: 0;
     padding: ${(props) => (props.$right ? '10px 10px 0px' : '15px 0px')};
     align-items: ${(props) => (props.$right ? 'center' : '')};
+  }
+`
+
+export const LoaderContainer = styled.div`
+  height: 50vh;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    height: 100%;
+  }
+
+  @media (min-width: 1280px) {
+    height: 100%;
   }
 `

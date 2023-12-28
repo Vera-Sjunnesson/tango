@@ -11,7 +11,7 @@ export const HeroContainer = styled.div`
     display: block;
     position: relative;
     height: 1863px;
-    background: #fff7f1;
+    background: var(--secondary-background-color);
   }
 
   @media (min-width: 1280px) {
@@ -19,10 +19,15 @@ export const HeroContainer = styled.div`
     position: relative;
     height: 100vh;
     display: block;
-    background: #fff7f1;
+    background: var(--secondary-background-color);
     overflow: hidden;
   }
 `
+
+export const LoaderContainer = styled.div`
+  height: 100vh;
+`
+
 export const HeroWrapper = styled.div`
   display: contents;
 
@@ -298,7 +303,7 @@ export const TextContainer = styled.span`
   align-items: center;
   justify-content: center;
   gap: 0;
-  background: var(--secondary-blue);
+  background: var(--primary-blue);
   font-weight: 500;
   color: white;
   text-decoration: none;
@@ -318,7 +323,7 @@ export const Arrow = styled.span`
 `
 
 export const IntroTextCard = styled.div`
-  background: var(--secondary-blue);
+  background: var(--primary-blue);
   box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
   padding: 30px 20px;
   margin: 0px 0 30px 0;

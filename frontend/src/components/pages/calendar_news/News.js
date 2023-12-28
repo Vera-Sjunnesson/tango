@@ -8,7 +8,7 @@ import { ArrowButton2, GoBackButton } from 'components/lib/Buttons';
 import { ListParagraphNews } from 'components/lib/Paragraphs';
 import { PlaceHolder } from 'components/lib/Placeholder';
 import { renderMarkdown } from '../details/NewsDetails';
-import { ListWrapper, HeaderContainer, ListItemCardNews, ListHeader, ListContainer, StyledH5, ListDetailsSpan, ListDetailsSectionNews } from './styles_calendar_news/ListStyles';
+import { ListWrapper, HeaderContainer, ListItemCardNews, ListHeader, ListContainer, StyledH5, ListDetailsSpan, ListDetailsSectionNews, LoaderContainer } from './styles_calendar_news/ListStyles';
 
 export const News = () => {
   const [list, setList] = useState([]);
@@ -70,7 +70,9 @@ export const News = () => {
             )}
             {loading
               && (
-                <Loader />
+                <LoaderContainer>
+                  <Loader />
+                </LoaderContainer>
               )}
           </ListContainer>
         </ListWrapper>

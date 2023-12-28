@@ -10,7 +10,7 @@ import { ListDescription } from 'components/pages/calendar_news/sections_calenda
 import { Loader } from 'components/lib/loader';
 import { ListParagraph } from 'components/lib/Paragraphs';
 import { CalendarDisplay } from './sections_calendar_news/CalendarDisplay';
-import { ListWrapper, HeaderContainer, ListHeader, ListContainer, DateHeader, ListItemCard, StyledH5, ListDetailsSection, ListDetailsSpan, FacititatorDetails } from './styles_calendar_news/ListStyles';
+import { ListWrapper, HeaderContainer, ListHeader, ListContainer, DateHeader, ListItemCard, StyledH5, ListDetailsSection, ListDetailsSpan, FacititatorDetails, LoaderContainer } from './styles_calendar_news/ListStyles';
 
 // Function to sort list items by date
 const sortListItemsByDate = (list) => {
@@ -135,7 +135,9 @@ export const CalendarBoard = () => {
               ))}
             {loading
               && (
-                <Loader />
+                <LoaderContainer>
+                  <Loader />
+                </LoaderContainer>
               )}
           </ListContainer>
         </ListWrapper>

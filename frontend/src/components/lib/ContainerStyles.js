@@ -55,7 +55,6 @@ export const PageContainer = styled.div`
   flex-direction: column;
   height: fit-content;
   width: 100%;
-  height: 100%;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     position: relative;
@@ -67,7 +66,7 @@ export const PageContainer = styled.div`
 `
 
 export const StyledWrapper = styled.div`
-  height: 50vh;
+  height: 39vh;
   position: relative;
   display: flex;
   flex-direction: column;
