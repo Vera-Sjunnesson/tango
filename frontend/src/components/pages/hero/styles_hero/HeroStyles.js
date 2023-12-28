@@ -22,7 +22,6 @@ export const HeroContainer = styled.div`
     background: #fff7f1;
     overflow: hidden;
   }
-
 `
 export const HeroWrapper = styled.div`
   display: contents;
@@ -299,7 +298,7 @@ export const TextContainer = styled.span`
   align-items: center;
   justify-content: center;
   gap: 0;
-  background: var(--primary-blue);
+  background: var(--secondary-blue);
   font-weight: 500;
   color: white;
   text-decoration: none;
@@ -319,7 +318,7 @@ export const Arrow = styled.span`
 `
 
 export const IntroTextCard = styled.div`
-  background: var(--primary-blue);
+  background: var(--secondary-blue);
   box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
   padding: 30px 20px;
   margin: 0px 0 30px 0;

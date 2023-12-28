@@ -14,13 +14,13 @@ export const DetailsContainer = styled.div`
   @media (min-width: 744px) and (max-width: 1280px) {
     height: 1617px; 
     overflow-x: hidden;
-    background: #FDF0E5;
+    background: #fff7f1;
   }
 
   @media (min-width: 1280px) {
     height: ${(props) => (props.$venue ? '' : '120vh')};
     display: block;
-    background: #FDF0E5;
+    background: #fff7f1;
   }
 `
 
