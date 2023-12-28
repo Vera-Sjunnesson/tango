@@ -3,6 +3,7 @@ import { register } from 'swiper/element/bundle';
 import { useMediaQuery } from 'react-responsive'
 import { ArrowButton } from 'components/lib/Buttons';
 import { FeaturedParagraph } from 'components/lib/Paragraphs';
+import { PhotoTag } from 'components/lib/PhotoTag';
 import { CarouselContainer, NewsContainer, TagLine, Article, FeaturedTextCard, FeaturedHeading } from '../styles_hero/HeroStyles';
 
 register();
@@ -47,6 +48,7 @@ export const FeaturedCarousel = ({ list, eventList }) => {
       <NewsContainer>
         <TagLine>På gång</TagLine>
       </NewsContainer>
+      <PhotoTag />
       <swiper-container
         ref={swiperRef}
         effect="slide"

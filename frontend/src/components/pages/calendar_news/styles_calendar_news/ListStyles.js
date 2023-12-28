@@ -6,28 +6,27 @@ export const ListWrapper = styled.div`
   flex-direction: column;
   top: ${(props) => (props.$right ? '147px' : '400px')};
   width: 100%;
-  height: ${(props) => (props.$right ? '666px' : '100%')};
   background: var(--primary-color);
   padding: 0px;
   box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
-  overflow-y: ${(props) => (props.$right ? 'scroll' : '')};
-  overflow-x: ${(props) => (props.$right ? 'hidden' : '')};
-
+  padding-bottom: 20px;
+  
   @media (min-width: 744px) and (max-width: 1280px) {
-    left: 100px;
-    top: 179px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 80%;
     height: 65%;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
   }
 
   @media (min-width: 1280px) {
     left: ${(props) => (props.$right ? '' : '70px')};
     right: ${(props) => (props.$right ? '70px' : '')};
     top: 70px;
-    width: ${(props) => (props.$right ? '60%' : '60%')};
-    height: 75%;
-    padding: 20px;
+    width: ${(props) => (props.$right ? '50%' : '60%')};
+    height: ${(props) => (props.$right ? '65%' : '75%')};
+    padding: 0px 20px 20px 20px;
   }
 `
 
@@ -50,18 +49,17 @@ export const ListContainer = styled.ul`
   align-items: center;
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    left: 100px;
-    top: 170px;
     overflow-y: scroll;
     height: 100%;
+    overflow-x: hidden;
   }
 
   @media (min-width: 1280px) {
     left: 100px;
     height: 100%;
-    height: 100%;
     top: 170px;
     overflow-y: scroll;
+    overflow-x: hidden;
   }
 `
 

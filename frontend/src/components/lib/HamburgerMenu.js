@@ -112,16 +112,6 @@ export const HamburgerMenu = () => {
                   ? 'sidebar-item active' : 'sidebar-item'}>
                 <NavLink
                   className="sidebar-anchor"
-                  to="/om-tango"
-                  onClick={onAnchorClick}>
-                  OM TANGO
-                </NavLink>
-              </li>
-              <li
-                className={toggleSideBar
-                  ? 'sidebar-item active' : 'sidebar-item'}>
-                <NavLink
-                  className="sidebar-anchor"
                   to="/kalendarium"
                   onClick={onAnchorClick}>
                   KALENDARIUM
@@ -135,6 +125,16 @@ export const HamburgerMenu = () => {
                   to="/aktuellt"
                   onClick={onAnchorClick}>
                   AKTUELLT
+                </NavLink>
+              </li>
+              <li
+                className={toggleSideBar
+                  ? 'sidebar-item active' : 'sidebar-item'}>
+                <NavLink
+                  className="sidebar-anchor"
+                  to="/om-tango"
+                  onClick={onAnchorClick}>
+                  OM TANGO
                 </NavLink>
               </li>
             </ul>

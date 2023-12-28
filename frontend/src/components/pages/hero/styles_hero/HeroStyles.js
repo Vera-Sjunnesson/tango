@@ -3,43 +3,47 @@ import { NavLink } from 'react-router-dom';
 
 /* HERO */
 export const HeroContainer = styled.div`
-  width: 100%;
-  position: relative;
-  height: 1154px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    height: 1617px; 
-    overflow-x: hidden;
-    background: #FDF0E5;
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 1863px;
+    background: #fff7f1;
   }
 
   @media (min-width: 1280px) {
+    width: 100%;
+    position: relative;
     height: 100vh;
     display: block;
-    background: #FDF0E5;
+    background: #fff7f1;
     overflow: hidden;
   }
 
 `
 export const HeroWrapper = styled.div`
-  position: absolute;
-  left: 0px;
-  width: 100%;
-  top: 111px;
-
+  display: contents;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     position: absolute;
-    top: 144px;
+    top: 132px;
     left: 0px;
     width: 100%;
-    background: #FDF0E5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
   }
 
   @media (min-width: 1280px) {
+    position: absolute;
+    width: 100%;
     top: 16vh;
     height: 84vh;
+    left: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,17 +53,16 @@ export const HeroWrapper = styled.div`
 /* FEATURED CAROUSEL */
 export const CarouselContainer = styled.div`
   width: 100%;
-  height: 500px;
+  height: 600px;
   margin: auto;
-  box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
   position: relative;
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    height: 600px;
   }
 
   @media (min-width: 1280px) {
     height: 80%;
+    box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
   }
 `
 
@@ -113,12 +116,12 @@ export const TagLine = styled.h4`
 export const Article = styled.article`
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 600px;
   background-position: center;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     display: block;
-    height: 600px;
+    background-position: top;
   }
 
   @media (min-width: 1280px) {
@@ -133,13 +136,13 @@ export const FeaturedTextCard = styled.div`
   flex-direction: column;
   text-align: left;
   position: absolute;
-  top: 60%;
+  top: 70%;
   left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%,-30%);
   width: 350px;
   padding: 5px 0px 10px 10px;
   gap: 10px;
-  width: 80%;
+  width: 90%;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     position: absolute;
@@ -150,7 +153,7 @@ export const FeaturedTextCard = styled.div`
     transform: none;
     padding: 5px 4px 10px 10px;
     gap: 14px;
-    width: 30%;
+    width: 50%;
   }
 
   @media (min-width: 1280px) {
@@ -177,6 +180,7 @@ export const FeaturedHeading = styled.h1`
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     text-align: left;
+    line-height: 55px;
   }
 
   @media (min-width: 1280px) {
@@ -218,7 +222,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 flex-direction: column;
-gap: 30px;
+gap: 35px;
 width: 80%; 
 left: 0;
 right: 0;
@@ -227,8 +231,11 @@ margin-top: 40px;
 margin-bottom: 40px;
 
 @media (min-width: 744px) and (max-width: 1280px) {
-  position: absolute;
-  z-index: 1;
+  gap: 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 @media (min-width: 1280px) {
@@ -244,7 +251,7 @@ margin-bottom: 40px;
 export const MenuButtonContainer = styled(NavLink)`
   background-size: cover;
   background-position: top;
-  height: 155px;
+  height: 175px;
   width: 100%;
   box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
   color: var(--primary-color);
@@ -273,7 +280,8 @@ export const MenuButtonContainer = styled(NavLink)`
   }
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    height: 222px;
+    height: 250px;
+    width: 50%;
   }
   @media (min-width: 1280px) {
     height: 100%;
@@ -291,7 +299,7 @@ export const TextContainer = styled.span`
   align-items: center;
   justify-content: center;
   gap: 0;
-  background: #518a93;
+  background: var(--primary-blue);
   font-weight: 500;
   color: white;
   text-decoration: none;
@@ -299,7 +307,7 @@ export const TextContainer = styled.span`
   box-sizing: border-box;
   padding: 10px 0;
   letter-spacing: .2rem;
-  font-family: var(--primary-font-family)
+  font-family: var(--secondary-font-family)
 `
 
 export const Arrow = styled.span`
@@ -308,4 +316,22 @@ export const Arrow = styled.span`
   align-items: center;
   transition: all 0.3s ease;
   justify-content: flex-start;
+`
+
+export const IntroTextCard = styled.div`
+  background: var(--primary-blue);
+  box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
+  padding: 30px 20px;
+  margin: 0px 0 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  .h5 {
+    color: var(--primary-color);
+  }
+`
+
+export const IntroTextParagraph = styled.p`
+  color: var(--primary-color);
+  line-height: 25px;
 `

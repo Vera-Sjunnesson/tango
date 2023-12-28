@@ -78,12 +78,20 @@ h5 {
   
 p {
   color: var(--secondary-color);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 22.5px;
   text-align: left;
   font-weight: 400;
   font-style: normal;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 18px;
+  }
 }
 
 button {
@@ -104,7 +112,15 @@ button {
 
 a {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 18px;
+  }
 }
 
 article {

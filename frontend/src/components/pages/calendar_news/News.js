@@ -6,6 +6,7 @@ import { Header } from 'components/lib/Header';
 import { Loader } from 'components/lib/loader';
 import { ArrowButton2, GoBackButton } from 'components/lib/Buttons';
 import { ListParagraphNews } from 'components/lib/Paragraphs';
+import { PlaceHolder } from 'components/lib/Placeholder';
 import { renderMarkdown } from '../details/NewsDetails';
 import { ListWrapper, HeaderContainer, ListItemCardNews, ListHeader, ListContainer, StyledH5, ListDetailsSpan, ListDetailsSectionNews } from './styles_calendar_news/ListStyles';
 
@@ -35,17 +36,17 @@ export const News = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Header isSmall />
       <BackgroundGradeContainer $grade="#eec342, #eec342" $img={`${process.env.PUBLIC_URL}/assets/dance-line.png`} id="#sectionFive">
         <GoBackButton />
-        <BackgroundLine isNews backgroundimg={`${process.env.PUBLIC_URL}/assets/line03-01.svg`} />
+        <BackgroundLine isNews isCover backgroundimg={`${process.env.PUBLIC_URL}/assets/line03-01.svg`} />
         <ListWrapper $right>
           <HeaderContainer $right>
             <ListHeader>AKTUELLT</ListHeader>
           </HeaderContainer>
           <ListContainer $dark>
-            {!loading && list.map((listItem) => {
+            {!loading && list.length > 0 && list.map((listItem) => {
               return (
                 <NavLink to={`/aktuellt/${listItem.newsid}`} key={listItem.newsid}>
                   <ListItemCardNews key={listItem.newsid}>
@@ -64,6 +65,9 @@ export const News = () => {
                 </NavLink>
               )
             })}
+            {!loading && list.length === 0 && (
+              <PlaceHolder />
+            )}
             {loading
               && (
                 <Loader />
@@ -71,6 +75,6 @@ export const News = () => {
           </ListContainer>
         </ListWrapper>
       </BackgroundGradeContainer>
-    </div>
+    </>
   );
 }

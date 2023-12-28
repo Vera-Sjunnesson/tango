@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro';
 import { useMediaQuery } from 'react-responsive'
 import { NavLink } from 'react-router-dom';
+import PersonIcon from '@mui/icons-material/Person';
 import { HamburgerMenu } from './HamburgerMenu';
 import { NavBar } from './NavBar';
 
@@ -13,10 +14,10 @@ export const HeaderContainer = styled.div`
   flex-direction: row-reverse;
   justify-content: space-between;
   width: 100%;
+  height: 103px;
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    height: 144px;
-    position: unset;
+    height: ${(props) => (props.$Small ? '111.5px' : '144px')};
     display: flex;
     justify-content: space-between;
     z-index: 999;
@@ -26,19 +27,37 @@ export const HeaderContainer = styled.div`
   }
 
   @media (min-width: 1280px) {
-    position: unset;
+    position: relative;
     height: ${(props) => (props.$Small ? '104px' : '161px')};
     width: auto;
   }
 `
 
+export const IconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: 70px;
+
+  .icon {
+    font-size: 40px;
+    padding: 10px;
+    color: var(--secondary-color);
+
+    @media (min-width: 744px) and (max-width: 1280px) {
+      font-size: 50px;
+    }
+  }
+`
+
 export const Logo = styled.img`
-  height: 124px;
+  height: 100px;
   margin: 0;
   z-index: 1001;
 
   @media (min-width: 744px) and (max-width: 1280px) {
-    height: ${(props) => (props.$Small ? '124px' : '163px')};
+    height: 124px;
     position: absolute;
     top: 9px;
   }
@@ -48,18 +67,28 @@ export const Logo = styled.img`
     top: ${(props) => (props.$Small ? '5px' : '1px')};
     position: absolute;
     left: ${(props) => (props.$Small ? '7px' : '0px')};
+  }
 `
 
 export const Header = ({ isBlack, isSmall, isLarge, isHero }) => {
   const navLinkStyle = {
-    zIndex: '1001'
+    zIndex: '1001',
+    padding: '5px'
   }
 
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1280px)' })
   return (
     <HeaderContainer $Small={isSmall}>
       {isMobileOrTablet ? (
-        <HamburgerMenu />
+        <IconContainer>
+          <a
+            href="https://www.tangonorte.com/register.php"
+            target="_blank"
+            rel="noreferrer">
+            <PersonIcon className="icon" />
+          </a>
+          <HamburgerMenu />
+        </IconContainer>
       ) : (
         <NavBar isLarge={isLarge} isHero={isHero} />
       )}

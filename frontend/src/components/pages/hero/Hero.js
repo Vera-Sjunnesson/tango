@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive'
 import { Header } from 'components/lib/Header';
 import { LineAnimation } from 'components/lib/LineAnimation';
 import { Loader } from 'components/lib/loader';
 import { FeaturedCarousel } from './sections_hero/FeaturedCarousel';
 import { Menu } from './sections_hero/Menu';
 import { HeroContainer, HeroWrapper } from './styles_hero/HeroStyles';
+import { IntroText } from './sections_hero/IntroText';
 
 export const Hero = () => {
   const [loading, setLoading] = useState(false)
   const [list, setList] = useState([]);
   const [eventList, setEventList] = useState([]);
+  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1280px)' })
 
   const fetchFrontList = async () => {
     try {
@@ -75,6 +78,9 @@ export const Hero = () => {
             <Header isLarge isHero />
             <HeroWrapper>
               <FeaturedCarousel list={list} eventList={eventList} />
+              {isMobileOrTablet && (
+                <IntroText />
+              )}
               <Menu />
             </HeroWrapper>
           </>

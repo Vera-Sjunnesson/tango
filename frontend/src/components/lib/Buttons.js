@@ -197,6 +197,11 @@ export const ArrowBack = styled.span`
     display: flex;
 `
 
+export const ReadMore = styled(NavLink)`
+    width: 100%;
+    color: var(--primary-color);
+`
+
 export const ArrowButton = ({ isSmall, isWhite, path, text }) => {
   return (
     <ArrowNavLink
@@ -277,5 +282,14 @@ export const ArrowDown = ({ isSmall, isWhite }) => {
         src={`${process.env.PUBLIC_URL}/assets/large-arrow.png`}
         alt="arrow down" />
     </GoDownNavLink>
+  )
+}
+
+export const ReadMoreButton = () => {
+  return (
+    <ReadMore
+      to="/om">
+      &nbsp;&nbsp;LÄS MER
+    </ReadMore>
   )
 }

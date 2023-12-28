@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyledWrapper, BackgroundContainer } from 'components/lib/ContainerStyles';
+import { StyledWrapper, BackgroundContainer, PageContainer } from 'components/lib/ContainerStyles';
 import { renderMarkdown } from 'components/pages/details/NewsDetails';
 import { BackgroundLine } from 'components/lib/BackgroundLine';
 import { NavLink } from 'react-router-dom';
@@ -92,53 +92,54 @@ export const CalendarBoard = () => {
 
   return (
     <>
-      <StyledWrapper>
-        <Header isSmall />
-        <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`}>
-          <GoBackButton />
+      <Header isSmall />
+      <PageContainer>
+        <GoBackButton />
+        <StyledWrapper>
+          <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`} />
           <BackgroundLine isCover backgroundimg={`${process.env.PUBLIC_URL}/assets/line02-01.svg`} />
-          <ListWrapper>
-            <HeaderContainer>
-              <ListHeader>KALENDARIUM</ListHeader>
-              <ListDescription />
-            </HeaderContainer>
-            <ListContainer>
-              {!loading
-                && Object.keys(sortedList).map((date) => (
-                  <div style={{ width: '100%' }} key={date}>
-                    <DateHeader>{date}</DateHeader>
-                    {sortedList[date].map((listItem) => {
-                      const bgColor = getBackgroundColor(listItem.type); // Get background color
-                      return (
-                        <NavLink to={`/kalendarium/${listItem.id}`} key={listItem.id}>
-                          <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
-                            <StyledH5>{listItem.title}</StyledH5>
-                            <ListParagraph $day>
-                              {formatDate(listItem.starts)}
-                            </ListParagraph>
-                            <ListDetailsSection>
-                              <ListDetailsSpan>
-                                <ListParagraph
-                                  // eslint-disable-next-line
-                                  dangerouslySetInnerHTML={{ __html: renderMarkdown(listItem.body) }} />
-                                <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
-                              </ListDetailsSpan>
-                              <ArrowButton2 isSmall isWhite />
-                            </ListDetailsSection>
-                          </ListItemCard>
-                        </NavLink>
-                      );
-                    })}
-                  </div>
-                ))}
-              {loading
-                && (
-                  <Loader />
-                )}
-            </ListContainer>
-          </ListWrapper>
-        </BackgroundContainer>
-      </StyledWrapper>
+        </StyledWrapper>
+        <ListWrapper>
+          <HeaderContainer>
+            <ListHeader>KALENDARIUM</ListHeader>
+            <ListDescription />
+          </HeaderContainer>
+          <ListContainer>
+            {!loading
+              && Object.keys(sortedList).map((date) => (
+                <div style={{ width: '100%' }} key={date}>
+                  <DateHeader>{date}</DateHeader>
+                  {sortedList[date].map((listItem) => {
+                    const bgColor = getBackgroundColor(listItem.type); // Get background color
+                    return (
+                      <NavLink to={`/kalendarium/${listItem.id}`} key={listItem.id}>
+                        <ListItemCard className="noted" key={listItem.id} style={{ backgroundColor: bgColor }}>
+                          <StyledH5>{listItem.title}</StyledH5>
+                          <ListParagraph $day>
+                            {formatDate(listItem.starts)}
+                          </ListParagraph>
+                          <ListDetailsSection>
+                            <ListDetailsSpan>
+                              <ListParagraph
+                                // eslint-disable-next-line
+                                dangerouslySetInnerHTML={{ __html: renderMarkdown(listItem.body) }} />
+                              <FacititatorDetails>{listItem.facilitator}</FacititatorDetails>
+                            </ListDetailsSpan>
+                            <ArrowButton2 isSmall isWhite />
+                          </ListDetailsSection>
+                        </ListItemCard>
+                      </NavLink>
+                    );
+                  })}
+                </div>
+              ))}
+            {loading
+              && (
+                <Loader />
+              )}
+          </ListContainer>
+        </ListWrapper>
+      </PageContainer>
       {isDesktop && (
         <CalendarDisplay />
       )}
