@@ -13,10 +13,12 @@ import { VenueDetails } from 'components/pages/details/VenueDetails';
 import { Glossary } from 'components/pages/aboutTango/Glossary';
 import { Music } from 'components/pages/aboutTango/Music';
 import { Interviews } from 'components/pages/aboutTango/Interviews';
+import { ScrollToTop } from 'components/lib/ScrollToTop';
 
 export const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Hero />} />
