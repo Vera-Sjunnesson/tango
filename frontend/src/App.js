@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import { GlobalStyles } from 'components/lib/GlobalStyles'
+import { GlobalStyles } from 'styles/GlobalStyles'
 import { Hero } from 'components/pages/hero/Hero';
 import { CalendarBoard } from 'components/pages/calendar_news/CalendarBoard';
 import { News } from 'components/pages/calendar_news/News';
