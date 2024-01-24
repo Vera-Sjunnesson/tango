@@ -9,16 +9,15 @@ import { HeroContainer, HeroWrapper, LoaderContainer } from './styles_hero/HeroS
 import { IntroText } from './sections_hero/IntroText';
 
 export const Hero = () => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true);
   const [list, setList] = useState([]);
   const [eventList, setEventList] = useState([]);
-  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1280px)' })
+  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1279px)' })
 
   useEffect(() => {
-    setLoading(true);
     const fetchFrontList = async () => {
       try {
-        const url = process.env.REACT_APP_FEATURED_EVENTLIST_URL
+        const url = process.env.REACT_APP_FEATURED_EVENTLIST_URL;
         if (!url) {
           throw new Error('Failed to fetch event list');
         }
@@ -28,10 +27,10 @@ export const Hero = () => {
         const images = [
           `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
           `${process.env.PUBLIC_URL}/images/S02_4517_c_d_BW.png`,
-          `${process.env.PUBLIC_URL}/images/C05_0020_d_no_logo.png`,
+          `${process.env.PUBLIC_URL}/images/C05_0020_d.jpg`,
           `${process.env.PUBLIC_URL}/images/R00_6554_d.jpg`,
           `${process.env.PUBLIC_URL}/images/S02_4517_c_d_BW.png`,
-          `${process.env.PUBLIC_URL}/images/C05_0020_d_no_logo.png`
+          `${process.env.PUBLIC_URL}/images/C05_0020_d.jpg`
         ];
         const combinedDataWithImages = data.map((item, index) => {
           return {
@@ -43,17 +42,16 @@ export const Hero = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => setLoading(false), 500);
+        setTimeout(() => setLoading(false), 700);
       }
     };
 
     const fetchEventList = async () => {
       try {
-        const url = process.env.REACT_APP_EVENTLIST_URL
+        const url = process.env.REACT_APP_EVENTLIST_URL;
         if (!url) {
           throw new Error('Failed to fetch event list');
         }
-
         const response = await fetch(url);
         const data = await response.json();
         setEventList((prevList) => [...prevList, ...data]);
@@ -63,12 +61,7 @@ export const Hero = () => {
     };
     fetchEventList();
     fetchFrontList();
-  // eslint-disable-next-line
-}, []);
-
-  /* setLoading(true);
-    fetchEventList();
-    fetchFrontList(); */
+  }, []);
 
   return (
     <HeroContainer>

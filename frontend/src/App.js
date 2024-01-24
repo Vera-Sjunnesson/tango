@@ -14,6 +14,7 @@ import { Glossary } from 'components/pages/aboutTango/Glossary';
 import { Music } from 'components/pages/aboutTango/Music';
 import { Interviews } from 'components/pages/aboutTango/Interviews';
 import { ScrollToTop } from 'components/lib/ScrollToTop';
+import { NotFound } from 'components/lib/NotFound';
 
 export const App = () => {
   return (
@@ -31,8 +32,9 @@ export const App = () => {
         <Route path="/om-tango" element={<AboutTango />} />
         <Route path="/om-tango/ordlista" element={<Glossary />} />
         <Route path="/om-tango/musik" element={<Music />} />
-        <Route path="/om-tango/intervuer" element={<Interviews />} />
+        <Route path="/om-tango/intervjuer" element={<Interviews />} />
         <Route path="/lokal/:venueid" element={<VenueDetails />} />
+        <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
       <Footer />

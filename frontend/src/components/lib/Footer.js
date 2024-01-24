@@ -1,7 +1,9 @@
 import React from 'react'
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 export const FooterContainer = styled.div`
   display: flex;
@@ -10,15 +12,18 @@ export const FooterContainer = styled.div`
   align-items: center;
   z-index: 999;
   background: #222222;
-  height: 128px;
-  padding: 30px;
+  height: 100%;
+  padding: 30px 15px 48px 15px;
   text-align: center;
+  gap: 5px;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     margin: 0px;
+    padding: 30px;
   }
   @media (min-width: 1280px) {
     margin: 0px;
+    padding: 30px;
   }
 
   .icon {
@@ -26,10 +31,33 @@ export const FooterContainer = styled.div`
     padding: 7px 5px;
     font-size: 30px;
   }
+
+  .email-icon {
+    color: var(--primary-color);
+    padding: 7px 5px;
+    font-size: 30px;
+    display: block;
+  }
+
+  .send-icon {
+    color: var(--primary-color);
+    padding: 7px 5px;
+    font-size: 30px;
+    display: none;
+  }
 `
 
 export const FooterText = styled.h3`
   color: var(--primary-color);
+
+  a {
+    color: var(--primary-color);
+    font-size: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
 
 export const FooterButton = styled.button`
@@ -40,9 +68,18 @@ export const FooterButton = styled.button`
   margin: 0px;
   padding: 0px;
   font-weight: 400;
+  gap: 5px;
 
   &:hover {
-    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  &:hover .email-icon {
+    display: none;
+  }
+
+  &:hover .send-icon {
+    display: block;
   }
 `
 
@@ -63,27 +100,28 @@ export const Footer = () => {
       <FooterButton
         type="button"
         onClick={onContactClick}>
-        KONTAKT
+        <EmailOutlinedIcon className="email-icon" />
+        <SendOutlinedIcon className="send-icon" />
+        MAILA OSS
       </FooterButton>
       <IconWrapper>
         <a
-          href="https://www.facebook.com/groups/tangonortestockholm/?locale=sv_SE"
+          href="https://www.facebook.com/TangoNorteStockholm"
           target="_blank"
-          rel="noreferrer">
+          rel="noreferrer"
+          aria-label="Facebook">
           <FacebookOutlinedIcon className="icon" />
         </a>
         <a
           href="https://www.youtube.com/@TangoNorteSweden"
           target="_blank"
-          rel="noreferrer">
+          rel="noreferrer"
+          aria-label="YouTube">
           <YouTubeIcon className="icon" />
         </a>
       </IconWrapper>
       <FooterText>
         Tango Norte 2024 ©
-      </FooterText>
-      <FooterText>
-        Fotografier av Jerzy George Dzieciaszek
       </FooterText>
     </FooterContainer>
   )

@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 export const FeaturedParagraph = styled.p`
   display: -webkit-box;
@@ -11,14 +11,14 @@ export const FeaturedParagraph = styled.p`
   width: 100%;
   color: #ffffff;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     padding: 0;
     width: 100%;
   }
 
   @media (min-width: 1280px) {
     padding: 0;
-    width: 648px;
+    width: 100%;
   }
 
   & em {
@@ -35,9 +35,14 @@ export const StyledParagraph = styled.p`
   }
 `
 
-export const StyledParagraphBold = styled(StyledParagraph)`
+export const StyledParagraphBold = styled.span`
   font-weight: 700;
   color: #222222;
+  display: inline-block;
+
+  & em {
+    font-weight: 900;
+  }
 `
 
 export const ListParagraph = styled.p`
@@ -55,7 +60,7 @@ export const ListParagraph = styled.p`
     font-weight: 900;
   }
 
-    @media (min-width: 744px) and (max-width: 1280px) {
+    @media (min-width: 744px) and (max-width: 1279px) {
       overflow-wrap: normal;
       width: auto;
     }
@@ -63,9 +68,10 @@ export const ListParagraph = styled.p`
     @media (min-width: 1280px) {
       overflow-wrap: normal;
       width: auto;
+      max-width: ${(props) => (props.$news ? '' : '561.711px')};
     }
 `
 
 export const ListParagraphNews = styled(ListParagraph)`
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
 `

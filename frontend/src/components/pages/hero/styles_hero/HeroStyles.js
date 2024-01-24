@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 /* HERO */
@@ -6,11 +6,19 @@ export const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 999px) {
     width: 100%;
     display: block;
     position: relative;
-    height: 1863px;
+    height: 1741px;
+    background: var(--secondary-background-color);
+  }
+
+  @media (min-width: 1000px) and (max-width: 1279px) {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 1127px;
     background: var(--secondary-background-color);
   }
 
@@ -20,7 +28,6 @@ export const HeroContainer = styled.div`
     height: 100vh;
     display: block;
     background: var(--secondary-background-color);
-    overflow: hidden;
   }
 `
 
@@ -31,7 +38,7 @@ export const LoaderContainer = styled.div`
 export const HeroWrapper = styled.div`
   display: contents;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     position: absolute;
     top: 132px;
     left: 0px;
@@ -61,7 +68,7 @@ export const CarouselContainer = styled.div`
   margin: auto;
   position: relative;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
   }
 
   @media (min-width: 1280px) {
@@ -77,7 +84,7 @@ export const NewsContainer = styled.span`
   right: 0;
   z-index: 998;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     display: block;
     position: absolute;
     top: 0;
@@ -104,7 +111,7 @@ export const TagLine = styled.h4`
   letter-spacing: .2rem;
   font-weight: 500;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     font-size: 25px;
     line-height: 43.2px;
     padding: 2px 10px;
@@ -123,7 +130,7 @@ export const Article = styled.article`
   height: 600px;
   background-position: center;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     display: block;
     background-position: top;
   }
@@ -140,17 +147,16 @@ export const FeaturedTextCard = styled.div`
   flex-direction: column;
   text-align: left;
   position: absolute;
-  top: 70%;
+  top: 65%;
   left: 50%;
-  transform: translate(-50%,-30%);
+  transform: translate(-50%,-35%);
   width: 350px;
   padding: 5px 0px 10px 10px;
   gap: 10px;
   width: 90%;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     position: absolute;
-    /* top: 75%; */
     top: auto;
     bottom: 45px;
     left: 45px;
@@ -162,12 +168,11 @@ export const FeaturedTextCard = styled.div`
 
   @media (min-width: 1280px) {
     position: absolute;
-    /* top: 75%; */
     top: auto;
-    bottom: 45px;
-    left: 45px;
+    bottom: 60px;
+    left: 60px;
     transform: none;
-    width: auto;
+    max-width: 45%;
     padding: 5px 4px 10px 10px;
     gap: 14px;
     align-items: flex-start;
@@ -180,7 +185,7 @@ export const FeaturedHeading = styled.h1`
   padding: 0;
   letter-spacing: .2rem;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     text-align: left;
@@ -205,7 +210,7 @@ export const FeaturedText = styled.p`
   font-size: 16px;
   color: #ffffff;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     padding: 0;
     width: 100%;
   }
@@ -230,21 +235,30 @@ gap: 35px;
 width: 80%; 
 left: 0;
 right: 0;
-margin: auto;
-margin-top: 40px;
-margin-bottom: 40px;
+margin: 50px auto;
 
-@media (min-width: 744px) and (max-width: 1280px) {
-  gap: 30px;
+@media (min-width: 744px) and (max-width: 999px) {
+  gap: 46px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
+  width: 80%;
+  margin: 46px auto;
+}
+
+@media (min-width: 1000px) and (max-width: 1279px) {
+  gap: 46px;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+  height: 187px;
+  margin: 46px auto;
 }
 
 @media (min-width: 1280px) {
   flex-direction: row;
-  width: 1010px;
+  width: 60%;
+  min-width: 1010px;
   gap: 46px;
   height: 20%;
   margin-top: 40px;
@@ -269,7 +283,7 @@ export const MenuButtonContainer = styled(NavLink)`
   padding: 0;
   transition: all 0.3s ease-in-out;
 
-  .arrow{
+  .arrow {
     width: 30px;
     transition: all 0.3s ease;
     border: 1px solid #fff;
@@ -279,18 +293,23 @@ export const MenuButtonContainer = styled(NavLink)`
     border-radius: 70px;
   }
 
-  &:hover .arrow {
-    width: 55px;
+  @media (min-width: 744px) and (max-width: 999px) {
+    height: 221px;
   }
 
-  @media (min-width: 744px) and (max-width: 1280px) {
-    height: 250px;
-    width: 50%;
-  }
-  @media (min-width: 1280px) {
+  @media (min-width: 1000px) and (max-width: 1279px) {
     height: 100%;
   }
+
+  @media (min-width: 1280px) {
+    height: 100%;
+
+    &:hover .arrow {
+      width: 55px;
+    }
+  }
 `
+
 export const TextContainer = styled.span`
   height: 50px;
   width: 100%;
@@ -323,19 +342,20 @@ export const Arrow = styled.span`
 `
 
 export const IntroTextCard = styled.div`
+  width: 100%;
   background: var(--primary-blue);
   box-shadow: 7px 7px 19px 0px rgba(0,0,0,0.50);
-  padding: 30px 20px;
-  margin: 0px 0 30px 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 
   .h5 {
     color: var(--primary-color);
+    padding: 30px 20px 0px 20px;
   }
 `
 
 export const IntroTextParagraph = styled.p`
   color: var(--primary-color);
   line-height: 25px;
+  padding: 0px 20px 30px 20px;
 `

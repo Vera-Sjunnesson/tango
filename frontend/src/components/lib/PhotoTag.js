@@ -11,7 +11,7 @@ export const StyledParagraph = styled.p`
   color: var(--primary-color);
   padding: 4px 6px;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     display: block;
   }
 
@@ -22,6 +22,6 @@ export const StyledParagraph = styled.p`
 
 export const PhotoTag = () => {
   return (
-    <StyledParagraph>Foto: Jerzy George Dzieciaszek</StyledParagraph>
+    <StyledParagraph>Foto: Jerzy (George) Dzieciaszek</StyledParagraph>
   );
 };

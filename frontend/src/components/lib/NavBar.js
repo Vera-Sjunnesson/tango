@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const NavBarContainer = styled.div`
@@ -41,7 +41,7 @@ export const NavLinkStyled = styled(NavLink)`
   &::before {
     content: "";
     width: 0;
-    height: 4px;
+    height: ${(props) => (props.$large ? '4px' : '3px')};
     position: absolute;
     bottom: 0;
     left: 0;
@@ -74,7 +74,7 @@ export const AnchorStyled = styled.a`
   &::before {
     content: "";
     width: 0;
-    height: 4px;
+    height: ${(props) => (props.$large ? '4px' : '3px')};
     position: absolute;
     bottom: 0;
     left: 0;
@@ -112,20 +112,20 @@ export const NavBar = ({ isLarge, isHero }) => {
         {!isHero
           ? (
             <>
+              <NavLinkStyled $large={isLarge} to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
               <NavLinkStyled $large={isLarge} to="/kalendarium" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>KALENDARIUM</NavLinkStyled>
               <NavLinkStyled $large={isLarge} to="/aktuellt" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>AKTUELLT</NavLinkStyled>
               <NavLinkStyled $large={isLarge} to="/om-tango" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM TANGO</NavLinkStyled>
               <NavDivider />
-              <NavLinkStyled $large={isLarge} to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
               <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
-              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/register.php" target="_blank" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</AnchorStyled>
-              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/page.php?id=main" target="_blank" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</AnchorStyled>
+              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/register.php" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</AnchorStyled>
+              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/page.php?id=main" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</AnchorStyled>
             </>
           ) : (
             <>
               <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
-              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/register.php" target="_blank" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</AnchorStyled>
-              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/page.php?id=main" target="_blank" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</AnchorStyled>
+              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/register.php" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</AnchorStyled>
+              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/page.php?id=main" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</AnchorStyled>
             </>
           )}
       </NavWrapper>

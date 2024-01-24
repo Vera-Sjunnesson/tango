@@ -3,10 +3,22 @@ import { useParams } from 'react-router-dom';
 import { SINGLE_VENUE_ITEM_URL } from 'utils/urls';
 import { Header } from 'components/lib/Header';
 import { Loader } from 'components/lib/loader';
-import { GoBackButton } from 'components/lib/Buttons';
+import { GoBackButtonResponsive, ArrowButtonSimpleBack, GoBackButtonText } from 'components/lib/Buttons';
 import { StyledParagraph, StyledParagraphBold } from 'components/lib/Paragraphs';
-import { renderMarkdown } from './NewsDetails';
-import { DetailsContainer, DetailsWrapper, DetailsCard, DetailsHeader, DetailsImage, VenueDetailsSpan } from './styles_details/DetailsStyles';
+import DOMPurify from 'dompurify';
+import { DetailsContainer, DetailsWrapper, DetailsCard, NoLocationCard, DetailsSpan, DetailsHeader, DetailsImage, Detailsmap, LoaderContainer } from './styles_details/DetailsStyles';
+
+export const renderMarkdown = (text) => {
+  if (text) {
+    const emphasizedText = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    const linkedText = emphasizedText.replace(
+      /{{\*(.*?)\*\/(.*?)}}/g,
+      '<a href="$2"><em>$1</em></a>'
+    );
+    return linkedText;
+  }
+  return ''; // Return an empty string if text is falsy
+};
 
 export const VenueDetails = () => {
   const [venueDetails, setVenueDetails] = useState({});
@@ -30,53 +42,68 @@ export const VenueDetails = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => setLoading(false), 1000);
+        setTimeout(() => setLoading(false), 500);
       }
     };
     fetchVenueDetails();
   }, [venueid]);
 
+  const markdownDescription = venueDetails[0]?.description || ''; // Ensure description is defined
+  const markdownHowToGetThere = venueDetails[0]?.howtogetthere || '';
+  const sanitizedDescription = DOMPurify.sanitize(renderMarkdown(markdownDescription));
+  const sanitizedHowToGetThere = DOMPurify.sanitize(renderMarkdown(markdownHowToGetThere));
+
   return (
     <DetailsContainer>
+      <Header isSmall />
       {loading ? (
-        <Loader />
+        <DetailsWrapper>
+          <LoaderContainer>
+            <Loader />
+          </LoaderContainer>
+        </DetailsWrapper>
       ) : (
-        <>
-          <GoBackButton />
-          <Header isSmall />
-          <DetailsWrapper>
-            <DetailsCard>
-              <DetailsHeader>{venueDetails[0]?.name_long}</DetailsHeader>
+        <DetailsWrapper $venue>
+          {venueDetails[0]?.address === '' ? (
+            <NoLocationCard>
+              <ArrowButtonSimpleBack />
+              <DetailsHeader>Lokal saknas</DetailsHeader>
+              <GoBackButtonText isCenter />
+            </NoLocationCard>
+          ) : (
+            <DetailsCard $venue>
+              <GoBackButtonResponsive />
               {venueDetails[0]?.image && (
-                <DetailsImage src={venueDetails[0]?.image && `https://www.tangonorte.com/img/www.tangonorte.com/venue/${venueDetails[0]?.image}`} alt="Venue image" />
+                <DetailsImage src={venueDetails[0]?.image && `https://www.tangonorte.com/img/www.tangonorte.com/venue/${venueDetails[0]?.image}`} alt={venueDetails[0]?.name_long} />
               )}
-              <StyledParagraph
-                // eslint-disable-next-line
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(venueDetails[0]?.description) }} />
-              <span>
-                <StyledParagraphBold>
-                  Adress:&nbsp;&nbsp;
-                </StyledParagraphBold>
-                <StyledParagraph>
-                  {venueDetails[0]?.address}
-                </StyledParagraph>
-              </span>
-              <VenueDetailsSpan>
+              <DetailsSpan>
+                <DetailsHeader>
+                  {venueDetails[0]?.name_long}
+                </DetailsHeader>
+                <StyledParagraph
+                  dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+                <span>
+                  <StyledParagraphBold>
+                    Adress:&nbsp;&nbsp;
+                  </StyledParagraphBold>
+                  <StyledParagraph>
+                    {venueDetails[0]?.address}
+                  </StyledParagraph>
+                </span>
                 <span>
                   <StyledParagraphBold>
                     Vägbeskrivning:&nbsp;&nbsp;
                   </StyledParagraphBold>
                   <StyledParagraph
-                  // eslint-disable-next-line
-                  dangerouslySetInnerHTML={{ __html: renderMarkdown(venueDetails[0]?.howtogetthere) }} />
+                    dangerouslySetInnerHTML={{ __html: sanitizedHowToGetThere }} />
                 </span>
                 {venueDetails[0]?.map && (
-                  <DetailsImage src={venueDetails[0]?.map && `https://www.tangonorte.com/img/www.tangonorte.com/venue/${venueDetails[0]?.map}`} alt="Venue map" />
+                  <Detailsmap src={venueDetails[0]?.map && `https://www.tangonorte.com/img/www.tangonorte.com/venue/${venueDetails[0]?.map}`} alt="Venue map" />
                 )}
-              </VenueDetailsSpan>
+              </DetailsSpan>
             </DetailsCard>
-          </DetailsWrapper>
-        </>
+          )}
+        </DetailsWrapper>
       )}
     </DetailsContainer>
   )

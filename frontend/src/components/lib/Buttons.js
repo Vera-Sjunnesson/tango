@@ -1,54 +1,56 @@
 import React from 'react'
-import styled from 'styled-components/macro';
+import styled from 'styled-components'
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive'
 
 export const ArrowNavLink = styled(NavLink)`
   display: flex;
   text-decoration: none;
-  background: ${(props) => (props.$white ? 'transparent' : 'var(--secondary-color)')};
+  height: 30px;
+  background: var(--secondary-color);
   color: var(--primary-color);
   font-weight: 500;
-  padding: ${(props) => (props.$small ? '10px 10px 10px 0px' : '10px 20px')};
+  padding: 10px 20px;
   z-index: 998;
   letter-spacing: 0.2rem;
   justify-content: flex-start;
   align-items: center;
   gap: 0;
   margin-top: 10px;
-  max-height: ${(props) => (props.$small ? '36px' : '')};
   width: fit-content;
-  transform: ${(props) => (props.$goBack ? 'rotate(180deg)' : '')};
 
-    &:hover {
-      color: var(--primary-hover-color);
-    }
-
-    .arrow {
-      width: 30px;
-      transition: all 0.3s ease;
-      border: ${(props) => (props.$white ? '1px solid #222222' : '1px solid #fff')};
-      position: relative;
-      right: ${(props) => (props.$white ? '-13px' : '-10px')};
-      border-radius: 70px;
-    }
-  
-    &:hover .arrow {
-      width: 50px;
-    }
+  &:hover {
+    color: var(--primary-hover-color);
   }
-`
-
-export const GoBackNavLink = styled(ArrowNavLink)`
-  justify-content: flex-end;
-  transform: rotate(180deg);
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  padding: 10px;
 
   .arrow {
     width: 30px;
     transition: all 0.3s ease;
+    border: 1px solid #fff;
+    position: relative;
+    right: -10px;
+    border-radius: 70px;
+  }
+
+  &:hover .arrow {
+    width: 50px;
+  }
+}
+`
+
+export const GoBackNavLink = styled(ArrowNavLink)`
+  justify-content: flex-end;
+  transform: ${(props) => (props.$text ? 'rotate(0deg)' : 'rotate(180deg)')};
+  position: ${(props) => (props.$center ? '' : 'fixed')};
+  left: 0px;
+  bottom: 0px;
+  padding: 10px;
+  font-size: 16px;
+
+  .arrow {
+    width: 30px;
+    transition: all 0.3s ease;
+    transform: ${(props) => (props.$text ? 'rotate(180deg)' : '')};
     border: ${(props) => (props.$white ? '1px solid #222222' : '1px solid #fff')};
     position: relative;
     background: #fff;
@@ -62,7 +64,7 @@ export const GoBackNavLink = styled(ArrowNavLink)`
   }
 `
 
-export const GoDownNavLink = styled(NavLink)`
+export const GoDownNavLink = styled.button`
   display: flex;
   text-decoration: none;
   color: var(--primary-color);
@@ -87,6 +89,7 @@ export const GoDownNavLink = styled(NavLink)`
 
 export const ArrowHref = styled.a`
   display: flex;
+  height: 30px;
   text-decoration: none;
   background: ${(props) => (props.$white ? 'transparent' : 'var(--secondary-color)')};
   color: #fff;
@@ -106,20 +109,20 @@ export const ArrowHref = styled.a`
       color: var(--primary-hover-color);
     }
 
-    .arrow {
-      width: 30px;
-      transition: all 0.3s ease;
-      border: ${(props) => (props.$white ? '1px solid #222222' : '1px solid #fff')};
-      position: relative;
-      background: #fff;
-      right: ${(props) => (props.$white ? '-13px' : '-10px')};
-      border-radius: 70px;
-    }
-  
-    &:hover .arrow {
-      width: 50px;
-    }
+  .arrow {
+    width: 30px;
+    transition: all 0.3s ease;
+    border: ${(props) => (props.$white ? '1px solid #222222' : '1px solid #fff')};
+    position: relative;
+    background: #fff;
+    right: ${(props) => (props.$white ? '-13px' : '-10px')};
+    border-radius: 70px;
   }
+
+  &:hover .arrow {
+    width: 50px;
+  }
+}
 `
 
 export const ArrowWithoutLink = styled.div`
@@ -134,27 +137,28 @@ export const ArrowWithoutLink = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 0;
-  margin-top: 10px;
   max-height: ${(props) => (props.$small ? '36px' : '')};
   width: fit-content;
 
-    &:hover {
-      color: var(--primary-hover-color);
-    }
+  &:hover {
+    color: var(--primary-hover-color);
+  }
 
-    .arrow {
-      width: 30px;
-      transition: all 0.3s ease;
-      border: ${(props) => (props.$white ? '1px solid #222222' : '1px solid #fff')};
-      position: relative;
-      background: #fff;
-      right: ${(props) => (props.$white ? '-13px' : '-10px')};
-      border-radius: 70px;
-    }
-  
-    &:hover .arrow {
-      width: 50px;
-    }
+  .arrow {
+    width: 30px;
+    transition: all 0.3s ease;
+    border: ${(props) => (props.$white ? '1px solid #222222' : '1px solid #fff')};
+    position: relative;
+    background: #fff;
+    right: ${(props) => (props.$white ? '-13px' : '-10px')};
+    border-radius: 70px;
+  }
+}
+`
+
+export const ArrowWithoutLink2 = styled(ArrowWithoutLink)`
+  .arrow {
+    right: -14px;
   }
 `
 
@@ -165,7 +169,7 @@ export const Arrow = styled.span`
   transition: all 0.3s ease;
   justify-content: flex-start;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     display: flex;
   }
 
@@ -175,6 +179,10 @@ export const Arrow = styled.span`
 
 export const ArrowHead = styled.img`
   width: ${(props) => (props.$white ? '15px' : '10px')};
+`
+
+export const ArrowHeadWhite = styled.img`
+  height: 30px;
 `
 
 export const ArrowHead2 = styled.img`
@@ -188,8 +196,9 @@ export const ArrowBack = styled.span`
   transition: all 0.3s ease;
   justify-content: center;
   width: 100%;
+  transform: ${(props) => (props.$text ? 'rotate(180deg)' : '')};
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     display: flex;
   }
 
@@ -202,55 +211,73 @@ export const ReadMore = styled(NavLink)`
     color: var(--primary-color);
 `
 
-export const ArrowButton = ({ isSmall, isWhite, path, text }) => {
+export const ArrowReadMoreButton = ({ path, text, href, anchor }) => {
   return (
-    <ArrowNavLink
-      to={`/${path}`}
-      $small={isSmall}
-      $white={isWhite}>
-      {isWhite ? '' : `${text}`}
-      <Arrow $small={isSmall}>
-        <span className="arrow" />
-        <ArrowHead $white={isWhite} src={isWhite ? `${process.env.PUBLIC_URL}/assets/arrow-black.png` : `${process.env.PUBLIC_URL}/assets/arrow-head.png`} alt="arrow-head" />
-      </Arrow>
-    </ArrowNavLink>
+    <div>
+      {anchor
+        ? (
+          <ArrowHref
+            href={href}
+            rel="noreferrer">
+            {text}
+            <Arrow>
+              <span className="arrow" />
+              <ArrowHead src={`${process.env.PUBLIC_URL}/assets/arrow-head.png`} alt="arrow-head" />
+            </Arrow>
+          </ArrowHref>
+        ) : (
+          <ArrowNavLink
+            to={`/${path}`}>
+            {text}
+            <Arrow>
+              <span className="arrow" />
+              <ArrowHead src={`${process.env.PUBLIC_URL}/assets/arrow-head.png`} alt="arrow-head" />
+            </Arrow>
+          </ArrowNavLink>
+        )}
+    </div>
   )
 }
 
-export const ArrowLink = ({ href, text }) => {
+export const ArrowButtonSimple = ({ isSmall, isWhite, text, isCalendar }) => {
   return (
-    <ArrowHref
-      href={href}
-      target="_blank"
-      rel="noreferrer">
-      {text}
-      <Arrow>
-        <span className="arrow" />
-        <ArrowHead src={`${process.env.PUBLIC_URL}/assets/arrow-head.png`} alt="arrow-head" />
-      </Arrow>
-    </ArrowHref>
+    <div>
+      {isCalendar
+        ? (
+          <ArrowWithoutLink
+            $small={isSmall}
+            $white={isWhite}>
+            {isWhite ? '' : `${text}`}
+            <Arrow>
+              <span className="arrow" />
+              <ArrowHead $white={isWhite} src={isWhite ? `${process.env.PUBLIC_URL}/assets/arrow-black.png` : `${process.env.PUBLIC_URL}/assets/arrow-head.png`} alt="arrow-head" />
+            </Arrow>
+          </ArrowWithoutLink>
+        ) : (
+          <ArrowWithoutLink2>
+            {isWhite ? '' : `${text}`}
+            <Arrow>
+              <span className="arrow" />
+              <ArrowHeadWhite $white={isWhite} src={`${process.env.PUBLIC_URL}/assets/arrow-head-big.png`} alt="arrow-head" />
+            </Arrow>
+          </ArrowWithoutLink2>
+        )}
+    </div>
   )
 }
 
-export const ArrowButton2 = ({ isSmall, isWhite, text }) => {
-  return (
-    <ArrowWithoutLink
-      $small={isSmall}
-      $white={isWhite}>
-      {isWhite ? '' : `${text}`}
-      <Arrow $small={isSmall}>
-        <span className="arrow" />
-        <ArrowHead $white={isWhite} src={isWhite ? `${process.env.PUBLIC_URL}/assets/arrow-black.png` : `${process.env.PUBLIC_URL}/assets/arrow-head.png`} alt="arrow-head" />
-      </Arrow>
-    </ArrowWithoutLink>
-  )
-}
-
-export const GoBackButton = ({ isSmall, isWhite }) => {
+export const ArrowButtonSimpleBack = ({ isSmall, isWhite }) => {
   const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+    }, 4);
   }
 
   return (
@@ -271,9 +298,80 @@ export const GoBackButton = ({ isSmall, isWhite }) => {
   )
 }
 
-export const ArrowDown = ({ isSmall, isWhite }) => {
+export const GoBackButtonText = ({ isCenter }) => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+    }, 4);
+  }
+
+  return (
+    <GoBackNavLink
+      onClick={goBack}
+      $goBack
+      $text
+      $center={isCenter}>
+      <ArrowBack $text>
+        <span className="arrow" />
+        <ArrowHead2
+          src={`${process.env.PUBLIC_URL}/assets/arrow-head-big.png`}
+          alt="arrow-head"
+          style={{ height: 30 }} />
+      </ArrowBack>
+      TILLBAKA
+    </GoBackNavLink>
+  )
+}
+
+export const GoBackButtonResponsive = ({ isCenter }) => {
+  const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 744px)' })
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+    }, 4);
+  }
+
+  return (
+    <GoBackNavLink
+      onClick={goBack}
+      $goBack
+      $text
+      $center={isCenter}>
+      <ArrowBack $text>
+        <span className="arrow" />
+        <ArrowHead2
+          src={`${process.env.PUBLIC_URL}/assets/arrow-head-big.png`}
+          alt="arrow-head"
+          style={{ height: 30 }} />
+      </ArrowBack>
+      {isTabletOrDesktop ? (
+        'TILLBAKA'
+      ) : (
+        ''
+      )}
+    </GoBackNavLink>
+  )
+}
+
+export const ArrowDown = ({ isSmall, isWhite, handleDownClick }) => {
   return (
     <GoDownNavLink
+      type="button"
+      onClick={handleDownClick}
       $goBack
       $small={isSmall}
       $white={isWhite}>

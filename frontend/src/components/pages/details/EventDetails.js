@@ -3,13 +3,14 @@ import { useParams } from 'react-router-dom';
 import { SINGLE_EVENT_URL } from 'utils/urls';
 import { Header } from 'components/lib/Header';
 import { Loader } from 'components/lib/loader';
-import { ArrowLink, GoBackButton } from 'components/lib/Buttons';
+import { GoBackButtonResponsive, ArrowReadMoreButton } from 'components/lib/Buttons';
 import { StyledParagraph, StyledParagraphBold } from 'components/lib/Paragraphs';
-import { DetailsContainer, DetailsWrapper, DetailsCard, DetailsSpan, DetailsHeader, DetailsImage, TimeAndPlaceDetails, VenueAnchor, ListParagraphSection } from './styles_details/DetailsStyles';
+import DOMPurify from 'dompurify';
+import { DetailsContainer, DetailsWrapper, DetailsCard, DetailsSpan, DetailsHeader, DetailsImage, TimeAndPlaceDetails, VenueAnchor, ListParagraphSection, LoaderContainer } from './styles_details/DetailsStyles';
 
 export const EventDetails = () => {
   const [details, setDetails] = useState({});
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const { id } = useParams();
   useEffect(() => {
@@ -29,7 +30,7 @@ export const EventDetails = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => setLoading(false), 1000);
+        setTimeout(() => setLoading(false), 500);
       }
     };
     fetchEventDetails();
@@ -37,14 +38,14 @@ export const EventDetails = () => {
 
   const formatDate = (inputDate) => {
     const options = {
-      weekday: 'short',
+      weekday: 'long',
       day: 'numeric',
-      month: 'short'
+      month: 'long'
     };
     const date = new Date(inputDate);
     const formattedDate = date.toLocaleDateString('sv-SE', options);
     const [weekday, day, month] = formattedDate.split(' ');
-    return `${weekday} ${day} ${month}`;
+    return `${weekday}, ${day} ${month}`;
   };
 
   const formatTime = (inputDate) => {
@@ -54,63 +55,66 @@ export const EventDetails = () => {
     };
     const date = new Date(inputDate);
     const formattedTime = date.toLocaleTimeString('sv-SE', options);
-    const [hour] = formattedTime.split(':');
-    return `${hour}`;
+    const [hour, minutes] = formattedTime.split(':');
+    return `${hour}:${minutes}`;
   };
+
+  const sanitizedHTML = DOMPurify.sanitize(details[0]?.body_html);
 
   return (
     <DetailsContainer>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <GoBackButton />
-          <Header isSmall />
-          <DetailsWrapper>
-            <DetailsCard>
-              {details[0]?.image && (
-                <DetailsImage src={details[0]?.image && `https://www.tangonorte.com/img/www.tangonorte.com/event/${details[0]?.image}`} alt="event image" />
-              )}
-              <DetailsSpan>
-                <DetailsHeader>{details[0]?.title}</DetailsHeader>
-                <TimeAndPlaceDetails>
-                  <StyledParagraph>
-                    <StyledParagraphBold>
-                      När:&nbsp;&nbsp;
-                    </StyledParagraphBold>
-                    {formatDate(details[0]?.starts)}
-                  </StyledParagraph>
-                  <StyledParagraph>
-                    <StyledParagraphBold>
-                      Tid:&nbsp;&nbsp;
-                    </StyledParagraphBold>
-                    kl {formatTime(details[0]?.starts)}-{formatTime(details[0]?.ends)}
-                  </StyledParagraph>
-                  <StyledParagraph>
-                    <StyledParagraphBold>
-                      Plats:&nbsp;&nbsp;
-                    </StyledParagraphBold>
-                    <VenueAnchor
-                      to={`/lokal/${details[0]?.venue}`}>
-                      {details[0]?.venue_name}
-                    </VenueAnchor>
-                  </StyledParagraph>
-                </TimeAndPlaceDetails>
-                <ListParagraphSection
-                  dangerouslySetInnerHTML={{ __html: (details[0]?.body_html) }} />
-                {details[0]?.facilitator && (
+      <GoBackButtonResponsive />
+      <Header isSmall />
+      <DetailsWrapper>
+        {loading ? (
+          <LoaderContainer>
+            <Loader />
+          </LoaderContainer>
+        ) : (
+          <DetailsCard>
+            {details[0]?.image && (
+              <DetailsImage src={details[0]?.image && `https://www.tangonorte.com/img/www.tangonorte.com/event/${details[0]?.image}`} alt={details[0]?.title} />
+            )}
+            <DetailsSpan>
+              <DetailsHeader>{details[0]?.title}</DetailsHeader>
+              <TimeAndPlaceDetails>
+                <StyledParagraph>
                   <StyledParagraphBold>
-                    {details[0]?.facilitator ? details[0]?.facilitator : 'No data'}
+                    När:&nbsp;&nbsp;
                   </StyledParagraphBold>
-                )}
-                <ArrowLink
-                  href="https://www.tangonorte.com/page.php?id=main"
-                  text="LÄS MER" />
-              </DetailsSpan>
-            </DetailsCard>
-          </DetailsWrapper>
-        </>
-      )}
+                  {formatDate(details[0]?.starts)}
+                </StyledParagraph>
+                <StyledParagraph>
+                  <StyledParagraphBold>
+                    Tid:&nbsp;&nbsp;
+                  </StyledParagraphBold>
+                  kl {formatTime(details[0]?.starts)}-{formatTime(details[0]?.ends)}
+                </StyledParagraph>
+                <StyledParagraph>
+                  <StyledParagraphBold>
+                    Plats:&nbsp;&nbsp;
+                  </StyledParagraphBold>
+                  <VenueAnchor
+                    to={`/lokal/${details[0]?.venue}`}>
+                    {details[0]?.venue_name}
+                  </VenueAnchor>
+                </StyledParagraph>
+              </TimeAndPlaceDetails>
+              <ListParagraphSection
+                dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
+              {details[0]?.facilitator && (
+                <StyledParagraphBold>
+                  {details[0]?.facilitator ? details[0]?.facilitator : 'No data'}
+                </StyledParagraphBold>
+              )}
+              <ArrowReadMoreButton
+                anchor
+                href={`https://www.tangonorte.com/events.php?nid=${details[0]?.id}`}
+                text="LÄS MER" />
+            </DetailsSpan>
+          </DetailsCard>
+        )}
+      </DetailsWrapper>
     </DetailsContainer>
   )
 }

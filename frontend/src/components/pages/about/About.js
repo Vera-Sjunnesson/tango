@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { Header } from 'components/lib/Header';
 import { StyledWrapper, BackgroundContainer } from 'components/lib/ContainerStyles';
 import { BackgroundLine } from 'components/lib/BackgroundLine';
-import { Header } from 'components/lib/Header';
-import { GoBackButton, ArrowDown } from 'components/lib/Buttons';
+import { ArrowDown, GoBackButtonResponsive } from 'components/lib/Buttons';
 import { useMediaQuery } from 'react-responsive'
-import { StyledTextCard, StyledH1, StyledTextSpan, StyledParagraph, StyledParagraphLight, AboutSection, AboutList, AboutListItem, AboutHeading, AboutDetails, AboutImage, AboutWrapper } from './styles_about/AboutStyles';
+import { StyledTextCard, StyledTextSpan, StyledParagraph, StyledParagraphLight, AboutSection, AboutList, AboutListItem, AboutHeading, AboutDetails, AboutImage, AboutWrapper, AboutContainer, MainHeader } from './styles_about/AboutStyles';
 
 export const About = () => {
+  const sectionToScrollTo = useRef(null);
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 744px)' })
+  const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
+
+  const handleDownClick = () => {
+    sectionToScrollTo.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <>
+    <AboutContainer>
       <Header isSmall />
-      <StyledWrapper>
-        <BackgroundContainer style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`}>
-          <GoBackButton />
-          <BackgroundLine isCover backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
+      <GoBackButtonResponsive />
+      <StyledWrapper $om>
+        <BackgroundContainer $om style={{ width: '100%' }} $img={`${process.env.PUBLIC_URL}/images/S01_5746_d.jpg`}>
+          {isDesktop && (
+            <BackgroundLine isCover backgroundimg={`${process.env.PUBLIC_URL}/assets/line04-02-02.svg`} />
+          )}
           <StyledTextCard>
-            <StyledH1>
+            <MainHeader>
               <StyledTextSpan>
-                OM TANGO NORTE
+                TANGO NORTE
               </StyledTextSpan>
-            </StyledH1>
+            </MainHeader>
             <StyledParagraph>
               {/* eslint-disable-next-line max-len */}
               Svensk-Argentinska Tangoföreningen är en ideell förening som verkar för spridandet av tangokulturen. Tonvikten ligger på dans, men också andra delar av kulturen ligger oss varmt om hjärtat. Föreningen bildades 1988 och använder ofta kortnamnet Tango Norte. All verksamhet bygger på ideellt arbete från medlemmarna.
@@ -30,15 +39,15 @@ export const About = () => {
               Under höst, vinter och vår har vi flera regelbundna aktiviteter varje vecka och om somrarna ordnar vi tangotillställningar i det fria. Sedan tjugo år arrangerar vi en tangofestival kring nyår med internationella artister: musiker, dansare (lärare) och DJ:s. Dessutom ordnar vi gästlärarbesök och andra aktiviteter då och då under året. Alla evenemang hittar du i kalendariet.
             </StyledParagraph>
             {isTabletOrDesktop && (
-              <ArrowDown />
+              <ArrowDown handleDownClick={handleDownClick} />
             )}
           </StyledTextCard>
         </BackgroundContainer>
       </StyledWrapper>
-      <AboutWrapper>
+      <AboutWrapper ref={sectionToScrollTo}>
         <AboutSection>
           {!isTabletOrDesktop && (
-            <AboutImage src={`${process.env.PUBLIC_URL}/images/S01_5813_d.jpg`} alt="dancers of tango" />
+            <AboutImage $top src={`${process.env.PUBLIC_URL}/images/C04_3948_d.jpg`} alt="Tangouppvisning/par som dansar" />
           )}
           <AboutDetails>
             <StyledParagraphLight>
@@ -102,11 +111,9 @@ export const About = () => {
               Swish: 1234520896 (enbart i kassan)
             </StyledParagraphLight>
           </AboutDetails>
-          {isTabletOrDesktop && (
-            <AboutImage src={`${process.env.PUBLIC_URL}/images/S01_5813_d.jpg`} alt="dancers of tango" />
-          )}
+          <AboutImage src={`${process.env.PUBLIC_URL}/images/S01_5813_d.jpg`} alt="Tangouppvisning/par som dansar" />
         </AboutSection>
       </AboutWrapper>
-    </>
+    </AboutContainer>
   )
 }

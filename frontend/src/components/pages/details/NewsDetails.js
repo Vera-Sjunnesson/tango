@@ -3,20 +3,10 @@ import { useParams } from 'react-router-dom';
 import { SINGLE_NEWS_ITEM_URL } from 'utils/urls';
 import { Header } from 'components/lib/Header';
 import { Loader } from 'components/lib/loader';
-import { ArrowLink, GoBackButton } from 'components/lib/Buttons';
-import { StyledParagraph, StyledParagraphBold } from 'components/lib/Paragraphs';
-import { DetailsContainer, DetailsWrapper, DetailsCard, DetailsHeader, DetailsImage, DetailsSpan } from './styles_details/DetailsStyles';
-
-export const renderMarkdown = (text) => {
-  if (text) {
-    const emphasizedText = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    const linkedText = emphasizedText.replace(
-      /{{\*(.*?)\*\/(.*?)}}/g,
-      '<a href="$2"><em>$1</em></a>'
-    );
-    return linkedText;
-  }
-}
+import { GoBackButtonResponsive, ArrowReadMoreButton } from 'components/lib/Buttons';
+import { StyledParagraphBold } from 'components/lib/Paragraphs';
+import DOMPurify from 'dompurify';
+import { DetailsContainer, DetailsWrapper, DetailsCard, DetailsHeader, DetailsImage, DetailsSpan, LoaderContainer, ListParagraphSection } from './styles_details/DetailsStyles';
 
 export const NewsDetails = () => {
   const [details, setDetails] = useState({});
@@ -41,44 +31,47 @@ export const NewsDetails = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => setLoading(false), 1000);
+        setTimeout(() => setLoading(false), 500);
       }
     };
     fetchNewsDetails();
   }, [id]);
 
+  const sanitizedHTML = DOMPurify.sanitize(details[0]?.body_html);
+
   return (
     <DetailsContainer>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <GoBackButton />
-          <Header isSmall />
-          <DetailsWrapper>
-            <DetailsCard>
-              {details[0]?.picture && (
-                <DetailsImage src={details[0]?.picture && `https://www.tangonorte.com/img/www.tangonorte.com/page/${details[0]?.picture}`} alt="news image" />
-              )}
-              <DetailsSpan>
-                <span>
-                  <DetailsHeader>{details[0]?.title}</DetailsHeader>
-                  <StyledParagraph
-                    dangerouslySetInnerHTML={{ __html: renderMarkdown(details[0]?.body) }} />
-                  {details[0]?.facilitator && (
-                    <StyledParagraphBold>
-                      {details[0]?.facilitator ? details[0]?.facilitator : 'No data'}
-                    </StyledParagraphBold>
-                  )}
-                </span>
-                <ArrowLink
-                  href="https://www.tangonorte.com/news.php"
-                  text="LÄS MER" />
-              </DetailsSpan>
-            </DetailsCard>
-          </DetailsWrapper>
-        </>
-      )}
+      <GoBackButtonResponsive />
+      <Header isSmall />
+      <DetailsWrapper>
+        {loading ? (
+          <LoaderContainer>
+            <Loader />
+          </LoaderContainer>
+        ) : (
+          <DetailsCard>
+            {details[0]?.picture && (
+              <DetailsImage src={details[0]?.picture && `https://www.tangonorte.com/img/www.tangonorte.com/page/${details[0]?.picture}`} alt={details[0]?.title} />
+            )}
+            <DetailsSpan>
+              <span>
+                <DetailsHeader>{details[0]?.title}</DetailsHeader>
+                <ListParagraphSection
+                  dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
+                {details[0]?.facilitator && (
+                  <StyledParagraphBold>
+                    {details[0]?.facilitator ? details[0]?.facilitator : 'No data'}
+                  </StyledParagraphBold>
+                )}
+              </span>
+              <ArrowReadMoreButton
+                anchor
+                href={`https://www.tangonorte.com/news.php?nid=${details[0]?.newsid}`}
+                text="LÄS MER" />
+            </DetailsSpan>
+          </DetailsCard>
+        )}
+      </DetailsWrapper>
     </DetailsContainer>
   )
 }

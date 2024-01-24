@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
 import { useMediaQuery } from 'react-responsive'
-import { ArrowButton } from 'components/lib/Buttons';
+import { ArrowReadMoreButton } from 'components/lib/Buttons';
 import { FeaturedParagraph } from 'components/lib/Paragraphs';
 import { PhotoTag } from 'components/lib/PhotoTag';
 import { CarouselContainer, NewsContainer, TagLine, Article, FeaturedTextCard, FeaturedHeading } from '../styles_hero/HeroStyles';
@@ -10,7 +10,7 @@ register();
 
 export const FeaturedCarousel = ({ list, eventList }) => {
   const swiperRef = useRef(null);
-  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1280px)' })
+  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1279px)' })
 
   useEffect(() => {
     const swiperContainer = swiperRef.current;
@@ -18,8 +18,8 @@ export const FeaturedCarousel = ({ list, eventList }) => {
       navigation: true,
       pagination: true,
       autoplay: {
-        delay: 1000,
-        disableOnInteraction: true
+        delay: 10000,
+        disableOnInteraction: false
       },
       injectStyles: [
         `
@@ -58,13 +58,18 @@ export const FeaturedCarousel = ({ list, eventList }) => {
         effect="slide"
         loop="true"
         speed={2000}
+        autoplay="true"
         style={{
           '--swiper-navigation-size': isMobileOrTablet ? '0px' : '',
           height: '100%'
         }}>
         {list.map((listItem) => {
           // eslint-disable-next-line
-          const isTitleInEventList = eventList.some((eventItem) => eventItem.title === listItem.title);
+          const isTitleInEventList = eventList.some((eventItem) => {
+            const titleMatch = eventItem.title === listItem.title;
+            const idMatch = eventItem.id === parseInt(listItem.anid, 10);
+            return titleMatch && idMatch;
+          });
           const path = isTitleInEventList
             ? `kalendarium/${listItem.anid}`
             : `aktuellt/${listItem.anid}`;
@@ -80,7 +85,7 @@ export const FeaturedCarousel = ({ list, eventList }) => {
                   <FeaturedParagraph>
                     {listItem.body_clean}
                   </FeaturedParagraph>
-                  <ArrowButton path={path} text="LÄS MER" />
+                  <ArrowReadMoreButton path={path} text="LÄS MER" />
                 </FeaturedTextCard>
               </Article>
             </swiper-slide>

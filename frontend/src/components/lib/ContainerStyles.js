@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 export const BackgroundContainer = styled.div`
   background-image: url(${(props) => (props.$img || '')});
@@ -6,9 +6,10 @@ export const BackgroundContainer = styled.div`
   background-position: top;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: ${(props) => (props.$om ? '500px' : '100%')};
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
+    height: 100%;
   }
 
   @media (min-width: 1280px) {
@@ -18,9 +19,9 @@ export const BackgroundContainer = styled.div`
 `
 
 export const BackgroundContainer2 = styled.div`
-  background-image: url(${(props) => (props.$img || '')}), url(${(props) => (props.$img2 || '')});
-  background-size: ${(props) => (props.$cover ? 'cover' : 'contain')};
-  background-position: top;
+  background-image: url(${(props) => (props.$img || '')});
+  background-position: left top, left center, left bottom;
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--primary-yellow);
   width: 100%;
@@ -29,25 +30,32 @@ export const BackgroundContainer2 = styled.div`
   align-items: center;
   gap: 20px;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
   }
 
   @media (min-width: 1280px) {
     height: 100%;
     position: relative;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 40px;
   }
 `
 
 export const BackgroundGradeContainer = styled.div`
   height: 100vh;
-  background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
+  background-image: url(${(props) => (props.$img || '')});
   background-size: cover;
   background-position: top;
-  position: relative;
+  width: 100%;
+
+  @media (min-width: 744px) and (max-width: 1279px) {
+    background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
+  }
+
+  @media (min-width: 1280px) {
+    background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
+  }
 `
 
 export const PageContainer = styled.div`
@@ -58,22 +66,27 @@ export const PageContainer = styled.div`
 
   @media (min-width: 744px) and (max-width: 1280px) {
     position: relative;
+    flex-direction: column;
   }
 
   @media (min-width: 1280px) {
     position: relative;
+    flex-direction: column;
   }
 `
 
 export const StyledWrapper = styled.div`
-  height: 39vh;
+  height: ${(props) => (props.$om ? '800px' : '39vh')};
+  width: ${(props) => (props.$om ? '100%' : '')};
   position: relative;
-  display: flex;
+  display: ${(props) => (props.$om ? 'contents' : 'flex')};
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     height: 100vh;
+    display: flex;
   }
 
   @media (min-width: 1280px) {

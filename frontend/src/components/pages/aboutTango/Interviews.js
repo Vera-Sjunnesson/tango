@@ -1,58 +1,54 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { Header } from 'components/lib/Header';
-import { BackgroundContainer2 } from 'components/lib/ContainerStyles';
-import { GoBackButton } from 'components/lib/Buttons';
+import { GoBackButtonResponsive } from 'components/lib/Buttons';
+import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import interviews from '../../../data/interviews.json'
-import { ListHeaderSmall } from './styles_about_tango/AboutTangoStyles';
+import { ListHeader, BackgroundContainer, StyledListSection, StyledList2 } from './styles_about_tango/AboutTangoStyles';
 
-export const StyledList = styled.ol`
-  display: flex;
-  flex-direction: column;
-  margin: 0px;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-    width: auto;
-    align-items: flex-start;
-    width: 30%;
-    margin: 10px 0px;
-    height: 60vh;
+export const ListHeaderSmall = styled(ListHeader)`
+  font-size: 3rem;
+  padding: 5px 10px 10px 10px;
+  background: var(--secondary-color);
+  line-height: 2.5rem;
+  
+  @media (min-width: 744px) and (max-width: 1279px) {
+    font-size: 80px;
+    line-height: 80px;
   }
 
   @media (min-width: 1280px) {
-    align-items: center;
-    width: 30%;
-    margin: 60px 0px;
-    height: 60vh;
+    font-size: 80px;
+    line-height: 80px;
   }
 `
 
 export const StyledlistItem = styled.li`
-  display: flex;
   margin: 20px 0;
-`
-
-export const StyledParagraph = styled.p`
-  font-weight: 500;
-  width: 500px;
 `
 
 export const StyledParagraphBold = styled.p`
   font-weight: 900;
-  color: var(--primary-orange);
-  width: 259px;
+  color: var(--secondary-color);
   text-align: center;
   margin-right: 20px;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     text-align: left;
   }
 
   @media (min-width: 1280px) {
     text-align: left;
+  }
+
+  .launch-icon {
+    color: var(--secondary-color);
+    padding: 0px 0px 0px 10px;
+    font-size: 25px;
+  }
+
+  &:hover .launch-icon {
+    color: var(--primary-color);
   }
 `
 
@@ -65,29 +61,32 @@ export const StyledListHeading = styled.h4`
 export const Interviews = () => {
   return (
     <>
-      <GoBackButton />
+      <GoBackButtonResponsive />
       <Header isSmall />
-      <BackgroundContainer2 $img={`${process.env.PUBLIC_URL}/images/R00_5735_d.jpg`} $img2={`${process.env.PUBLIC_URL}/images/R00_6323_d.jpg`} $cover>
-        <ListHeaderSmall>INTERVJUER</ListHeaderSmall>
-        <StyledList>
-          {interviews.map((interviewItem) => {
-            return (
-              <StyledlistItem key={interviewItem.name}>
-                <a
-                  href={interviewItem.href}
-                  target="_blank"
-                  rel="noreferrer">
-                  <StyledParagraphBold>
-                    <span className="list-span">
-                      {interviewItem.name}
-                    </span>
-                  </StyledParagraphBold>
-                </a>
-              </StyledlistItem>
-            );
-          })}
-        </StyledList>
-      </BackgroundContainer2>
+      <BackgroundContainer $img={`${process.env.PUBLIC_URL}/images/C04_3948_d.jpg`}>
+        <StyledListSection $interview>
+          <ListHeaderSmall>INTERVJUER</ListHeaderSmall>
+          <StyledList2>
+            {interviews.map((interviewItem) => {
+              return (
+                <StyledlistItem key={interviewItem.name}>
+                  <a
+                    href={interviewItem.href}
+                    target="_blank"
+                    rel="noreferrer">
+                    <StyledParagraphBold>
+                      <span className="list-span">
+                        {interviewItem.name}
+                        <LaunchOutlinedIcon className="launch-icon" />
+                      </span>
+                    </StyledParagraphBold>
+                  </a>
+                </StyledlistItem>
+              );
+            })}
+          </StyledList2>
+        </StyledListSection>
+      </BackgroundContainer>
     </>
   )
 }
