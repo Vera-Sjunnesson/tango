@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components/macro';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -6,7 +6,7 @@ body, html {
   font-family: var(--primary-font-family);
   block-size: fit-content;
   height: 100%;
-  overscroll-behavior: none;
+/*   overscroll-behavior: none; */
   background: var(--primary-background-color);
 }
   
@@ -19,7 +19,7 @@ h1 {
   letter-spacing: -0.408px;
   margin-bottom: 6.5px;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
+  @media (min-width: 744px) and (max-width: 1279px) {
     font-size: 52px;
     line-height: 51px;
     font-weight: 300;
@@ -42,7 +42,7 @@ h1 {
     font-weight: 500;
     padding: 0px 0px 15px;
 
-    @media (min-width: 744px) and (max-width: 1280px) {
+    @media (min-width: 744px) and (max-width: 1279px) {
       font-size: 52px;
     }
   
@@ -80,17 +80,15 @@ p {
   color: var(--secondary-color);
   font-size: 16px;
   font-weight: 400;
-  line-height: 22.5px;
   text-align: left;
   font-weight: 400;
   font-style: normal;
+  line-height: 24px;
 
-  @media (min-width: 744px) and (max-width: 1280px) {
-    font-size: 18px;
+  @media (min-width: 744px) and (max-width: 1279px) {
   }
 
   @media (min-width: 1280px) {
-    font-size: 18px;
   }
 }
 
@@ -113,14 +111,6 @@ button {
 a {
   text-decoration: none;
   font-size: 16px;
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 1280px) {
-    font-size: 18px;
-  }
 }
 
 article {
@@ -136,12 +126,20 @@ article img {
 }
 
 .svg-animation {
-  min-height: 100vh !important;
-  height: 100vh !important;
 
-  @media (min-width: 744px) and (max-width: 1279px) {
+  @media (min-width: 744px) and (max-width: 999px) {
     min-height: 100% !important;
     height: 100% !important;
+  }
+  
+  @media (min-width: 1000px) and (max-width: 1279px) {
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+
+  @media (min-width: 1280px) {
+    min-height: 100vh !important;
+    height: 100vh !important;
   }
 }
 `
