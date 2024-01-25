@@ -71,10 +71,6 @@ Dessa filer listar paket, projektberoenden skript och metadata om applikationen.
 
 `README.md` Denna README-fil ger en översikt av projektet, installationsinstruktioner, användningsanvisningar och annan relevant information för utvecklare som bidrar till eller använder applikationen.
 
-## React for beginners:
-
-https://www.youtube.com/watch?v=SqcY0GlETPk
-
 ## Technologies used in this repository:
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
