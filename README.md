@@ -119,7 +119,7 @@ https://www.youtube.com/watch?v=SqcY0GlETPk
 
 ## View it live
 
-https://tango-norte-utkast.netlify.app/
+https://tango-norte.netlify.app
 
 ## Visuals
 
