@@ -1,41 +1,5 @@
 # Tango Norte frontida
 
-## Installationsguide
-
-1. Ladda ner node.js härifrån på din dator globalt: 
-https://nodejs.org/en
-Den rekommenderade versionen är den rekommenderade
-
-2. Klona repon
-
-```
-https://gitlab.com/Vera-Sjunnesson/tango-norte.git
-
-```
-
-3. Navigera in i projektet och sen
-
-```
-cd frontend
-
-```
-där package.json filen ligger
-
-4. Installera npm
-
-```
-npm install
-
-```
-
-5. För att se projektet i browsern
-
-```
-npm start
-```
-
-6. Om du stöter på problem, kontrollera att följande dependencies är korrekt installererade och att det inte uppstått några konflikter mellan dem (se package.json filen)
-
 ## Dependencies
 
 - React
