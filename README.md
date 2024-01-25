@@ -14,9 +14,9 @@
 - dotenv
 - Eslint and related packages
 - react-big-calendar
-- react-hook-form (används ej)
+- react-hook-form
 - Material UI för iconer
-- svgo (används ej nu)
+- svgo
 
 ## Projektets struktur
 
