@@ -7,7 +7,7 @@ import { Header } from 'components/lib/Header';
 import { Loader } from 'components/lib/loader';
 import { ArrowButtonSimple, GoBackButtonResponsive } from 'components/lib/Buttons';
 import { ListParagraphNews } from 'components/lib/Paragraphs';
-import { PlaceHolder } from 'components/lib/PlaceHolder';
+import { Placeholder } from 'components/lib/Placeholder';
 import { ListWrapperNews, HeaderContainer, ListItemCardNews, ListHeader, ListContainer, StyledH5, ListDetailsSpan, ListDetailsSectionNews, LoaderContainer, NewsWrapper, NewsImg, NewsImgWrapper } from './styles_calendar_news/ListStyles';
 
 export const News = () => {
@@ -69,7 +69,7 @@ export const News = () => {
                 )
               })}
               {!loading && list.length === 0 && (
-                <PlaceHolder />
+                <Placeholder />
               )}
               {loading
                 && (

@@ -35,7 +35,7 @@ export const PlaceHolderContainer = styled.div`
   }
 `;
 
-export const PlaceHolder = () => {
+export const Placeholder = () => {
   return (
     <PlaceHolderContainer>
       <span className="placeholder-card">
