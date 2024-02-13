@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import useEventStore from '../../../stores/EventStore';
 import { StyledWrapper, BackgroundContainer, PageContainer } from '../../ui/ContainerStyles';
 import { BackgroundLine } from '../../sections/BackgroundLine';
 import { NavLink } from 'react-router-dom';
@@ -24,11 +25,9 @@ import {
   LoaderContainer,
   ListDetailsSpanHeader } from './CalendarBoardStyles';
 
-
-// Function to sort list items by date
+    // Function to sort list items by date
 const sortListItemsByDate = (list) => {
   const sortedList = {};
-
   // Group list items by date
   list.forEach((item) => {
     const date = new Date(item.starts);
@@ -46,32 +45,17 @@ const sortListItemsByDate = (list) => {
 };
 
 export const CalendarBoard = () => {
-  const [list, setList] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const sortedList = sortListItemsByDate(list);
+  const { getEvents, eventList, loading } = useEventStore();
+  const sortedList = eventList ? sortListItemsByDate(eventList) : {};
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 744px)' })
 
   useEffect(() => {
-    setLoading(true);
     const fetchEventList = async () => {
-      try {
-        const url = process.env.REACT_APP_EVENTLIST_URL;
-        if (!url) {
-          throw new Error('Failed to fetch event list');
-        }
-        const response = await fetch(url);
-        const data = await response.json();
-        setList(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false)
-      }
+      await getEvents();
     };
-
     fetchEventList();
-  }, []);
+  }, [getEvents]);
 
   const formatTime = (inputDate) => {
     const options = {
@@ -122,7 +106,6 @@ export const CalendarBoard = () => {
                     const categoryStyle = getBackgroundAndSymbol(listItem.type);
                     return (
                       <NavLink to={`/kalendarium/${listItem.id}`} key={listItem.id}>
-                        {/* eslint-disable-next-line max-len */}
                         <ListItemCard key={listItem.id} style={{ backgroundColor: categoryStyle[0] }}>
                           <ListDetailsSpanHeader>
                             <StyledH5>{listItem.title}</StyledH5>

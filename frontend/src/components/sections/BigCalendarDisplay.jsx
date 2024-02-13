@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import useEventStore from '../../stores/EventStore';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment'
 import { NavLink } from 'react-router-dom';
@@ -15,30 +16,27 @@ export const CalendarNavLink = styled(NavLink)`
 `
 
 export const BigCalendarDisplay = () => {
+  const { getEvents, eventList } = useEventStore();
   const [list, setList] = useState([]);
 
   useEffect(() => {
     const fetchEventList = async () => {
-      try {
-        const url = process.env.REACT_APP_EVENTLIST_URL;
-        if (!url) {
-          throw new Error('Failed to fetch event list');
-        }
-        const response = await fetch(url);
-        const data = await response.json();
-        // Transforming the 'starts' property to 'start' and adding 'end' property
-        const transformedData = data.map((item) => ({
-          ...item,
-          start: item.starts, // Change 'starts' to 'start'
-          end: item.ends // Create 'end' 2 hours after 'start'
-        }));
-        setList(transformedData); // Set the new list directly
-      } catch (error) {
-        console.error(error);
-      }
+      await getEvents();
     };
     fetchEventList();
-  }, []);
+  }, [getEvents]);
+
+  useEffect(() => {
+    if (eventList) {
+      // Ensure eventList is not null or undefined
+      const transformedData = eventList.map((item) => ({
+        ...item,
+        start: item.starts, // Change 'starts' to 'start'
+        end: item.ends // Change 'ends' to 'end'
+      }));
+      setList(transformedData);
+    }
+  }, [eventList]);
 
   const getBackgroundColor = (type) => {
     switch (type) {
