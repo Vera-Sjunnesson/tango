@@ -84,22 +84,7 @@ export const CalendarBoard = () => {
     return `kl ${hour}:${minutes}`;
   };
 
-  const getBackgroundColor = (type) => {
-    switch (type) {
-      case 'milonga':
-        return '#ef9d4d';
-      case 'practica':
-        return '#edc343';
-      case 'class':
-        return '#80b3bb';
-      case 'festival':
-        return '#eea484';
-      default:
-        return '#fef0c8';
-    }
-  };
-
-  const getSymbolColor = (type) => {
+  const getBackgroundAndSymbol = (type) => {
     switch (type) {
       case 'milonga':
         return ['#ef9d4d', 'M'];
@@ -134,16 +119,15 @@ export const CalendarBoard = () => {
                 <div style={{ width: '100%' }} key={date}>
                   <DateHeader>{date}</DateHeader>
                   {sortedList[date].map((listItem) => {
-                    const bgColor = getBackgroundColor(listItem.type); // Get background color
-                    const symbolDetails = getSymbolColor(listItem.type);
+                    const categoryStyle = getBackgroundAndSymbol(listItem.type);
                     return (
                       <NavLink to={`/kalendarium/${listItem.id}`} key={listItem.id}>
                         {/* eslint-disable-next-line max-len */}
-                        <ListItemCard key={listItem.id} style={{ backgroundColor: bgColor }}>
+                        <ListItemCard key={listItem.id} style={{ backgroundColor: categoryStyle[0] }}>
                           <ListDetailsSpanHeader>
                             <StyledH5>{listItem.title}</StyledH5>
-                            {symbolDetails[0] !== '' && (
-                              <ListSymbol color={symbolDetails[0]} text={symbolDetails[1]} />
+                            {categoryStyle[0] !== '' && (
+                              <ListSymbol color={categoryStyle[0]} text={categoryStyle[1]} />
                             )}
                           </ListDetailsSpanHeader>
                           {!isMobile

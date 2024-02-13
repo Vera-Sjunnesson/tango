@@ -5,7 +5,6 @@ import { GoBackButtonResponsive } from '../../ui/Buttons';
 import glossary from '../../../data/glossary.json'
 import GlossaryBgImg1 from '../../../assets/images/R00_5735_d.jpg'
 import GlossaryBgImg2 from '../../../assets/images/R00_6323_d.jpg'
-import GlossaryImg1 from '../../../assets/images/R00_5735_d.jpg'
 import GlossaryImg2 from '../../../assets/images/A100_1717_bw_d.jpg'
 import GlossaryImg3 from '../../../assets/images/A100_2331_bw_d.jpg'
 import GlossaryImg4 from '../../../assets/images/Z128_2840_bw_d.jpg'
@@ -99,7 +98,7 @@ export const Glossary = () => {
       <BackgroundContainer2 $img={GlossaryBgImg1} $img2={GlossaryBgImg2}>
         {isDesktop && (
           <span style={{ display: 'flex', flexDirection: 'column' }}>
-            <SideImage $heightsize="600px" src={GlossaryImg1} alt="Närbild omfamning" />
+            <SideImage $heightsize="600px" src={GlossaryBgImg1} alt="Närbild omfamning" />
             <SideImage $heightsize="600px" src={GlossaryImg2} alt="Vidbild milonga" />
             <SideImage $heightsize="1253px" src={GlossaryImg3} alt="Tangopar som dansar" />
             <SideImage $heightsize="1344px" src={GlossaryImg4 } alt="Tangopar som dansar" />
