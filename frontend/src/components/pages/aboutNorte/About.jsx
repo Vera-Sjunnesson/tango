@@ -1,13 +1,27 @@
 import { useRef } from 'react';
-import { StyledWrapper, BackgroundContainer } from '../../ui/ContainerStyles'; 
-import { BackgroundLine } from '../../sections/BackgroundLine'; 
-import { ArrowDown } from '../../ui/Buttons'; 
 import { useMediaQuery } from 'react-responsive'
-import { StyledTextCard, StyledTextSpan, StyledParagraph, StyledParagraphLight, AboutSection, AboutList, AboutListItem, AboutHeading, AboutDetails, AboutImage, AboutWrapper, AboutContainer, MainHeader } from './AboutStyles';
 import AboutBg from '../../../assets/images/S01_5746_d.jpg'
 import AboutBg2 from '../../../assets/images/C04_3948_d.jpg'
 import AboutImg from '../../../assets/images/S01_5813_d.jpg'
 import AboutBgLine from '../../../assets/graphics/line04-02-02.svg'
+import { BackgroundLine } from '../../sections/BackgroundLine'; 
+import { ArrowDown } from '../../ui/Buttons'; 
+import { 
+  StyledWrapper,
+  BackgroundContainer,
+  StyledTextCard,
+  StyledTextSpan,
+  StyledParagraph,
+  StyledParagraphLight,
+  AboutSection,
+  AboutList,
+  AboutListItem,
+  AboutHeading,
+  AboutDetails,
+  AboutImage,
+  AboutWrapper,
+  AboutContainer,
+  MainHeader } from './AboutStyles';
 
 const About = () => {
   const sectionToScrollTo = useRef(null);
@@ -79,7 +93,6 @@ const About = () => {
               Du kan söka medlemskap&nbsp;
               <a
                 href="https://www.tangonorte.com/register.php"
-                target="_blank"
                 rel="noreferrer">
                   här
               </a>.

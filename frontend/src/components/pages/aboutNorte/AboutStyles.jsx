@@ -1,5 +1,42 @@
 import styled from 'styled-components';
 
+export const BackgroundContainer = styled.div`
+  background-image: url(${(props) => (props.$img || '')});
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  width: 100%;
+  height: 500px;
+
+  @media (min-width: 744px) and (max-width: 1279px) {
+    height: 100%;
+  }
+
+  @media (min-width: 1280px) {
+    height: 100vh;
+    position: relative;
+  }
+`
+
+export const StyledWrapper = styled.div`
+  height: 800px;
+  width: 100%;
+  position: relative;
+  display: contents;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    height: 100vh;
+    display: flex;
+  }
+
+  @media (min-width: 1280px) {
+    display: contents;
+  }
+`
+
 export const StyledTextCard = styled.div`
   position: absolute;
   display: flex;
@@ -32,10 +69,10 @@ export const StyledTextCard = styled.div`
 `
 
 export const MainHeader = styled.h2`
+  font-size: 13vw;
   margin-bottom: 20px;
   color: var(--primary-orange);
   letter-spacing: .2rem;
-  font-size: 13vw;
   padding: 0px;
   
   @media (min-width: 350px) and (max-width: 743px) {

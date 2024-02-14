@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
-import useEventStore from '../../../stores/EventStore';
-import { getBackgroundAndSymbol } from '../../../utils/styleUtils';
-import { StyledWrapper, BackgroundContainer, PageContainer } from '../../ui/ContainerStyles';
-import { BackgroundLine } from '../../sections/BackgroundLine';
 import { NavLink } from 'react-router-dom';
-import { ArrowButtonSimple } from '../../ui/Buttons';
+import useEventStore from '../../../stores/EventStore';
 import { useMediaQuery } from 'react-responsive'
 import { ListDescription, ListSymbol } from '../../sections/ListDescription';
 import { Loader } from '../../sections/Loader';
-import { ListParagraph } from '../../ui/Paragraphs';
 import { BigCalendarDisplay } from '../../sections/BigCalendarDisplay';
 import CalendarBg from '../../../assets/images/R00_6323_d.jpg'
 import CalendarBgLine from '../../../assets/graphics/line02-01.svg'
+import { getBackgroundAndSymbol } from '../../../utils/styleUtils';
+import { BackgroundLine } from '../../sections/BackgroundLine';
+import { ListParagraph } from '../../ui/Paragraphs';
+import { ArrowButtonSimple } from '../../ui/Buttons';
+import { StyledWrapper, BackgroundContainer, PageContainer } from '../../ui/ContainerStyles';
 import { 
   ListWrapper,
   HeaderContainer,

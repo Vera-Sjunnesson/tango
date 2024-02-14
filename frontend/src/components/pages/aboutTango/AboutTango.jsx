@@ -1,10 +1,10 @@
 import { useRef, useEffect } from 'react';
-import { ArrowDown } from '../../ui/Buttons';
 import { useMediaQuery } from 'react-responsive'
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import AboutTangoVideo from '../../../assets/video/production_id_5120782(540p).mp4'
 import AboutTangoImg1 from '../../../assets/images/X105_0593_d.jpg'
 import AboutTangoImg2 from '../../../assets/images/Z114_1485_bw_d.jpg'
+import { ArrowDown } from '../../ui/Buttons';
 import { 
   Card,
   LinkTitle,
