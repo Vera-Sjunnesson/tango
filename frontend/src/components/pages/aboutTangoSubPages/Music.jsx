@@ -83,7 +83,7 @@ export const ListHeaderSmall = styled(ListHeader)`
   }
 `
 
-export const Music = () => {
+const Music = () => {
   return (
     <>
       <GoBackButtonResponsive />
@@ -155,3 +155,5 @@ export const Music = () => {
     </>
   )
 }
+
+export default Music

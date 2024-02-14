@@ -86,7 +86,7 @@ export const IconWrapper = styled.div`
   display: flex;
 `
 
-export const Footer = () => {
+const Footer = () => {
   const onContactClick = () => {
     window.location.href = 'mailto:info@tangonorte.com';
   }
@@ -125,3 +125,5 @@ export const Footer = () => {
     </FooterContainer>
   )
 }
+
+export default Footer

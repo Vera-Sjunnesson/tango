@@ -41,7 +41,7 @@ export const TangoCardNav = ({ color, description, path }) => {
   )
 }
 
-export const AboutTango = () => {
+const AboutTango = () => {
   const videoEl = useRef(null);
   const sectionToScrollTo = useRef(null);
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1279px)' })
@@ -99,3 +99,4 @@ export const AboutTango = () => {
   );
 }
 
+export default AboutTango

@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
+import useNewsStore from '../../../stores/newsStore';
 import { BackgroundGradeContainer, PageContainer, StyledWrapper } from '../../ui/ContainerStyles';
 import { BackgroundLine } from '../../sections/BackgroundLine'; 
 import { Header } from '../../sections/Header';
@@ -29,27 +30,13 @@ import {
   NewsImgWrapper
 } from './NewsStyles';
 
-export const News = () => {
-  const [list, setList] = useState([]);
-  const [loading, setLoading] = useState(false);
+const News = () => {
+  const { getNewsList, newsList, loading } = useNewsStore();
   const isMobile = useMediaQuery({ query: '(max-width: 744px)' })
 
   useEffect(() => {
-    setLoading(true);
     const fetchEventList = async () => {
-      try {
-        const url = process.env.REACT_APP_NEWS_LIST_URL;
-        if (!url) {
-          throw new Error('Failed to fetch event list');
-        }
-        const response = await fetch(url);
-        const data = await response.json();
-        setList(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false)
-      }
+      await getNewsList();
     };
 
     fetchEventList();
@@ -70,7 +57,7 @@ export const News = () => {
               <ListHeader $news>AKTUELLT</ListHeader>
             </HeaderContainer>
             <ListContainer $news className="list-scroll">
-              {!loading && list.length > 0 && list.map((listItem) => {
+              {!loading && newsList.length > 0 && newsList.map((listItem) => {
                 return (
                   <NavLink to={`/aktuellt/${listItem.newsid}`} key={listItem.newsid}>
                     <ListItemCardNews key={listItem.newsid}>
@@ -87,7 +74,7 @@ export const News = () => {
                   </NavLink>
                 )
               })}
-              {!loading && list.length === 0 && (
+              {!loading && newsList.length === 0 && (
                 <Placeholder />
               )}
               {loading
@@ -98,7 +85,7 @@ export const News = () => {
                 )}
             </ListContainer>
           </ListWrapperNews>
-          {list.length > 0 && !isMobile && (
+          {newsList.length > 0 && !isMobile && (
             <NewsImgWrapper>
               <NewsImg src={NewsImg1} alt="Tangouppvisning/par som dansar" />
               <NewsImg src={NewsImg2} alt="Tangouppvisning/par som dansar" />
@@ -110,3 +97,5 @@ export const News = () => {
     </>
   );
 }
+
+export default News

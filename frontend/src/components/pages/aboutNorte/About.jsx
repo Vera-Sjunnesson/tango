@@ -10,7 +10,7 @@ import AboutBg2 from '../../../assets/images/C04_3948_d.jpg'
 import AboutImg from '../../../assets/images/S01_5813_d.jpg'
 import AboutBgLine from '../../../assets/graphics/line04-02-02.svg'
 
-export const About = () => {
+const About = () => {
   const sectionToScrollTo = useRef(null);
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 744px)' })
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -121,3 +121,5 @@ export const About = () => {
     </AboutContainer>
   )
 }
+
+export default About

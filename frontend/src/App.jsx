@@ -1,18 +1,18 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import { Hero } from "./components/pages/hero/Hero"
-import { About } from "./components/pages/aboutNorte/About"
 import { GlobalStyles } from "./styles/GlobalStyles"
-import { CalendarBoard } from './components/pages/calendar/CalendarBoard';
-import { News } from './components/pages/news/News';
-import { AboutTango } from './components/pages/aboutTango/AboutTango';
-import { Footer } from './components/sections/Footer';
-import { EventDetails } from './components/pages/details/EventDetails';
-import { NewsDetails } from './components/pages/details/NewsDetails';
-import { VenueDetails } from './components/pages/details/VenueDetails';
-import { Glossary } from './components/pages/aboutTangoSubPages/Glossary';
-import { Music } from './components/pages/aboutTangoSubPages/Music';
-import { Interviews } from './components/pages/aboutTangoSubPages/Interviews';
-import { NotFound } from './components/pages/notFound/NotFound';
+import Hero from "./components/pages/hero/Hero"
+import About from "./components/pages/aboutNorte/About"
+import CalendarBoard from './components/pages/calendar/CalendarBoard';
+import News from './components/pages/news/News';
+import AboutTango from './components/pages/aboutTango/AboutTango';
+import Footer from './components/sections/Footer';
+import EventDetails from './components/pages/details/EventDetails';
+import NewsDetails from './components/pages/details/NewsDetails';
+import VenueDetails from './components/pages/details/VenueDetails';
+import Glossary from './components/pages/aboutTangoSubPages/Glossary';
+import Music from './components/pages/aboutTangoSubPages/Music';
+import Interviews from './components/pages/aboutTangoSubPages/Interviews';
+import NotFound from './components/pages/notFound/NotFound';
 import { ScrollToTop } from './components/sections/ScrollToTop';
 
 function App() {

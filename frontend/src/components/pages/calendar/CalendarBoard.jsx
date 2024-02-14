@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import useEventStore from '../../../stores/EventStore';
+import { getBackgroundAndSymbol } from '../../../utils/styleUtils';
 import { StyledWrapper, BackgroundContainer, PageContainer } from '../../ui/ContainerStyles';
 import { BackgroundLine } from '../../sections/BackgroundLine';
 import { NavLink } from 'react-router-dom';
@@ -44,7 +45,7 @@ const sortListItemsByDate = (list) => {
   return sortedList;
 };
 
-export const CalendarBoard = () => {
+const CalendarBoard = () => {
   const { getEvents, eventList, loading } = useEventStore();
   const sortedList = eventList ? sortListItemsByDate(eventList) : {};
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -66,21 +67,6 @@ export const CalendarBoard = () => {
     const formattedTime = date.toLocaleTimeString('sv-SE', options);
     const [hour, minutes] = formattedTime.split(':');
     return `kl ${hour}:${minutes}`;
-  };
-
-  const getBackgroundAndSymbol = (type) => {
-    switch (type) {
-      case 'milonga':
-        return ['#ef9d4d', 'M'];
-      case 'practica':
-        return ['#edc343', 'P'];
-      case 'class':
-        return ['#80b3bb', 'C'];
-      case 'festival':
-        return ['#eea484', 'F'];
-      default:
-        return ['#fef0c8', 'A'];
-    }
   };
 
   return (
@@ -148,3 +134,5 @@ export const CalendarBoard = () => {
     </>
   );
 }
+
+export default CalendarBoard

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getBackgroundAndSymbol } from '../../utils/styleUtils';
 import useEventStore from '../../stores/EventStore';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment'
@@ -38,26 +39,11 @@ export const BigCalendarDisplay = () => {
     }
   }, [eventList]);
 
-  const getBackgroundColor = (type) => {
-    switch (type) {
-      case 'milonga':
-        return '#ef9d4d';
-      case 'practica':
-        return '#edc343';
-      case 'class':
-        return '#80b3bb';
-      case 'festival':
-        return '#eea484';
-      default:
-        return '#fef0c8';
-    }
-  };
-
   const eventStyleGetter = (event) => {
-    const backgroundColor = getBackgroundColor(event.type);
+    const backgroundColor = getBackgroundAndSymbol(event.type);
     return {
       style: {
-        backgroundColor
+        backgroundColor: backgroundColor[0]
       }
     };
   };

@@ -62,15 +62,15 @@ export const HeroWrapper = styled.div`
 
 /* MENU BUTTONS */
 export const MenuContainer = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-direction: column;
-gap: 35px;
-width: 80%; 
-left: 0;
-right: 0;
-margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 35px;
+  width: 80%; 
+  left: 0;
+  right: 0;
+  margin: 50px auto;
 
 @media (min-width: 744px) and (max-width: 999px) {
   gap: 46px;

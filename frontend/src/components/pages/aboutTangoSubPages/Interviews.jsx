@@ -62,7 +62,7 @@ export const StyledListHeading = styled.h4`
   margin-top: 40px;
 `
 
-export const Interviews = () => {
+const Interviews = () => {
   return (
     <>
       <GoBackButtonResponsive />
@@ -94,3 +94,5 @@ export const Interviews = () => {
     </>
   )
 }
+
+export default Interviews

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { SINGLE_VENUE_ITEM_URL } from '../../../utils/urls';
+import useVenueStore from '../../../stores/venueStore';
 import { Header } from '../../sections/Header';
 import { Loader } from '../../sections/Loader'; 
 import { GoBackButtonResponsive, ArrowButtonSimpleBack, GoBackButtonText } from '../../ui/Buttons';
@@ -29,36 +29,21 @@ export const renderMarkdown = (text) => {
   return ''; // Return an empty string if text is falsy
 };
 
-export const VenueDetails = () => {
-  const [venueDetails, setVenueDetails] = useState({});
-  const [loading, setLoading] = useState(false)
+const VenueDetails = () => {
+  const { getVenueItem, venueItem, loading } = useVenueStore();
 
   const { venueid } = useParams();
   useEffect(() => {
-    setLoading(true);
     const fetchVenueDetails = async () => {
-      try {
-        if (venueid === undefined) {
-          throw new Error('Venue ID is undefined');
-        }
-        const url = SINGLE_VENUE_ITEM_URL(venueid);
-        if (!url) {
-          throw new Error('Failed to fetch venue details');
-        }
-        const response = await fetch(url);
-        const data = await response.json();
-        setVenueDetails(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setTimeout(() => setLoading(false), 500);
-      }
+     if(venueid) {
+      getVenueItem(venueid)
+     }
     };
     fetchVenueDetails();
-  }, [venueid]);
+  }, [getVenueItem, venueid]);
 
-  const markdownDescription = venueDetails[0]?.description || ''; // Ensure description is defined
-  const markdownHowToGetThere = venueDetails[0]?.howtogetthere || '';
+  const markdownDescription = venueItem[0]?.description || ''; // Ensure description is defined
+  const markdownHowToGetThere = venueItem[0]?.howtogetthere || '';
   const sanitizedDescription = DOMPurify.sanitize(renderMarkdown(markdownDescription));
   const sanitizedHowToGetThere = DOMPurify.sanitize(renderMarkdown(markdownHowToGetThere));
 
@@ -73,7 +58,7 @@ export const VenueDetails = () => {
         </DetailsWrapper>
       ) : (
         <DetailsWrapper $venue>
-          {venueDetails[0]?.address === '' ? (
+          {venueItem[0]?.address === '' ? (
             <NoLocationCard>
               <ArrowButtonSimpleBack />
               <DetailsHeader>Lokal saknas</DetailsHeader>
@@ -82,12 +67,12 @@ export const VenueDetails = () => {
           ) : (
             <DetailsCard $venue>
               <GoBackButtonResponsive />
-              {venueDetails[0]?.image && (
-                <DetailsImage src={venueDetails[0]?.image && `https://www.tangonorte.com/img/www.tangonorte.com/venue/${venueDetails[0]?.image}`} alt={venueDetails[0]?.name_long} />
+              {venueItem[0]?.image && (
+                <DetailsImage src={venueItem[0]?.image && `https://www.tangonorte.com/img/www.tangonorte.com/venue/${venueItem[0]?.image}`} alt={venueItem[0]?.name_long} />
               )}
               <DetailsSpan>
                 <DetailsHeader>
-                  {venueDetails[0]?.name_long}
+                  {venueItem[0]?.name_long}
                 </DetailsHeader>
                 <StyledParagraph
                   dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
@@ -96,7 +81,7 @@ export const VenueDetails = () => {
                     Adress:&nbsp;&nbsp;
                   </StyledParagraphBold>
                   <StyledParagraph>
-                    {venueDetails[0]?.address}
+                    {venueItem[0]?.address}
                   </StyledParagraph>
                 </span>
                 <span>
@@ -106,8 +91,8 @@ export const VenueDetails = () => {
                   <StyledParagraph
                     dangerouslySetInnerHTML={{ __html: sanitizedHowToGetThere }} />
                 </span>
-                {venueDetails[0]?.map && (
-                  <Detailsmap src={venueDetails[0]?.map && `https://www.tangonorte.com/img/www.tangonorte.com/venue/${venueDetails[0]?.map}`} alt="Venue map" />
+                {venueItem[0]?.map && (
+                  <Detailsmap src={venueItem[0]?.map && `https://www.tangonorte.com/img/www.tangonorte.com/venue/${venueItem[0]?.map}`} alt={`${venueItem[0]?.name_long} karta`} />
                 )}
               </DetailsSpan>
             </DetailsCard>
@@ -117,3 +102,5 @@ export const VenueDetails = () => {
     </DetailsContainer>
   )
 }
+
+export default VenueDetails

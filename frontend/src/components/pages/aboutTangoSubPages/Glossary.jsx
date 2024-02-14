@@ -89,7 +89,7 @@ export const StyledParagraphBold = styled.p`
   }
 `
 
-export const Glossary = () => {
+const Glossary = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
   return (
     <>
@@ -138,3 +138,5 @@ export const Glossary = () => {
     </>
   )
 }
+
+export default Glossary

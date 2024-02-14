@@ -49,7 +49,7 @@ export const LoaderContainer = styled.div`
   }
 `
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <>
       <Header isSmall />
@@ -68,3 +68,5 @@ export const NotFound = () => {
     </>
   );
 };
+
+export default NotFound

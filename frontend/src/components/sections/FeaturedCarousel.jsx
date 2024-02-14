@@ -171,7 +171,7 @@ export const FeaturedText = styled.p`
   }
 `
 
-export const FeaturedCarousel = ({ list, eventList }) => {
+export const FeaturedCarousel = ({ featuredList, eventList }) => {
   const swiperRef = useRef(null);
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1279px)' })
 
@@ -226,7 +226,7 @@ export const FeaturedCarousel = ({ list, eventList }) => {
           '--swiper-navigation-size': isMobileOrTablet ? '0px' : '',
           height: '100%'
         }}>
-        {list.map((listItem) => {
+        {featuredList.map((listItem) => {
           // eslint-disable-next-line
           const isTitleInEventList = eventList.some((eventItem) => {
             const titleMatch = eventItem.title === listItem.title;
