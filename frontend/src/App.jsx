@@ -14,15 +14,18 @@ import Music from './components/pages/aboutTangoSubPages/Music';
 import Interviews from './components/pages/aboutTangoSubPages/Interviews';
 import NotFound from './components/pages/notFound/NotFound';
 import { ScrollToTop } from './components/sections/ScrollToTop';
+import { Header } from './components/sections/Header';
+import { GoBackButtonResponsive } from './components/ui/Buttons';
 
-function App() {
+const App = () => {
 
   return (
     <BrowserRouter>
       <ScrollToTop />
       <GlobalStyles />
+      <Header />
       <Routes>
-      <Route path="/" element={<Hero />} />
+        <Route path="/" element={<Hero />} />
         <Route path="/kalendarium" element={<CalendarBoard />} />
         <Route path="/kalendarium/:id" element={<EventDetails />} />
         <Route path="/aktuellt" element={<News />} />
@@ -36,6 +39,7 @@ function App() {
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
+      <GoBackButtonResponsive />
       <Footer />
     </BrowserRouter>
   )

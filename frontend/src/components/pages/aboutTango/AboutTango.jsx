@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { Header } from '../../sections/Header';
-import { ArrowDown, GoBackButtonResponsive } from '../../ui/Buttons';
+import { ArrowDown } from '../../ui/Buttons';
 import { useMediaQuery } from 'react-responsive'
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import AboutTangoVideo from '../../../assets/video/production_id_5120782(540p).mp4'
@@ -65,9 +64,7 @@ const AboutTango = () => {
 
   return (
     <StyledWrapper>
-      <Header isSmall />
       <div className="video-tango-wrapper">
-        <GoBackButtonResponsive />
         <HeaderSpan>
           <ListHeader>OM TANGO</ListHeader>
           <ArrowDown handleDownClick={handleDownClick} />

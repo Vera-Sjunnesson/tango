@@ -4,9 +4,8 @@ import { useMediaQuery } from 'react-responsive'
 import useNewsStore from '../../../stores/newsStore';
 import { BackgroundGradeContainer, PageContainer, StyledWrapper } from '../../ui/ContainerStyles';
 import { BackgroundLine } from '../../sections/BackgroundLine'; 
-import { Header } from '../../sections/Header';
 import { Loader } from '../../sections/Loader';
-import { ArrowButtonSimple, GoBackButtonResponsive } from '../../ui/Buttons';
+import { ArrowButtonSimple } from '../../ui/Buttons';
 import { ListParagraphNews } from '../../ui/Paragraphs';
 import { Placeholder } from '../../sections/Placeholder';
 import NewsBgImg from '../../../assets/images/C05_0251_d.jpg'
@@ -44,9 +43,7 @@ const News = () => {
 
   return (
     <>
-      <Header isSmall />
       <PageContainer $news>
-        <GoBackButtonResponsive />
         <StyledWrapper>
           <BackgroundGradeContainer $grade="#edc343, #edc343" $img={NewsBgImg} />
           <BackgroundLine isNews isCover backgroundimg={isMobile ? NewsBgLine1 : NewsBgLine2} />

@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { Header } from '../../sections/Header'; 
-import { GoBackButtonResponsive } from '../../ui/Buttons'; 
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import interviews from '../../../data/interviews.json'
 import InterviewBgImg from '../../../assets/images/C04_3948_d.jpg'
@@ -65,8 +63,6 @@ export const StyledListHeading = styled.h4`
 const Interviews = () => {
   return (
     <>
-      <GoBackButtonResponsive />
-      <Header isSmall />
       <BackgroundContainer $img={InterviewBgImg}>
         <StyledListSection $interview>
           <ListHeaderSmall>INTERVJUER</ListHeaderSmall>

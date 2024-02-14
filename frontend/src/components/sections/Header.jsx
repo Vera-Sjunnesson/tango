@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import HomeIcon from '@mui/icons-material/Home';
 import { HamburgerMenu } from './HamburgerMenu';
 import { NavBar } from './NavBar';
-import LogoBlack from '../../assets/graphics/tn-logo-black.svg'
 import LogoPlain from '../../assets/graphics/tn-logo-plain.svg'
 
 export const HeaderContainer = styled.div`
@@ -28,13 +27,13 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     z-index: 999;
     width: 100%;
-    position: relative;
+    position: ${(props) => (props.$Small ? 'relative' : 'absolute')};
   }
 
   @media (min-width: 1280px) {
-    position: relative;
+    position: absolute;
     height: ${(props) => (props.$Small ? '104px' : '16vh')};
-    width: auto;
+    position: ${(props) => (props.$Small ? 'relative' : 'absolute')};
   }
 `
 
@@ -109,7 +108,7 @@ export const Logo = styled.img`
   }
 `
 
-export const Header = ({ isBlack, isSmall, isLarge, isHero }) => {
+export const HeaderContent = ({ isSmall, isLarge, isHero }) => {
   const navLinkStyle = {
     zIndex: '1001',
     padding: '5px'
@@ -142,9 +141,19 @@ export const Header = ({ isBlack, isSmall, isLarge, isHero }) => {
         style={navLinkStyle}>
         <Logo
           $Small={isSmall}
-          src={isBlack ? LogoBlack : LogoPlain}
+          src={LogoPlain}
           alt="Tango Norte Logo" />
       </NavLink>
     </HeaderContainer>
   )
+}
+
+export const Header = () => {
+  const location = useLocation();
+
+  return (
+    <>
+      {location.pathname === '/'  ? < HeaderContent isLarge isHero/> : < HeaderContent isSmall />}
+    </>
+  );
 }

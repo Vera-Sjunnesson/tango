@@ -2,9 +2,8 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useEventStore from '../../../stores/EventStore';
 import { formatDate, formatTime } from '../../../utils/timeUtils';
-import { Header } from '../../sections/Header'; 
 import { Loader } from '../../sections/Loader'; 
-import { GoBackButtonResponsive, ArrowReadMoreButton } from '../../ui/Buttons';
+import { ArrowReadMoreButton } from '../../ui/Buttons';
 import { StyledParagraph, StyledParagraphBold } from '../../ui/Paragraphs';
 import DOMPurify from 'dompurify';
 import { 
@@ -36,8 +35,6 @@ const EventDetails = () => {
 
   return (
     <DetailsContainer>
-      <GoBackButtonResponsive />
-      <Header isSmall />
       <DetailsWrapper>
         {loading ? (
           <LoaderContainer>

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
-import { Header } from '../../sections/Header';
-import { GoBackButtonResponsive } from '../../ui/Buttons';
 import music from '../../../data/music.json'
 import modernTango from '../../../data/modern-tango.json'
 import MusicBgImg from '../../../assets/images/S02_4543_c_d.jpg'
@@ -86,8 +84,6 @@ export const ListHeaderSmall = styled(ListHeader)`
 const Music = () => {
   return (
     <>
-      <GoBackButtonResponsive />
-      <Header isSmall />
       <BackgroundContainer3 $img={MusicBgImg}>
         <StyledListSection $interview>
           <ListHeaderSmall>TANGOMUSIK</ListHeaderSmall>

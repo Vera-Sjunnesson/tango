@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useNewsStore from '../../../stores/newsStore';
-import { Header } from '../../sections/Header'; 
 import { Loader } from '../../sections/Loader'; 
-import { GoBackButtonResponsive, ArrowReadMoreButton } from '../../ui/Buttons';
+import { ArrowReadMoreButton } from '../../ui/Buttons';
 import { StyledParagraphBold } from '../../ui/Paragraphs';
 import DOMPurify from 'dompurify';
 import { 
@@ -33,8 +32,6 @@ const NewsDetails = () => {
 
   return (
     <DetailsContainer>
-      <GoBackButtonResponsive />
-      <Header isSmall />
       <DetailsWrapper>
         {loading ? (
           <LoaderContainer>

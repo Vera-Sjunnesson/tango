@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { ArrowButtonSimpleBack, GoBackButtonText } from '../../ui/Buttons';
-import { Header } from '../../sections/Header'; 
+import { GoBackButtonText } from '../../ui/Buttons';
 
 export const LottieContainer = styled.div`
   width: 100%;
@@ -52,8 +51,6 @@ export const LoaderContainer = styled.div`
 const NotFound = () => {
   return (
     <>
-      <Header isSmall />
-      <ArrowButtonSimpleBack />
       <LoaderContainer>
         <LottieContainer>
           <Player

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive'
-import { Header } from '../../sections/Header'; 
-import { GoBackButtonResponsive } from '../../ui/Buttons'; 
 import glossary from '../../../data/glossary.json'
 import GlossaryBgImg1 from '../../../assets/images/R00_5735_d.jpg'
 import GlossaryBgImg2 from '../../../assets/images/R00_6323_d.jpg'
@@ -93,8 +91,6 @@ const Glossary = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
   return (
     <>
-      <GoBackButtonResponsive />
-      <Header isSmall />
       <BackgroundContainer2 $img={GlossaryBgImg1} $img2={GlossaryBgImg2}>
         {isDesktop && (
           <span style={{ display: 'flex', flexDirection: 'column' }}>

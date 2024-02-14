@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
 import ArrowHeadSmall from '../../assets/graphics/arrow-head.png'
 import ArrowHeadBig from '../../assets/graphics/arrow-head-big.png'
@@ -269,6 +269,61 @@ export const ArrowButtonSimple = ({ isSmall, isWhite, text, isCalendar }) => {
   )
 }
 
+export const GoBackButtonResponsive = ({ isCenter }) => {
+  const location = useLocation();
+  const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 744px)' })
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+    }, 4);
+  }
+
+  return (
+    <div>
+      {location.pathname !== '/' && location.pathname !== '/404' && (
+        <GoBackNavLink
+          onClick={goBack}
+          $goBack
+          $text
+          $center={isCenter}>
+          <ArrowBack $text>
+            <span className="arrow" />
+            <ArrowHead2
+              src={ArrowHeadBig}
+              alt="arrow-head"
+              style={{ height: 30 }} />
+          </ArrowBack>
+          {isTabletOrDesktop ? (
+            'TILLBAKA'
+          ) : (
+            ''
+          )}
+        </GoBackNavLink>
+      )}
+      {location.pathname === '/404' && (
+        <GoBackNavLink
+          onClick={goBack}
+          $goBack>
+        <ArrowBack>
+          <span className="arrow" />
+          <ArrowHead2
+            src={ArrowHeadBig}
+            alt="arrow-head"
+            style={{ height: 30 }} />
+        </ArrowBack>
+      </GoBackNavLink>
+      )}
+    </div>
+  )
+}
+
 export const ArrowButtonSimpleBack = ({ isSmall, isWhite }) => {
   const navigate = useNavigate();
 
@@ -293,7 +348,7 @@ export const ArrowButtonSimpleBack = ({ isSmall, isWhite }) => {
         <span className="arrow" />
         <ArrowHead2
           $white={isWhite}
-          src="/assets/graphics/arrow-head-big.png"
+          src={ArrowHeadBig}
           alt="arrow-head"
           style={{ height: 30 }} />
       </ArrowBack>
@@ -324,48 +379,11 @@ export const GoBackButtonText = ({ isCenter }) => {
       <ArrowBack $text>
         <span className="arrow" />
         <ArrowHead2
-          src="/assets/graphics/arrow-head-big.png"
-          alt="arrow-head"
-          style={{ height: 30 }} />
-      </ArrowBack>
-      TILLBAKA
-    </GoBackNavLink>
-  )
-}
-
-export const GoBackButtonResponsive = ({ isCenter }) => {
-  const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 744px)' })
-  const navigate = useNavigate();
-
-  const goBack = () => {
-    navigate(-1);
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'instant'
-      });
-    }, 4);
-  }
-
-  return (
-    <GoBackNavLink
-      onClick={goBack}
-      $goBack
-      $text
-      $center={isCenter}>
-      <ArrowBack $text>
-        <span className="arrow" />
-        <ArrowHead2
           src={ArrowHeadBig}
           alt="arrow-head"
           style={{ height: 30 }} />
       </ArrowBack>
-      {isTabletOrDesktop ? (
-        'TILLBAKA'
-      ) : (
-        ''
-      )}
+      TILLBAKA
     </GoBackNavLink>
   )
 }

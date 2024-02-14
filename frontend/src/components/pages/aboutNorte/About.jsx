@@ -1,8 +1,7 @@
 import { useRef } from 'react';
-import { Header } from '../../sections/Header';
 import { StyledWrapper, BackgroundContainer } from '../../ui/ContainerStyles'; 
 import { BackgroundLine } from '../../sections/BackgroundLine'; 
-import { ArrowDown, GoBackButtonResponsive } from '../../ui/Buttons'; 
+import { ArrowDown } from '../../ui/Buttons'; 
 import { useMediaQuery } from 'react-responsive'
 import { StyledTextCard, StyledTextSpan, StyledParagraph, StyledParagraphLight, AboutSection, AboutList, AboutListItem, AboutHeading, AboutDetails, AboutImage, AboutWrapper, AboutContainer, MainHeader } from './AboutStyles';
 import AboutBg from '../../../assets/images/S01_5746_d.jpg'
@@ -21,8 +20,6 @@ const About = () => {
 
   return (
     <AboutContainer>
-      <Header isSmall />
-      <GoBackButtonResponsive />
       <StyledWrapper $om>
         <BackgroundContainer $om style={{ width: '100%' }} $img={AboutBg}>
           {isDesktop && (

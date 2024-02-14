@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import useFeaturedStore from '../../../stores/featuredStore';
 import useEventStore from '../../../stores/EventStore';
 import { useMediaQuery } from 'react-responsive'
-import { Header } from '../../sections/Header';
 import { Loader } from '../../sections/Loader';
 import { FeaturedCarousel } from '../../sections/FeaturedCarousel';
 import { Menu } from '../../sections/Menu'; 
@@ -37,7 +36,6 @@ const Hero = () => {
         ) : (
           <>
             <LineAnimation />
-            <Header isLarge isHero />
             <HeroWrapper>
               <FeaturedCarousel featuredList={featuredList} eventList={eventList} />
               {isMobileOrTablet && (

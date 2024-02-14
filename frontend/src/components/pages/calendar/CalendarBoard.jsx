@@ -4,8 +4,7 @@ import { getBackgroundAndSymbol } from '../../../utils/styleUtils';
 import { StyledWrapper, BackgroundContainer, PageContainer } from '../../ui/ContainerStyles';
 import { BackgroundLine } from '../../sections/BackgroundLine';
 import { NavLink } from 'react-router-dom';
-import { Header } from '../../sections/Header';
-import { ArrowButtonSimple, GoBackButtonResponsive } from '../../ui/Buttons';
+import { ArrowButtonSimple } from '../../ui/Buttons';
 import { useMediaQuery } from 'react-responsive'
 import { ListDescription, ListSymbol } from '../../sections/ListDescription';
 import { Loader } from '../../sections/Loader';
@@ -71,9 +70,7 @@ const CalendarBoard = () => {
 
   return (
     <>
-      <Header isSmall />
       <PageContainer>
-        <GoBackButtonResponsive />
         <StyledWrapper>
           <BackgroundContainer $img={CalendarBg} />
           <BackgroundLine isCover backgroundimg={CalendarBgLine} />
