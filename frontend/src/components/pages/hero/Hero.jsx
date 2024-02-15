@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive'
 import useFeaturedStore from '../../../stores/featuredStore';
-import useEventStore from '../../../stores/EventStore';
+import useEventStore from '../../../stores/eventStore';
 import { Loader } from '../../sections/Loader';
 import { FeaturedCarousel } from '../../sections/FeaturedCarousel';
 import { Menu } from '../../sections/Menu'; 
