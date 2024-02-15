@@ -90,7 +90,7 @@ https://tango-norte.netlify.app
 
 ## Visuals
 
-<img width="300" alt="Tango Norte Demo 1" src="/frontend/public/images/tango-norte-demo.png">
-<img width="300" alt="Tango Norte Demo 2" src="/frontend/public/images/tango-norte-demo3.png">
-<img width="300" alt="Tango Norte Demo 3" src="/frontend/public/images/tango-norte-demo2.png">
-<img width="300" alt="Tango Norte Demo 4" src="/frontend/public/images/tango-norte-demo4.png">
+<img width="300" alt="Tango Norte Demo 1" src="/frontend/src/assets/images/tango-norte-demo.png">
+<img width="300" alt="Tango Norte Demo 2" src="/frontend/src/assets/images/tango-norte-demo3.png">
+<img width="300" alt="Tango Norte Demo 3" src="/frontend/src/assets/images/tango-norte-demo2.png">
+<img width="300" alt="Tango Norte Demo 4" src="/frontend/src/assets/images/tango-norte-demo4.png">
