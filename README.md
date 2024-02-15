@@ -3,6 +3,7 @@
 ## Dependencies
 
 - React
+- Vite
 - React-router-dom
 - Styled Components
 - react-global-style
@@ -30,33 +31,37 @@
 
 - `node_modules/`: Denna mapp innehåller alla beroenden som krävs av applikationen. Den skapas efter att ha kört npm install
 
-- `public/`: Katalogen public innehåller statiska filer som serveras som de är av applikationen. Detta inkluderar HTML-mallen (index.html) och andra filer som inte bearbetas av Webpack eller andra byggverktyg. Innehåller följande:
-
-  - `index.html`
-
-  - `assets/`: Denna mapp innehåller grafik
-
-  - `images/`: Denna mapp innehåller bilder
-
-  - `videos/`: Denna mapp innehåller videor
-
 - `src/`: Katalogen src innehåller applikationens källkod. Den är strukturerad på följande sätt:
+
+  - `assets/`: Denna mapp håller följande mappar:
+
+    - `graphics/`: Denna mapp innehåller grafik
+
+    - `images/`: Denna mapp innehåller bilder
+
+    - `videos/`: Denna mapp innehåller videor
 
   - `components/`: Denna mapp håller följande mappar:
 
-    - `lib/`: Denna mapp håller återanvändbara UI-komponenter som används i hela applikationen. Varje komponent är en JS-fil med tillhörande styles.
+    - `pages/`: React-komponenter som representerar enskilda sidor eller vyer i applikationen. Dessa komponenter motsvarar specifika routes och fungerar som ingångspunkter för olika sidor i appen. Varje komponent finns i sin egen mapp innehållande dess JSX-fil, tillhörande styles i en egen mapp
 
-    - `pages/`: React-komponenter som representerar enskilda sidor eller vyer i applikationen. Dessa komponenter motsvarar specifika routes och fungerar som ingångspunkter för olika sektioner av appen. Varje komponent finns i sin egen mapp innehållande dess JS-fil, tillhörande styles i en egen mapp och sektioner av sidan nedbrutna som finns i en egen mapp
+    - `sections/`: Denna mapp innehåller sektioner som används på sidorna
+
+    - `ui/`: Denna mapp innehåller återanvändbara UI-komponenter som används i hela applikationen. Varje komponent är en JSX-fil med tillhörande styles.
 
   - `data/`: innehåller json-filer
+
+  - `stores/`: Denna mapp innehåller filer där global lägen hanteras och APIer fetchas
 
   - `styles/`: innehåller Globala Styles och css-filer
 
   - `utils/`: innehåller `urls.js` med urls som appen fetchar data från
 
-  - `App.js` är huvudkomponenten i React-applikationen. Den fungerar som rotkomponenten som aggregerar och renderar andra komponenter. Den navigationslogik och är platsen där routes definieras med hjälp av React Router.
+  - `App.jsx` är huvudkomponenten i React-applikationen. Den fungerar som rotkomponenten som aggregerar och renderar andra komponenter. Den navigationslogik och är platsen där routes definieras med hjälp av React Router.
 
-  - `index.js` är ingångspunkten för React-applikationen. Det är här React-appen renderas i DOM-en (Document Object Model). Den importerar huvudkomponenten (`App.js` i det här fallet), använder ReactDOM för att rendera den komponenten och injicerar den i HTML-dokumentet på den angivna rotplatsen.
+  - `main.jsx` är ingångspunkten för React-applikationen. Det är här React-appen renderas i DOM-en (Document Object Model). Den importerar huvudkomponenten (`App.jsx` i det här fallet), använder ReactDOM för att rendera den komponenten och injicerar den i HTML-dokumentet på den angivna rotplatsen.
+
+- `index.html`
 
 - `.eslintrc.json` är en konfigurationsfil för ESLint, ett verktyg för att upprätthålla kodkvalitet och konsistens genom statisk kodanalys i JavaScript-projekt.
 
@@ -66,6 +71,8 @@
 
 - `package.json` och `package-lock.json`
 Dessa filer listar paket, projektberoenden skript och metadata om applikationen. De är avgörande för att konfigurera projektet och köra skript.
+
+- `vite.config.js` är en konfigurationsfil för vite
 
 ### `README.md` 
 
