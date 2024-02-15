@@ -5,6 +5,8 @@ import DOMPurify from 'dompurify';
 import { formatDate, formatTime } from '../../../utils/timeUtils';
 import { Loader } from '../../sections/Loader'; 
 import { ArrowReadMoreButton } from '../../ui/Buttons';
+import CalendarListSimple from '../../sections/CalendarListSimple';
+import placeholderImg from '../../../assets/images/R00_6323_d.jpg'
 import { 
   DetailsContainer,
   DetailsWrapper,
@@ -20,7 +22,7 @@ import {
   StyledParagraphBold } from './DetailsStyles';
 
 const EventDetails = () => {
-  const { getEventItem, eventItem, loading } = useEventStore();
+  const { getEventItem, eventItem, getEvents, filterAndLimitEvents, eventList, loading } = useEventStore();
 
   const { id } = useParams();
 
@@ -33,6 +35,18 @@ const EventDetails = () => {
     fetchEventDetails();
   }, [getEventItem, id]);
 
+  useEffect(() => {
+    const fetchFilteredEventList = async () => {
+      if (eventItem) {
+        await getEvents();
+        const type = eventItem[0]?.type;
+        const id = eventItem[0]?.id;
+        filterAndLimitEvents(type, id);
+      }
+    };
+    fetchFilteredEventList();
+  }, [eventItem, filterAndLimitEvents, getEvents]);
+
   const sanitizedHTML = DOMPurify.sanitize(eventItem[0]?.body_html);
 
   return (
@@ -44,11 +58,14 @@ const EventDetails = () => {
           </LoaderContainer>
         ) : (
           <DetailsCard>
-            {eventItem[0]?.image && (
+            {eventItem[0]?.image ? (
               <DetailsImage
-                src={eventItem[0]?.image
-                  && `https://www.tangonorte.com/img/www.tangonorte.com/event/${eventItem[0]?.image}`}
+                src={eventItem[0]?.image && `https://www.tangonorte.com/img/www.tangonorte.com/event/${eventItem[0]?.image}`}
                 alt={eventItem[0]?.title} />
+            ) : (
+              <DetailsImage
+              src={placeholderImg}
+              alt='tango evenemang' />
             )}
             <DetailsSpan>
               <DetailsHeader>
@@ -93,6 +110,7 @@ const EventDetails = () => {
             </DetailsSpan>
           </DetailsCard>
         )}
+          <CalendarListSimple loading={loading} eventList={eventList} type={eventItem[0]?.type} />
       </DetailsWrapper>
     </DetailsContainer>
   )

@@ -1,92 +1,12 @@
-
 import styled from 'styled-components';
-export const BackgroundContainer = styled.div`
-  background-image: url(${(props) => (props.$img || '')});
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  width: 100%;
-  height: ${(props) => (props.$om ? '500px' : '100%')};
+import { NavLink } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive'
+import { formatDate } from '../../utils/timeUtils';
+import { Loader } from './Loader';
+import { ArrowButtonSimple } from '../ui/Buttons';
 
-  @media (min-width: 744px) and (max-width: 1279px) {
-    height: 100%;
-  }
-
-  @media (min-width: 1280px) {
-    height: 100vh;
-    position: relative;
-  }
-`
-
-export const PageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  width: 100%;
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-    position: relative;
-    flex-direction: column;
-  }
-
-  @media (min-width: 1280px) {
-    position: relative;
-    flex-direction: column;
-  }
-`
-
-export const StyledWrapper = styled.div`
-  height: 39vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-
-  @media (min-width: 744px) and (max-width: 1280px) {
-    height: 100vh;
-    display: flex;
-  }
-
-  @media (min-width: 1280px) {
-    display: contents;
-  }
-`
-
-export const ListWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background: var(--primary-color);
-  padding: 0px;
-  padding-bottom: 50px;
-  z-index: 1;
-  
-  @media (min-width: 744px) and (max-width: 1279px) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 80%;
-    height: 80%;
-    padding: 0px 20px 20px 20px;
-    z-index: 0;
-    box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
-  }
-
-  @media (min-width: 1280px) {
-    position: absolute;
-    left: 70px;
-    top: 70px;
-    width: 60%;
-    height: 75%;
-    padding: 0px 20px 20px 20px;
-    z-index: 0;
-    box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
-  }
-`
-
-export const ListHeader = styled.h2`
+  export const ListHeader = styled.h4`
+  font-weight: 500;
   color: var(--secondary-color);
   letter-spacing: .2rem;
   font-size: 13vw;
@@ -98,50 +18,46 @@ export const ListHeader = styled.h2`
   @media (min-width: 744px) and (max-width: 1279px) {
     padding: 0px;
     color: var(--secondary-color);
-    font-size: 52px;
+    font-size: 45px;
   }
 
   @media (min-width: 1280px) {
     color: var(--secondary-color);
-    font-size: 60px;
+    font-size: 52px;
   }
 `
 
 export const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 100%;
   align-items: center;
+  padding: 30px 15px;
+  border-top: 1px solid var(--secondary-color);
 
   @media (min-width: 744px) and (max-width: 1279px) {
-    overflow-y: scroll;
     height: 100%;
-    overflow-x: hidden;
+    width: 80%;
+    padding-top: 30px;
   }
 
   @media (min-width: 1280px) {
+    width: 80%;
     left: 100px;
     height: 100%;
     top: 170px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  .noted {
-    color: var(--primary-color);
+    padding: 0px;
+    padding-top: 30px;
   }
 `
 
 export const ListItemCard = styled.li`
   display: flex;
-  flex-direction: column;
-  padding: 15px 15px 15px 10px;
-  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0px;
+  gap: 2px;
   width: auto;
-  border-bottom: 0.5px solid var(--secondary-color);
-  border-left: 0.5px solid var(--secondary-color);
-  border-right: 0.5px solid var(--secondary-color);
 
   @media (min-width: 744px) and (max-width: 1279px) {
     align-items: center;
@@ -182,16 +98,6 @@ export const StyledH5 = styled.h5`
     width: auto;
     word-break: normal;
   }
-`
-
-export const DateHeader = styled.h4`
-  color: #222222;
-  background: white;
-  font-size: 24px;
-  margin: 0;
-  font-weight: 500;
-  padding: 20px 10px 10px;
-  border-bottom: 0.5px solid var(--secondary-color);
 `
 
 export const ListDetailsSection = styled.div`
@@ -263,28 +169,6 @@ font-size: ${(props) => (props.$day ? '16px' : '')};
 }
 `
 
-export const HeaderContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 30px;
-  row-gap: 10px;
-  margin-bottom: 20px;
-  padding: 15px;
-  background: var(--primary-color);
-
-  @media (min-width: 744px) and (max-width: 1279px) {
-    margin: 0px;
-    padding: 15px 0px;
-    background: var(--primary-color);
-  }
-
-  @media (min-width: 1280px) {
-    margin: 0;
-    padding: 15px 0px;
-    background: var(--primary-color);
-  }
-`
-
 export const LoaderContainer = styled.div`
   height: 60vh;
 
@@ -296,3 +180,73 @@ export const LoaderContainer = styled.div`
     height: 100%;
   }
 `
+
+const CalendarListSimple = ({ loading, eventList, type }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 744px)' })
+
+  const formatTime = (inputDate) => {
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric'
+    };
+    const date = new Date(inputDate);
+    const formattedTime = date.toLocaleTimeString('sv-SE', options);
+    const [hour, minutes] = formattedTime.split(':');
+    return `kl ${hour}:${minutes}`;
+  };
+
+  return (
+    <>
+    {eventList.length > 0 && (
+      <ListContainer className="list-scroll">
+      <ListHeader>Liknande evenemang</ListHeader>
+      {eventList.map((listItem) => {
+        return (
+          <NavLink
+            to={`/kalendarium/${listItem.id}`}
+            style={{ width: '100%' }}
+            key={listItem.id}>
+            <ListItemCard>
+              <ListDetailsSpan>
+                {isMobile
+                  && (
+                    <ListParagraph $day>
+                      {formatDate(listItem.starts)},&nbsp;
+                      {formatTime(listItem.starts)}
+                    </ListParagraph>
+                  )}
+                <ListDetailsSpanHeader>
+                  <StyledH5>{listItem.title}</StyledH5>
+                </ListDetailsSpanHeader>
+                {!isMobile
+                  && (
+                    <ListParagraph $day>
+                      {formatDate(listItem.starts)},&nbsp;
+                      {formatTime(listItem.starts)}
+                    </ListParagraph>
+                )}
+                <ListParagraph>
+                  {listItem.body_clean}
+                </ListParagraph>
+              </ListDetailsSpan>
+              <ArrowButtonSimple
+                  isCalendar
+                  isSmall
+                  isWhite />
+            </ListItemCard>
+          </NavLink>
+        );
+      })}
+      {loading
+        && (
+          <LoaderContainer>
+            <Loader />
+          </LoaderContainer>
+        )}
+    </ListContainer>
+    )}
+    </>
+  );
+}
+
+export default CalendarListSimple

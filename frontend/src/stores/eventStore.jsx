@@ -20,14 +20,27 @@ const useEventStore = create((set) => ({
     } catch (error) {
       set({ errorMessage: 'Failed to get event list'}); 
     } finally {
-      set({ loading: false });
+      setTimeout(() => set({ loading: false }), 500);
     }
   },
-  filterEvents: (category) => {
+  filterEvents: async (category) => {
     set((state) => ({
       ...state,
       eventList: state.eventList.filter((eventItem) => eventItem.type === category),
     }));
+  },
+  filterAndLimitEvents: async (category, eventIdToRemove) => {
+    set((state) => {
+      const filteredEvents = state.eventList.filter((eventItem) => eventItem.type === category);
+      
+      const filteredEventsWithoutCurrent = filteredEvents.filter((eventItem) => eventItem.id !== eventIdToRemove);
+      
+      const limitedEvents = filteredEventsWithoutCurrent.slice(0, 5);
+      return {
+        ...state,
+        eventList: limitedEvents,
+      };
+    });
   },
   getEventItem: async (id) => {
     try {

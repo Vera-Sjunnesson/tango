@@ -4,6 +4,7 @@ import DOMPurify from 'dompurify';
 import useNewsStore from '../../../stores/newsStore';
 import { Loader } from '../../sections/Loader'; 
 import { ArrowReadMoreButton } from '../../ui/Buttons';
+import placeholderImg from '../../../assets/images/R00_6323_d.jpg'
 import { 
   DetailsContainer,
   DetailsWrapper,
@@ -13,7 +14,8 @@ import {
   DetailsSpan,
   LoaderContainer,
   ListParagraphSection,
-  StyledParagraphBold } from './DetailsStyles';
+  StyledParagraphBold, 
+  DetailsImageNews} from './DetailsStyles';
 
 const NewsDetails = () => {
   const { getNewsItem, newsItem, loading } = useNewsStore();
@@ -39,9 +41,15 @@ const NewsDetails = () => {
             <Loader />
           </LoaderContainer>
         ) : (
-          <DetailsCard>
-            {newsItem[0]?.picture && (
-              <DetailsImage src={newsItem[0]?.picture && `https://www.tangonorte.com/img/www.tangonorte.com/page/${newsItem[0]?.picture}`} alt={newsItem[0]?.title} />
+          <DetailsCard $venue>
+            {newsItem[0]?.picture ? (
+              <DetailsImageNews
+                src={newsItem[0]?.picture && `https://www.tangonorte.com/img/www.tangonorte.com/page/${newsItem[0]?.picture}`}
+                alt={newsItem[0]?.title} />
+            ) : (
+              <DetailsImage
+                src={placeholderImg}
+                alt='Tango Norte nyhet' />
             )}
             <DetailsSpan>
               <span>

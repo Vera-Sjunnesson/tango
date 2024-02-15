@@ -7,19 +7,16 @@ export const DetailsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  align-items: center;
 
   @media (min-width: 744px) and (max-width: 1280px) {
     overflow-x: hidden;
-    background: var(--secondary-background-color);
-    padding-bottom: 30px;
+    padding: 30px 0;
   }
 
   @media (min-width: 1280px) {
     height: ${(props) => (props.$venue ? '' : '')};
     display: block;
-    background: var(--secondary-background-color);
-    padding-bottom: 30px;
+    padding: 30px 0;
   }
 `
 
@@ -31,18 +28,19 @@ export const DetailsWrapper = styled.section`
   width: 100%;
   min-height: 87vh;
   padding: 10px 0px 20px 0px;
+  gap: 30px;
   
   @media (min-width: 744px) and (max-width: 1279px) {
     z-index: 990;
     top: 140px;
     padding: ${(props) => (props.$venue ? '0px' : '30px 0px')};
-    justify-content: center;
+    gap: 70px;
   }
   
   @media (min-width: 1280px) {
     z-index: 1010;
-    justify-content: center;
     padding: 0px;
+    gap: 70px;
   }
 `;
 
@@ -58,6 +56,8 @@ export const DetailsCard = styled.div`
     padding: 0;
     display: ${(props) => (props.$venue ? 'grid' : '')};
     grid-template-columns: repeat(2,1fr);
+    gap: 40px;
+    justify-items: end;
   }
 
   @media (min-width: 1280px) {
@@ -66,6 +66,7 @@ export const DetailsCard = styled.div`
     width: ${(props) => (props.$venue ? '70%' : '80%')};
     padding: 0;
     gap: 40px;
+    justify-items: end;
   }
 `;
 
@@ -152,13 +153,21 @@ export const DetailsImage = styled.img`
   object-fit: cover;
 
   @media (min-width: 744px) and (max-width: 1279px) {
-    width: 100%;
     height: 100%;
   }
 
   @media (min-width: 1280px) {
     height: 100%;
     width: 100%;
+  }
+`;
+
+export const DetailsImageNews = styled.img`
+  height: 50vh;
+  object-fit: contain;
+
+  @media (min-width: 1280px) {
+    height: 60vh;
   }
 `;
 

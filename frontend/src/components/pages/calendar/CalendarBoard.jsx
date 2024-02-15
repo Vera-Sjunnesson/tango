@@ -80,7 +80,7 @@ const CalendarBoard = () => {
         <ListWrapper>
           <HeaderContainer>
             <ListHeader>KALENDARIUM</ListHeader>
-            <ListDescription />
+            <ListDescription getEvents={getEvents} />
           </HeaderContainer>
           <ListContainer className="list-scroll">
             {!loading
