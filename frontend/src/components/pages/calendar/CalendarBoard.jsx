@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
-import useEventStore from '../../../stores/EventStore';
+import useEventStore from '../../../stores/eventStore';
 import { ListDescription, ListSymbol } from '../../sections/ListDescription';
 import { Loader } from '../../sections/Loader';
 import { BigCalendarDisplay } from '../../sections/BigCalendarDisplay';

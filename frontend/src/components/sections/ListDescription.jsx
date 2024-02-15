@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components';
-import useEventStore from '../../stores/EventStore';
+import useEventStore from '../../stores/eventStore';
 
 export const Box = styled.div`
   height: 25px;

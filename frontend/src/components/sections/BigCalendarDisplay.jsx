@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getBackgroundAndSymbol } from '../../utils/styleUtils';
-import useEventStore from '../../stores/EventStore';
+import useEventStore from '../../stores/eventStore';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment'
 import { NavLink } from 'react-router-dom';

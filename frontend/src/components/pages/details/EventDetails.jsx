@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import useEventStore from '../../../stores/EventStore';
+import useEventStore from '../../../stores/eventStore';
 import DOMPurify from 'dompurify';
 import { formatDate, formatTime } from '../../../utils/timeUtils';
 import { Loader } from '../../sections/Loader'; 
