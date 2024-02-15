@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive'
 import useFeaturedStore from '../../../stores/featuredStore';
 import useEventStore from '../../../stores/EventStore';
-import { useMediaQuery } from 'react-responsive'
 import { Loader } from '../../sections/Loader';
 import { FeaturedCarousel } from '../../sections/FeaturedCarousel';
 import { Menu } from '../../sections/Menu'; 
-import { HeroContainer, HeroWrapper, LoaderContainer } from './HeroStyles';
 import { IntroText } from '../../sections/IntroText';
 import { LineAnimation } from '../../sections/LineAnimation';
+import { HeroContainer, HeroWrapper, LoaderContainer } from './HeroStyles';
 
 const Hero = () => {
   const { getEvents, eventList } = useEventStore();
@@ -18,7 +18,6 @@ const Hero = () => {
     const fetchFrontList = async () => {
       await getFeaturedList();
     };
-
     const fetchEventList = async () => {
       await getEvents();
     };
@@ -37,7 +36,9 @@ const Hero = () => {
           <>
             <LineAnimation />
             <HeroWrapper>
-              <FeaturedCarousel featuredList={featuredList} eventList={eventList} />
+              <FeaturedCarousel
+                featuredList={featuredList}
+                eventList={eventList} />
               {isMobileOrTablet && (
                 <IntroText />
               )}

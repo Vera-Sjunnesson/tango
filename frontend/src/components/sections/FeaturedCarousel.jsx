@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
-import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive'
 import { ArrowReadMoreButton } from '../ui/Buttons';
-import { FeaturedParagraph } from '../ui/Paragraphs'; 
-import { PhotoTag } from '../ui/PhotoTag';
+import { PhotoTag } from './PhotoTag'; 
 
 register();
 
@@ -13,9 +12,6 @@ export const CarouselContainer = styled.div`
   height: 600px;
   margin: auto;
   position: relative;
-
-  @media (min-width: 744px) and (max-width: 1279px) {
-  }
 
   @media (min-width: 1280px) {
     height: 80%;
@@ -141,6 +137,32 @@ export const FeaturedHeading = styled.h1`
   @media (min-width: 1280px) {
     padding: 0;
     letter-spacing: .3rem;
+  }
+`
+
+export const FeaturedParagraph = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  line-height: 25px;
+  width: 100%;
+  color: #ffffff;
+
+  @media (min-width: 744px) and (max-width: 1279px) {
+    padding: 0;
+    width: 100%;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 0;
+    width: 100%;
+  }
+
+  & em {
+    font-weight: 900;
   }
 `
 

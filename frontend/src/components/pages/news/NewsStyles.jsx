@@ -1,38 +1,56 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const ListWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+export const BackgroundGradeContainer = styled.div`
+  height: 100vh;
+  background-image: url(${(props) => (props.$img || '')});
+  background-size: cover;
+  background-position: top;
   width: 100%;
-  background: var(--primary-color);
-  padding: 0px;
-  padding-bottom: 50px;
-  z-index: 1;
-  
+
   @media (min-width: 744px) and (max-width: 1279px) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 80%;
-    height: 80%;
-    padding: 0px 20px 20px 20px;
-    z-index: 0;
-    box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
+    background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
   }
 
   @media (min-width: 1280px) {
-    position: absolute;
-    left: 70px;
-    top: 70px;
-    width: 60%;
-    height: 75%;
-    padding: 0px 20px 20px 20px;
-    z-index: 0;
-    box-shadow: 7px 7px 19px 0px rgba(0, 0, 0, 0.50);
+    background-image: linear-gradient(${(props) => (props.$grade || '')}), url(${(props) => (props.$img || '')});
   }
 `
+
+export const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 100%;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    position: relative;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1280px) {
+    position: relative;
+    flex-direction: column;
+  }
+`
+
+export const StyledWrapper = styled.div`
+  height: 39vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  @media (min-width: 744px) and (max-width: 1280px) {
+    height: 100vh;
+    display: flex;
+  }
+
+  @media (min-width: 1280px) {
+    display: contents;
+  }
+`
+
 
 export const NewsWrapper = styled.div`
   display: flex;
@@ -110,13 +128,13 @@ export const ListContainer = styled.ul`
   width: 100%;
   height: 100%;
   align-items: center;
-  gap: ${(props) => (props.$news ? '5px' : '')};
+  gap: 5px;
 
   @media (min-width: 744px) and (max-width: 1279px) {
     overflow-y: scroll;
     height: 100%;
     overflow-x: hidden;
-    gap: ${(props) => (props.$news ? '15px' : '')};
+    gap: 15px;
   }
 
   @media (min-width: 1280px) {
@@ -125,44 +143,11 @@ export const ListContainer = styled.ul`
     top: 170px;
     overflow-y: scroll;
     overflow-x: hidden;
-    gap: ${(props) => (props.$news ? '15px' : '')};
+    gap: 15px;
   }
 
   .noted {
     color: var(--primary-color);
-  }
-`
-
-export const ListItemCard = styled.li`
-  display: flex;
-  flex-direction: column;
-  padding: 15px 15px 15px 10px;
-  gap: 15px;
-  width: auto;
-  border-bottom: 0.5px solid var(--secondary-color);
-  border-left: 0.5px solid var(--secondary-color);
-  border-right: 0.5px solid var(--secondary-color);
-
-  @media (min-width: 744px) and (max-width: 1279px) {
-    align-items: center;
-    gap: 5px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: auto;
-  }
-
-  @media (min-width: 1280px) {
-    align-items: center;
-    gap: 5px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: auto;
-
-    &:hover .arrow {
-      width: 70px;
-    }
   }
 `
 
@@ -213,31 +198,9 @@ export const StyledH5 = styled.h5`
   }
 `
 
-export const DateHeader = styled.h4`
-  color: #222222;
-  background: white;
-  font-size: 24px;
-  margin: 0;
-  font-weight: 500;
-  padding: 20px 10px 10px;
-  border-bottom: 0.5px solid var(--secondary-color);
-
-    @media (min-width: 744px) and (max-width: 1279px) {
-    }
-
-    @media (min-width: 1280px) {
-    }
-`
-
-export const ListDetailsSection = styled.div`
+export const ListDetailsSectionNews = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  align-items: flex-end;
-`
-
-export const ListDetailsSectionNews = styled(ListDetailsSection)`
   width: 100%;
   height: auto;
   align-items: center;
@@ -245,13 +208,11 @@ export const ListDetailsSectionNews = styled(ListDetailsSection)`
 
   @media (min-width: 744px) and (max-width: 1279px) {
     height: auto;
-    justify-content: space-between;
     gap: 0px;
   }
 
   @media (min-width: 1280px) {
     height: 100%;
-    justify-content: space-between;
     gap: 0px;
   }
 `
@@ -260,46 +221,20 @@ export const ListDetailsSpan = styled.span`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: ${(props) => (props.$news ? '80%' : '70%')};
-  gap: ${(props) => (props.$news ? '10px' : '5px')};
-
-  @media (min-width: 744px) and (max-width: 1279px) {
-    width: ${(props) => (props.$news ? '80%' : '60%')};
-  }
-
-  @media (min-width: 1280px) {
-    width: ${(props) => (props.$news ? '80%' : '60%')};
-  }
-`
-
-export const ListDetailsSpanHeader = styled(ListDetailsSpan)`
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
+  width: 80%;
   gap: 10px;
-  justify-content: space-between;
-
-  @media (min-width: 744px) and (max-width: 1279px) {
-    justify-content: flex-start;
-    width: fit-content;
-  }
-
-  @media (min-width: 1280px) {
-    justify-content: flex-start;
-    width: fit-content;
-  }
 `
 
-export const ListParagraph = styled.p`
+export const ListParagraphNews = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   overflow-wrap: break-word;
-  color: black;
   width: 100%;
-  font-family: ${(props) => (props.$day ? 'Barlow Semi Condensed' : 'tablet-gothic')};
+  font-family: 'tablet-gothic', sans-serif;
+  font-size: ${(props) => (props.$day ? '16px' : '')};
 
   & em {
     font-weight: 900;
@@ -314,50 +249,6 @@ export const ListParagraph = styled.p`
       overflow-wrap: normal;
       width: auto;
     }
-`
-
-export const ListParagraphNews = styled.p`
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  overflow-wrap: break-word;
-  color: black;
-  width: 100%;
-  font-family: ${(props) => (props.$day ? 'Barlow Semi Condensed' : 'tablet-gothic')};
-
-  & em {
-    font-weight: 900;
-  }
-
-    @media (min-width: 744px) and (max-width: 1279px) {
-      -webkit-line-clamp: 3;
-      overflow-wrap: normal;
-      width: auto;
-    }
-
-    @media (min-width: 1280px) {
-      -webkit-line-clamp: 3;
-      overflow-wrap: normal;
-      width: auto;
-    }
-`
-
-export const FacititatorDetails = styled.p`
-  font-weight: 700;
-  color: #222222;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @media (min-width: 744px) and (max-width: 1279px) {
-  }
-
-  @media (min-width: 1280px) {
-  }
 `
 
 export const HeaderContainer = styled.div`
@@ -365,24 +256,24 @@ export const HeaderContainer = styled.div`
   flex-wrap: wrap;
   column-gap: 30px;
   row-gap: 10px;
-  margin-bottom: ${(props) => (props.$right ? '0px' : '20px')};
-  padding: ${(props) => (props.$right ? '15px 15px 0px' : '15px')};
+  margin-bottom: 0px;
+  padding: 15px 15px 0px;
   background: var(--primary-color);
-  border-bottom: ${(props) => (props.$right ? '15px solid var(--primary-blue)' : '')};
+  border-bottom: 15px solid var(--primary-blue);
 
   @media (min-width: 744px) and (max-width: 1279px) {
     margin: 0px;
-    padding: ${(props) => (props.$right ? '10px' : '15px 0px')};
+    padding: 10px;
     background: var(--primary-color);
-    border-bottom: ${(props) => (props.$right ? '15px solid var(--primary-yellow)' : '')};
+    border-bottom: 15px solid var(--primary-yellow);
   }
 
   @media (min-width: 1280px) {
     margin: 0;
-    padding: ${(props) => (props.$right ? '10px 10px 0px' : '15px 0px')};
-    align-items: ${(props) => (props.$right ? 'center' : '')};
+    padding: 10px 10px 0px;
+    align-items: center;
     background: var(--primary-color);
-    border-bottom: ${(props) => (props.$right ? '15px solid var(--primary-yellow)' : '')};
+    border-bottom: 15px solid var(--primary-yellow);
   }
 `
 
@@ -395,18 +286,6 @@ export const LoaderContainer = styled.div`
 
   @media (min-width: 1280px) {
     height: 100%;
-  }
-`
-
-export const NewsImage = styled.img`
-  width: 100%;
-
-  @media (min-width: 744px) and (max-width: 1279px) {
-    width: 30%;
-  }
-
-  @media (min-width: 1280px) {
-    width: 30%;
   }
 `
 
@@ -430,12 +309,4 @@ export const NewsImg = styled.img`
   height: 200px;
   width: 100%;
   object-fit: cover;
-`
-
-export const CalendarNavLink = styled(NavLink)`
-  color: var(--secondary-color); 
-  width: 100%;
-  display: block;
-  font-weight: 500;
-  line-height: 22px;
 `

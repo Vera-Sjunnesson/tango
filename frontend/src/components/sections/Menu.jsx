@@ -15,33 +15,33 @@ export const MenuContainer = styled.div`
   right: 0;
   margin: 50px auto;
 
-    @media (min-width: 744px) and (max-width: 999px) {
-      gap: 46px;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 80%;
-      margin: 46px auto;
-    }
+  @media (min-width: 744px) and (max-width: 999px) {
+    gap: 46px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: 46px auto;
+  }
 
-    @media (min-width: 1000px) and (max-width: 1279px) {
-      gap: 46px;
-      flex-direction: row;
-      justify-content: center;
-      width: 90%;
-      height: 187px;
-      margin: 46px auto;
-    }
+  @media (min-width: 1000px) and (max-width: 1279px) {
+    gap: 46px;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    height: 187px;
+    margin: 46px auto;
+  }
 
-    @media (min-width: 1280px) {
-      flex-direction: row;
-      width: 60%;
-      min-width: 1010px;
-      gap: 46px;
-      height: 20%;
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    width: 60%;
+    min-width: 1010px;
+    gap: 46px;
+    height: 20%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 `
 
 export const Menu = () => {

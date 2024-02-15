@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 import useNewsStore from '../../../stores/newsStore';
 import { Loader } from '../../sections/Loader'; 
 import { ArrowReadMoreButton } from '../../ui/Buttons';
-import { StyledParagraphBold } from '../../ui/Paragraphs';
-import DOMPurify from 'dompurify';
 import { 
   DetailsContainer,
   DetailsWrapper,
@@ -13,15 +12,17 @@ import {
   DetailsImage,
   DetailsSpan,
   LoaderContainer,
-  ListParagraphSection } from './DetailsStyles';
+  ListParagraphSection,
+  StyledParagraphBold } from './DetailsStyles';
 
 const NewsDetails = () => {
   const { getNewsItem, newsItem, loading } = useNewsStore();
 
   const { id } = useParams();
+
   useEffect(() => {
     const fetchNewsDetails = async () => {
-      if(id) {
+      if (id) {
         await getNewsItem(id);
       }
     };

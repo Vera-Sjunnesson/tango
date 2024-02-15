@@ -2,11 +2,9 @@ import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
 import useNewsStore from '../../../stores/newsStore';
-import { BackgroundGradeContainer, PageContainer, StyledWrapper } from '../../ui/ContainerStyles';
 import { BackgroundLine } from '../../sections/BackgroundLine'; 
 import { Loader } from '../../sections/Loader';
 import { ArrowButtonSimple } from '../../ui/Buttons';
-import { ListParagraphNews } from '../../ui/Paragraphs';
 import { Placeholder } from '../../sections/Placeholder';
 import NewsBgImg from '../../../assets/images/C05_0251_d.jpg'
 import NewsBgLine1 from '../../../assets/graphics/line03-01-01.svg'
@@ -14,7 +12,10 @@ import NewsBgLine2 from '../../../assets/graphics/line03-01.svg'
 import NewsImg1 from '../../../assets/images/C05_0251_d.jpg'
 import NewsImg2 from '../../../assets/images/C04_2367_d.jpg'
 import NewsImg3 from '../../../assets/images/C00_2627_d.jpg'
-import { 
+import {
+  BackgroundGradeContainer,
+  PageContainer,
+  StyledWrapper, 
   ListWrapperNews,
   HeaderContainer,
   ListItemCardNews,
@@ -26,7 +27,8 @@ import {
   LoaderContainer,
   NewsWrapper,
   NewsImg,
-  NewsImgWrapper
+  NewsImgWrapper,
+  ListParagraphNews
 } from './NewsStyles';
 
 const News = () => {
@@ -37,42 +39,61 @@ const News = () => {
     const fetchEventList = async () => {
       await getNewsList();
     };
-
     fetchEventList();
-  }, []);
+  }, [getNewsList]);
 
   return (
     <>
-      <PageContainer $news>
+      <PageContainer>
         <StyledWrapper>
-          <BackgroundGradeContainer $grade="#edc343, #edc343" $img={NewsBgImg} />
-          <BackgroundLine isNews isCover backgroundimg={isMobile ? NewsBgLine1 : NewsBgLine2} />
+          <BackgroundGradeContainer
+            $grade="#edc343, #edc343"
+            $img={NewsBgImg} />
+          <BackgroundLine
+            isNews
+            isCover
+            backgroundimg={
+              isMobile
+              ? NewsBgLine1
+              : NewsBgLine2} />
         </StyledWrapper>
         <NewsWrapper>
-          <ListWrapperNews $right>
-            <HeaderContainer $right>
-              <ListHeader $news>AKTUELLT</ListHeader>
+          <ListWrapperNews>
+            <HeaderContainer>
+              <ListHeader>
+                AKTUELLT
+              </ListHeader>
             </HeaderContainer>
-            <ListContainer $news className="list-scroll">
-              {!loading && newsList.length > 0 && newsList.map((listItem) => {
+            <ListContainer className="list-scroll">
+              {!loading 
+                && newsList.length > 0
+                && newsList.map((listItem) => {
                 return (
-                  <NavLink to={`/aktuellt/${listItem.newsid}`} key={listItem.newsid}>
+                  <NavLink
+                    to={`/aktuellt/${listItem.newsid}`}
+                    key={listItem.newsid}>
                     <ListItemCardNews key={listItem.newsid}>
                       <ListDetailsSectionNews>
-                        <ListDetailsSpan $news>
-                          <StyledH5 className="noted">{listItem.title}</StyledH5>
-                          <ListParagraphNews $news className="noted">
+                        <ListDetailsSpan>
+                          <StyledH5 className="noted">
+                            {listItem.title}
+                          </StyledH5>
+                          <ListParagraphNews className="noted">
                             {listItem.body_clean}
                           </ListParagraphNews>
                         </ListDetailsSpan>
-                        <ArrowButtonSimple isSmall isWhite />
+                        <ArrowButtonSimple
+                          isSmall
+                          isWhite />
                       </ListDetailsSectionNews>
                     </ListItemCardNews>
                   </NavLink>
                 )
               })}
-              {!loading && newsList.length === 0 && (
-                <Placeholder />
+              {!loading 
+                && newsList.length === 0 
+                && (
+                  <Placeholder />
               )}
               {loading
                 && (
@@ -84,9 +105,15 @@ const News = () => {
           </ListWrapperNews>
           {newsList.length > 0 && !isMobile && (
             <NewsImgWrapper>
-              <NewsImg src={NewsImg1} alt="Tangouppvisning/par som dansar" />
-              <NewsImg src={NewsImg2} alt="Tangouppvisning/par som dansar" />
-              <NewsImg src={NewsImg3} alt="Tangouppvisning/par som dansar" />
+              <NewsImg
+                src={NewsImg1}
+                alt="Tangouppvisning/par som dansar" />
+              <NewsImg
+                src={NewsImg2}
+                alt="Tangouppvisning/par som dansar" />
+              <NewsImg
+              src={NewsImg3}
+              alt="Tangouppvisning/par som dansar" />
             </NewsImgWrapper>
           )}
         </NewsWrapper>

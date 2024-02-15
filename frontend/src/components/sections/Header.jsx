@@ -50,7 +50,6 @@ export const IconContainer = styled.div`
   }
 
   .icon-home {
-
     @media (max-width: 743px) {
       display: none;
     }
@@ -108,11 +107,12 @@ export const Logo = styled.img`
   }
 `
 
+export const LogoNavLink = styled(NavLink)`
+  zIndex: '1001',
+  padding: '5px'
+`
+
 export const HeaderContent = ({ isSmall, isLarge, isHero }) => {
-  const navLinkStyle = {
-    zIndex: '1001',
-    padding: '5px'
-  }
 
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1279px)' })
   return (
@@ -134,16 +134,17 @@ export const HeaderContent = ({ isSmall, isLarge, isHero }) => {
           <HamburgerMenu isSmall={isSmall} />
         </IconContainer>
       ) : (
-        <NavBar isLarge={isLarge} isHero={isHero} />
+        <NavBar
+          isLarge={isLarge}
+          isHero={isHero} />
       )}
-      <NavLink
-        to="/"
-        style={navLinkStyle}>
+      <LogoNavLink
+        to="/">
         <Logo
           $Small={isSmall}
           src={LogoPlain}
           alt="Tango Norte Logo" />
-      </NavLink>
+      </LogoNavLink>
     </HeaderContainer>
   )
 }
@@ -153,7 +154,9 @@ export const Header = () => {
 
   return (
     <>
-      {location.pathname === '/'  ? < HeaderContent isLarge isHero/> : < HeaderContent isSmall />}
+      {location.pathname === '/'
+        ? < HeaderContent isLarge isHero/>
+        : < HeaderContent isSmall />}
     </>
   );
 }

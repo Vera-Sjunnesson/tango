@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 import useVenueStore from '../../../stores/venueStore';
 import { Loader } from '../../sections/Loader'; 
 import { GoBackButtonText } from '../../ui/Buttons';
-import { StyledParagraph, StyledParagraphBold } from '../../ui/Paragraphs';
-import DOMPurify from 'dompurify';
 import { 
   DetailsContainer,
   DetailsWrapper,
@@ -15,7 +14,9 @@ import {
   DetailsImage,
   Detailsmap,
   LoaderContainer, 
-  ListParagraphSection} from './DetailsStyles';
+  ListParagraphSection,
+  StyledParagraph,
+  StyledParagraphBold } from './DetailsStyles';
 
 const VenueDetails = () => {
   const { getVenueItem, venueItem, loading } = useVenueStore();

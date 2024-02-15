@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useEventStore from '../../../stores/EventStore';
+import DOMPurify from 'dompurify';
 import { formatDate, formatTime } from '../../../utils/timeUtils';
 import { Loader } from '../../sections/Loader'; 
 import { ArrowReadMoreButton } from '../../ui/Buttons';
-import { StyledParagraph, StyledParagraphBold } from '../../ui/Paragraphs';
-import DOMPurify from 'dompurify';
 import { 
   DetailsContainer,
   DetailsWrapper,
@@ -16,12 +15,15 @@ import {
   TimeAndPlaceDetails,
   VenueAnchor,
   ListParagraphSection,
-  LoaderContainer } from './DetailsStyles';
+  LoaderContainer,
+  StyledParagraph,
+  StyledParagraphBold } from './DetailsStyles';
 
 const EventDetails = () => {
   const { getEventItem, eventItem, loading } = useEventStore();
 
   const { id } = useParams();
+
   useEffect(() => {
     const fetchEventDetails = async () => {
       if (id) {
@@ -43,10 +45,15 @@ const EventDetails = () => {
         ) : (
           <DetailsCard>
             {eventItem[0]?.image && (
-              <DetailsImage src={eventItem[0]?.image && `https://www.tangonorte.com/img/www.tangonorte.com/event/${eventItem[0]?.image}`} alt={eventItem[0]?.title} />
+              <DetailsImage
+                src={eventItem[0]?.image
+                  && `https://www.tangonorte.com/img/www.tangonorte.com/event/${eventItem[0]?.image}`}
+                alt={eventItem[0]?.title} />
             )}
             <DetailsSpan>
-              <DetailsHeader>{eventItem[0]?.title}</DetailsHeader>
+              <DetailsHeader>
+                {eventItem[0]?.title}
+              </DetailsHeader>
               <TimeAndPlaceDetails>
                 <StyledParagraph>
                   <StyledParagraphBold>
@@ -74,7 +81,9 @@ const EventDetails = () => {
                 dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
               {eventItem[0]?.facilitator && (
                 <StyledParagraphBold>
-                  {eventItem[0]?.facilitator ? eventItem[0]?.facilitator : 'No data'}
+                  {eventItem[0]?.facilitator 
+                    ? eventItem[0]?.facilitator
+                    : 'No data'}
                 </StyledParagraphBold>
               )}
               <ArrowReadMoreButton

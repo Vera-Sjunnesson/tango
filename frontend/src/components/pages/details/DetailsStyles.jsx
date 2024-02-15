@@ -79,9 +79,6 @@ export const NoLocationCard = styled.div`
   gap: 25px;
   padding: 100px 15px;
 
-  @media (min-width: 744px) and (max-width: 1279px) {
-  }
-
   @media (min-width: 1280px) {
     padding: 0 15px 200px;
   }
@@ -121,6 +118,25 @@ export const DetailsHeader = styled.h2`
     padding: 0;
     margin-bottom: 20px;
     line-height: 60px;
+  }
+`
+
+export const StyledParagraph = styled.p`
+  font-weight: 500;
+  display: inline-block;
+
+  & em {
+    font-weight: 900;
+  }
+`
+
+export const StyledParagraphBold = styled.span`
+  font-weight: 700;
+  color: #222222;
+  display: inline-block;
+
+  & em {
+    font-weight: 900;
   }
 `
 

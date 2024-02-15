@@ -109,24 +109,62 @@ export const NavBar = ({ isLarge, isHero }) => {
     <NavBarContainer $large={isLarge}>
       <NavWrapper $large={isLarge}>
         {!isHero
-          ? (
+          && (
             <>
-              <NavLinkStyled $large={isLarge} to="/" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>HEM</NavLinkStyled>
-              <NavLinkStyled $large={isLarge} to="/kalendarium" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>KALENDARIUM</NavLinkStyled>
-              <NavLinkStyled $large={isLarge} to="/aktuellt" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>AKTUELLT</NavLinkStyled>
-              <NavLinkStyled $large={isLarge} to="/om-tango" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM TANGO</NavLinkStyled>
+              <NavLinkStyled
+                $large={isLarge}
+                to="/"
+                onMouseEnter={addHoverEffect}
+                onMouseLeave={removeHoverEffect}>
+                  HEM
+                </NavLinkStyled>
+              <NavLinkStyled
+                $large={isLarge}
+                to="/kalendarium"
+                onMouseEnter={addHoverEffect}
+                onMouseLeave={removeHoverEffect}>
+                  KALENDARIUM
+              </NavLinkStyled>
+              <NavLinkStyled
+                $large={isLarge}
+                to="/aktuellt"
+                onMouseEnter={addHoverEffect}
+                onMouseLeave={removeHoverEffect}>
+                  AKTUELLT
+              </NavLinkStyled>
+              <NavLinkStyled
+                $large={isLarge}
+                to="/om-tango"
+                onMouseEnter={addHoverEffect}
+                onMouseLeave={removeHoverEffect}>
+                  OM TANGO
+              </NavLinkStyled>
               <NavDivider />
-              <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
-              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/register.php" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</AnchorStyled>
-              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/page.php?id=main" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</AnchorStyled>
-            </>
-          ) : (
-            <>
-              <NavLinkStyled $large={isLarge} to="/om" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>OM OSS</NavLinkStyled>
-              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/register.php" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>BLI MEDLEM</AnchorStyled>
-              <AnchorStyled $large={isLarge} href="https://www.tangonorte.com/page.php?id=main" rel="noreferrer" onMouseEnter={addHoverEffect} onMouseLeave={removeHoverEffect}>LOGGA IN</AnchorStyled>
-            </>
-          )}
+              </>
+            )}
+              <NavLinkStyled
+                $large={isLarge}
+                to="/om"
+                onMouseEnter={addHoverEffect}
+                onMouseLeave={removeHoverEffect}>
+                  OM OSS
+              </NavLinkStyled>
+              <AnchorStyled
+                $large={isLarge}
+                href="https://www.tangonorte.com/register.php"
+                rel="noreferrer"
+                onMouseEnter={addHoverEffect}
+                onMouseLeave={removeHoverEffect}>
+                  BLI MEDLEM
+              </AnchorStyled>
+              <AnchorStyled
+                $large={isLarge}
+                href="https://www.tangonorte.com/page.php?id=main"
+                rel="noreferrer"
+                onMouseEnter={addHoverEffect}
+                onMouseLeave={removeHoverEffect}>
+                  LOGGA IN
+              </AnchorStyled>
       </NavWrapper>
     </NavBarContainer>
   )

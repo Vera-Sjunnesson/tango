@@ -29,7 +29,6 @@ export const BigCalendarDisplay = () => {
 
   useEffect(() => {
     if (eventList) {
-      // Ensure eventList is not null or undefined
       const transformedData = eventList.map((item) => ({
         ...item,
         start: item.starts, // Change 'starts' to 'start'

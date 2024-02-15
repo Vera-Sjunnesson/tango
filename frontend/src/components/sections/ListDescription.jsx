@@ -1,5 +1,5 @@
-import React from 'react'
 import styled from 'styled-components';
+import useEventStore from '../../stores/EventStore';
 
 export const Box = styled.div`
   height: 25px;
@@ -45,27 +45,43 @@ export const ListDescriptionContainer = styled.div`
   }
 `
 
-export const DescriptionCard = styled.div`
+export const DescriptionCard = styled.button`
   display: flex;
   align-items: center;
 `
 
-export const ListDescriptionElement = ({ color, description, text, border }) => {
+export const ListDescriptionElement = ({ color, description, text, border, type }) => {
+  const { filterEvents, getEvents } = useEventStore();
+
+  const onCategoryClick = async (type) => {
+    await getEvents();
+    filterEvents(type);
+    console.log(type);
+  }
+
   return (
-    <DescriptionCard>
-      <Box $symbol={border} style={{ background: `${color}` }}>
+    <DescriptionCard
+      type="button"
+      onClick={() => onCategoryClick(type)}>
+      <Box
+        $symbol={border}
+        style={{ background: `${color}` }}>
         <BoxLetter>
           {text}
         </BoxLetter>
       </Box>
-      <Description>&nbsp;&nbsp;=&nbsp;&nbsp;{description}</Description>
+      <Description>
+        &nbsp;&nbsp;=&nbsp;&nbsp;{description}
+      </Description>
     </DescriptionCard>
   )
 }
 
 export const ListSymbol = ({ color, text }) => {
   return (
-    <Box $symbol style={{ background: `${color}` }}>
+    <Box
+      $symbol
+      style={{ background: `${color}` }}>
       <BoxLetter>
         {text}
       </BoxLetter>
@@ -76,11 +92,31 @@ export const ListSymbol = ({ color, text }) => {
 export const ListDescription = () => {
   return (
     <ListDescriptionContainer>
-      <ListDescriptionElement color="#ef9d4d" description="Milonga" text="M" />
-      <ListDescriptionElement color="#edc343" description="Praktika" text="P" />
-      <ListDescriptionElement color="#80b3bb" description="Klass" text="K" />
-      <ListDescriptionElement color="#eea484" description="Festival" text="F" />
-      <ListDescriptionElement color="#fef0c8" description="Annat" text="A" />
+      <ListDescriptionElement
+        color="#ef9d4d"
+        description="Milonga"
+        text="M"
+        type="milonga" />
+      <ListDescriptionElement
+        color="#edc343"
+        description="Praktika"
+        text="P"
+        type="practica" />
+      <ListDescriptionElement
+        color="#80b3bb"
+        description="Klass"
+        text="K"
+        type="class" />
+      <ListDescriptionElement
+        color="#eea484"
+        description="Festival"
+        text="F"
+        type="festival" />
+      <ListDescriptionElement
+        color="#fef0c8"
+        description="Annat"
+        text="A"
+        type="other" />
     </ListDescriptionContainer>
   )
 }

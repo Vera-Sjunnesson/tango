@@ -15,11 +15,19 @@ const useEventStore = create((set) => ({
       } else {
         const response = await fetch(event_url);
         const data = await response.json();
-        set({ eventList: data, loading: false }); 
+        set({ eventList: data }); 
       }
     } catch (error) {
-      set({ errorMessage: 'Failed to get event list', loading: false }); 
+      set({ errorMessage: 'Failed to get event list'}); 
+    } finally {
+      set({ loading: false });
     }
+  },
+  filterEvents: (category) => {
+    set((state) => ({
+      ...state,
+      eventList: state.eventList.filter((eventItem) => eventItem.type === category),
+    }));
   },
   getEventItem: async (id) => {
     try {
@@ -33,10 +41,12 @@ const useEventStore = create((set) => ({
       } else {
         const response = await fetch(event_item_url);
         const data = await response.json();
-        set({ eventItem: data, loading: false });
+        set({ eventItem: data });
       }
     } catch (error) {
-      set({ errorMessage: 'Failed to get event details', loading: false });
+      set({ errorMessage: 'Failed to get event details' });
+    } finally {
+      set({ loading: false });
     }
   }
 }));

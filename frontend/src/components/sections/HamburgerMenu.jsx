@@ -98,7 +98,9 @@ export const HamburgerMenu = ({ isSmall }) => {
           </div>
           <div
             style={{ display: anchorClick ? 'none' : '' }}
-            className={toggleSideBar ? 'sidebar active' : 'sidebar'}>
+            className={toggleSideBar 
+                ? 'sidebar active' 
+                : 'sidebar'}>
             <ul className="sidebar-list">
               <li
                 className={toggleSideBar
@@ -116,7 +118,8 @@ export const HamburgerMenu = ({ isSmall }) => {
               </li>
               <li
                 className={toggleSideBar
-                  ? 'sidebar-item active' : 'sidebar-item'}>
+                  ? 'sidebar-item active'
+                  : 'sidebar-item'}>
                 <a
                   href="https://www.tangonorte.com/register.php"
                   rel="noreferrer"
@@ -128,7 +131,8 @@ export const HamburgerMenu = ({ isSmall }) => {
               </li>
               <li
                 className={toggleSideBar
-                  ? 'sidebar-item active' : 'sidebar-item'}>
+                  ? 'sidebar-item active'
+                  : 'sidebar-item'}>
                 <NavLink
                   className="sidebar-anchor"
                   to="/om"
@@ -139,7 +143,8 @@ export const HamburgerMenu = ({ isSmall }) => {
               <Divider />
               <li
                 className={toggleSideBar
-                  ? 'sidebar-item active' : 'sidebar-item'}>
+                  ? 'sidebar-item active'
+                  : 'sidebar-item'}>
                 <NavLink
                   className="sidebar-anchor"
                   to="/kalendarium"
@@ -149,7 +154,8 @@ export const HamburgerMenu = ({ isSmall }) => {
               </li>
               <li
                 className={toggleSideBar
-                  ? 'sidebar-item active' : 'sidebar-item'}>
+                  ? 'sidebar-item active'
+                  : 'sidebar-item'}>
                 <NavLink
                   className="sidebar-anchor"
                   to="/aktuellt"
@@ -159,7 +165,8 @@ export const HamburgerMenu = ({ isSmall }) => {
               </li>
               <li
                 className={toggleSideBar
-                  ? 'sidebar-item active' : 'sidebar-item'}>
+                  ? 'sidebar-item active'
+                  : 'sidebar-item'}>
                 <NavLink
                   className="sidebar-anchor"
                   to="/om-tango"
